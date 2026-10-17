@@ -1,0 +1,7 @@
+REFERENCE_DATE: {REFERENCE_DATE}
+
+<RESUME>
+{RESUME_TEXT}
+</RESUME>
+
+Return the JSON object only.

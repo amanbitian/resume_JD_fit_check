@@ -1,0 +1,56 @@
+# Temporary, isolated benchmark profile. It is not the production profile.
+[project]
+name = "candidate-fit-concurrency-benchmark"
+suite_prefix = "candidate-fit"
+host = "127.0.0.1"
+log_dir = "./runs"
+cleanup_ports_on_start = true
+start_timeout_seconds = 900
+
+[discovery]
+lmstudio_home = "C:/Users/user/.lmstudio"
+models_dir = "G:/LLM models"
+
+[policy]
+vram_safety_fraction = 0.90
+ctx_min = 16384
+ctx_mid = 32768
+ctx_max = 49152
+ctx_mid_headroom_gb = 5
+ctx_max_headroom_gb = 10
+safety_tokens = 256
+reasoning_mode = "off"
+reasoning_budget = 0
+cache_reuse = 256
+flash_attn = "auto"
+gpu_layers = 999
+parallel = 2
+no_mmproj = true
+jinja = true
+kill_busy_ports = true
+health_poll_seconds = 1.0
+settle_seconds_after_restart = 2.0
+
+[[lanes]]
+key = "r9700"
+display = "AMD Radeon AI PRO R9700"
+match = "R9700"
+vram_gb = 32
+port = 8081
+backend = "rocm"
+
+[[lanes]]
+key = "9070xt"
+display = "AMD Radeon RX 9070 XT"
+match = "9070 XT"
+vram_gb = 16
+port = 8082
+backend = "rocm"
+
+[[models]]
+name = "Qwen3.8-27B-Q4_K_M"
+path = "lmstudio-community/Qwen3.8-27B-GGUF/Qwen3.8-27B-Q4_K_M.gguf"
+size_gb = 15.66
+ctx_size = 16384
+parallel = 2
+pin_lane = "r9700"

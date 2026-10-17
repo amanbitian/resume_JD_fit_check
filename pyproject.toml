@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "candidate-fit-local-llm"
+version = "0.1.0"
+description = "Streaming resume/job-description pair scoring with a local OpenAI-compatible LLM"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "pyarrow>=16,<27",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+excel = ["openpyxl>=3.1,<4"]
+
+[project.scripts]
+candidate-fit = "candidate_fit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --basetemp=.pytest_tmp"
+

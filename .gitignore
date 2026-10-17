@@ -1,0 +1,16 @@
+.venv/
+.tmp/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pytest_tmp/
+.coverage
+dist/
+build/
+*.egg-info/
+outputs/
+runs/
+metrics/
+.candidate-fit-client.json
+*.sqlite3
+

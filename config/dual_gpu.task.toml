@@ -1,0 +1,21 @@
+# Append this block to F:/Projects/Dual_gpu_setup/example.dual_gpu.toml.
+# The orchestrator replaces placeholders and also injects DGPU_* environment variables.
+[[tasks]]
+name = "candidate-fit"
+cwd = "F:/SLM/candidate_scoring_using_local_LLM"
+command = [
+  "F:/SLM/candidate_scoring_using_local_LLM/.venv/Scripts/python.exe",
+  "-m", "candidate_fit", "score",
+  "F:/SLM/training_data/external_data_1010/resume_jd_hugging Face/train-00000-of-00002.parquet",
+  "--output", "outputs/{model_name}.jsonl",
+  "--orchestrator-url", "http://127.0.0.1:8090",
+  "--lane", "{lane_key}",
+  "--model", "{model_name}",
+  "--client-config", ".candidate-fit-client.json",
+  "--task-label", "candidate_fit_scoring",
+  "--connection-type", "batch",
+  "--workers", "1"
+]
+continue_on_error = false
+env = { PYTHONUNBUFFERED = "1" }
+
