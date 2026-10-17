@@ -55,11 +55,26 @@ class JDPrompt:
     schema: Path
     validator: Path
     output_dir: str  # under the output root; one folder per version, so a new prompt never overwrites older results
+    # Settings for a version written for one model. Every default below is the behaviour of the shared versions
+    # (v2.1 to v2.3), so a version that sets none of them runs exactly as before.
+    models: tuple[str, ...] | None = None  # local model keys it is written for; None means any model
+    max_output_tokens: int | None = None  # output cap for this version; None means the task default
+    reject_duplicate_keys: bool = False  # refuse a reply whose JSON repeats an object key
+    retry_temperature: float | None = None  # change the decoding on a retry; None keeps the first attempt's settings
+    # Drop the prompt's trailing "# Response Formats" block before sending it. On our model server it makes gpt-oss answer in
+    # a form the server's own parser rejects (HTTP 500, "does not match the expected peg-native format"); the package file
+    # itself is left as shipped.
+    without_response_formats: bool = False
+    # Append a block of model-specific rules to the shared prompt: (a Python file, the name of the string in it). The text is
+    # read from that file when the prompt is built, so the package stays the one source of it.
+    addendum_from: tuple[Path, str] | None = None
 
 
 JD_V21_PACKAGE = PROMPT_DIR / "Prompt_v2" / "jd_rubric_extractor_v2_1_fixed" / "jd_rubric_v2_1"
 JD_V22_PACKAGE = PROMPT_DIR / "jd_rubric_extractor_v2_2_semantic_fixed" / "jd_rubric_v2_2"
 JD_V23_PACKAGE = PROMPT_DIR / "jd_rubric_extractor_v2_3_targeted" / "jd_rubric_v2_3"
+JD_GPTOSS_PACKAGE = PROMPT_DIR / "gptoss20b_candidate_processing_optimized_v1" / "gptoss20b_rubric_v1"
+JD_GEMMA_PACKAGE = PROMPT_DIR / "gemma26_jd_v23_fix"
 JD_PROMPTS = {
     # v2.1 keeps the folder name it always had, so the results made with it stay where they are.
     "v2.1": JDPrompt("v2.1", JD_V21_PACKAGE / "JD_Rubric_Extractor_v2.1_FULL.txt", JD_V21_PACKAGE / "jd_rubric.schema.json",
@@ -68,8 +83,25 @@ JD_PROMPTS = {
                      JD_V22_PACKAGE / "rubric_validator.py", "jd_extraction_v2_2"),
     "v2.3": JDPrompt("v2.3", JD_V23_PACKAGE / "JD_Rubric_Extractor_v2.3_FULL.txt", JD_V23_PACKAGE / "jd_rubric.schema.json",
                      JD_V23_PACKAGE / "rubric_validator.py", "jd_extraction_v2_3"),
+    # The v2.3 rubric for gpt-oss-20b only. Same schema and validator as v2.3; a prompt written for that model (the
+    # standalone one, because our evaluation path cannot send a response schema), a lower output cap, and two rules for
+    # the model's observed failures: a reply that repeats a JSON key is refused, and a retry changes the decoding state
+    # because repeating the same greedy request repeats the same mistake. Qwen and the other models never use it.
+    "v2.3-gptoss": JDPrompt("v2.3-gptoss", JD_GPTOSS_PACKAGE / "GPTOSS20B_JD_EXTRACTOR_STANDALONE.txt",
+                            JD_GPTOSS_PACKAGE / "jd_rubric.schema.json", JD_GPTOSS_PACKAGE / "rubric_validator.py",
+                            "jd_extraction_v2_3_gptoss", models=("gpt-oss-20b",), max_output_tokens=8192,
+                            reject_duplicate_keys=True, retry_temperature=0.3, without_response_formats=True),
+    # The v2.3 prompt, schema and validator exactly as Qwen uses them, plus the Gemma field rules from the gemma26 package,
+    # appended to the prompt. For gemma-4-26B-A4B only: those rules answer the schema drift it showed (the wrong `importance`
+    # words for responsibilities, a `source_quote` added to the education and experience objects). Nothing else differs.
+    "v2.3-gemma26": JDPrompt("v2.3-gemma26", JD_V23_PACKAGE / "JD_Rubric_Extractor_v2.3_FULL.txt",
+                             JD_V23_PACKAGE / "jd_rubric.schema.json", JD_V23_PACKAGE / "rubric_validator.py",
+                             "jd_extraction_v2_3_gemma26", models=("gemma-4-26b-a4b",),
+                             addendum_from=(JD_GEMMA_PACKAGE / "gemma_jd_fix" / "core.py", "GEMMA_RULES")),
 }
 DEFAULT_JD_PROMPT_VERSION = "v2.3"
+# A local model with a JD prompt written for it uses that one unless a version is chosen. Other models use the default.
+MODEL_JD_PROMPT = {"gpt-oss-20b": "v2.3-gptoss", "gemma-4-26b-a4b": "v2.3-gemma26"}
 
 TASK_NAMES = ("resume_extraction", "jd_extraction", "resume_jd_pair")
 TASK_LABELS = {
@@ -98,6 +130,8 @@ class Item:
     max_output_tokens: int
     # Source texts kept for validation: the JD for JD extraction, the resume and JD for pairs.
     context: dict[str, str] = field(default_factory=dict, compare=False)
+    # Set only by a JD prompt version that changes the decoding on a retry (see JDPrompt.retry_temperature).
+    retry_temperature: float | None = field(default=None, compare=False)
 
 
 def prompt_fingerprint(*texts: str) -> str:
@@ -120,6 +154,41 @@ def jd_prompt(version: str | None = None) -> JDPrompt:
     return JD_PROMPTS[chosen]
 
 
+_RESPONSE_FORMATS_BLOCK = re.compile(r"# Response Formats\n.*?\n(?=# )", re.S)
+
+
+def jd_system_prompt(jd: JDPrompt) -> str:
+    """The system prompt of a JD prompt version as it is sent.
+
+    A version that asks for it has a block removed and/or a block of model-specific rules appended. A version that asks for
+    neither (v2.1 to v2.3) is sent exactly as its file reads.
+    """
+    text = jd.full_prompt.read_text(encoding="utf-8")
+    if jd.without_response_formats:
+        text, removed = _RESPONSE_FORMATS_BLOCK.subn("", text, count=1)
+        if not removed:
+            raise ValueError(f"JD prompt {jd.version} expects a '# Response Formats' block but its prompt file has none")
+    if jd.addendum_from is not None:
+        path, name = jd.addendum_from
+        rules = getattr(_load_module(f"addendum_{path}", path, f"addendum_{jd.version.replace('.', '').replace('-', '_')}"), name)
+        text = text.rstrip() + "\n\n" + rules  # the same join the package uses (apply_gemma_rules, mode "targeted")
+    return text
+
+
+def default_jd_prompt_version(local_model: str | None) -> str | None:
+    """The JD prompt version written for a local model, or None when the model uses the shared default."""
+    return MODEL_JD_PROMPT.get(local_model) if local_model else None
+
+
+def _output_cap(task: str, max_output_tokens: int | None, jd_prompt_version: str | None) -> int:
+    """An explicit cap wins, then the cap of a JD prompt version that sets its own, then the task default."""
+    if max_output_tokens:
+        return max_output_tokens
+    if task == "jd_extraction" and jd_prompt(jd_prompt_version).max_output_tokens:
+        return jd_prompt(jd_prompt_version).max_output_tokens
+    return DEFAULT_MAX_OUTPUT_TOKENS[task]
+
+
 def output_task_dir(task: str, jd_prompt_version: str | None = None) -> str:
     """The folder name for a task's results. Each JD prompt version has its own, so a new prompt cannot overwrite old results."""
     return jd_prompt(jd_prompt_version).output_dir if task == "jd_extraction" else task
@@ -136,15 +205,18 @@ def task_fingerprint(
 
     The recipe for each task is fixed: changing it would orphan results already saved under the old fingerprint.
     """
-    cap = max_output_tokens or DEFAULT_MAX_OUTPUT_TOKENS[task]
+    cap = _output_cap(task, max_output_tokens, jd_prompt_version)
     parts = [task, str(cap)]
     if task == "resume_extraction":
         parts += [RESUME_SYSTEM_PROMPT.read_text(encoding="utf-8"), RESUME_USER_TEMPLATE.read_text(encoding="utf-8"),
                   reference_date]
     elif task == "jd_extraction":
         jd = jd_prompt(jd_prompt_version)
-        parts += [jd.full_prompt.read_text(encoding="utf-8"), jd.schema.read_text(encoding="utf-8"),
+        parts += [jd_system_prompt(jd), jd.schema.read_text(encoding="utf-8"),
                   jd.validator.read_text(encoding="utf-8"), reference_date]
+        if jd.reject_duplicate_keys or jd.retry_temperature is not None or jd.without_response_formats:  # only versions that set them
+            parts.append(f"reject_duplicate_keys={jd.reject_duplicate_keys};retry_temperature={jd.retry_temperature};"
+                         f"without_response_formats={jd.without_response_formats}")
     else:
         parts += [PAIR_SYSTEM_PROMPT.read_text(encoding="utf-8"), PAIR_KIT.read_text(encoding="utf-8")]
     return prompt_fingerprint(*parts)
@@ -208,7 +280,7 @@ def build_items(
         raise ValueError(f"unknown task {task!r}; choose one of {', '.join(TASK_NAMES)}")
     if item_ids is not None and limit:
         raise ValueError("give either a list of item ids or a limit, not both")
-    cap = max_output_tokens or DEFAULT_MAX_OUTPUT_TOKENS[task]
+    cap = _output_cap(task, max_output_tokens, jd_prompt_version)
     if task == "resume_extraction":
         system = RESUME_SYSTEM_PROMPT.read_text(encoding="utf-8")
         template = RESUME_USER_TEMPLATE.read_text(encoding="utf-8")
@@ -220,10 +292,11 @@ def build_items(
         ]
     if task == "jd_extraction":
         jd = jd_prompt(jd_prompt_version)
-        system = jd.full_prompt.read_text(encoding="utf-8")
+        system = jd_system_prompt(jd)
         rows = _select(_read_csv(source or JD_CSV, "jd_id", "jd_text"), limit, seed, item_ids)
         # The prompt version travels with each item so the reply is checked by that version's own validator.
-        return [Item(i, jid, system, jd_user_message(text, reference_date), cap, {"jd": text, "jd_prompt_version": jd.version})
+        return [Item(i, jid, system, jd_user_message(text, reference_date), cap, {"jd": text, "jd_prompt_version": jd.version},
+                      jd.retry_temperature)
                 for i, (jid, text) in enumerate(rows)]
     return _pair_items(source or PAIR_PARQUET, limit, seed, cap, item_ids)
 
@@ -262,11 +335,24 @@ def _pair_items(path: Path, limit: int | None, seed: int | None, cap: int, item_
     return items
 
 
-def parse_strict_object(text: str) -> dict[str, Any]:
-    """The whole reply must be one JSON object. One whole code fence is tolerated; trailing text is not."""
+def _no_repeated_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    """json.loads silently keeps the last of two equal keys. This refuses the reply instead of hiding the repeat."""
+    result: dict[str, Any] = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValidationError(f"reply repeats the JSON key {key!r}")
+        result[key] = value
+    return result
+
+
+def parse_strict_object(text: str, *, reject_duplicate_keys: bool = False) -> dict[str, Any]:
+    """The whole reply must be one JSON object. One whole code fence is tolerated; trailing text is not.
+
+    `reject_duplicate_keys` is off unless a JD prompt version turns it on, so every other model parses as before.
+    """
     cleaned = re.sub(r"^```(?:json)?\s*|\s*```$", "", (text or "").strip(), flags=re.IGNORECASE).strip()
     try:
-        value = json.loads(cleaned)
+        value = json.loads(cleaned, object_pairs_hook=_no_repeated_keys) if reject_duplicate_keys else json.loads(cleaned)
     except json.JSONDecodeError as exc:
         raise ValidationError(f"reply is not valid JSON: {exc.msg} at character {exc.pos}") from exc
     if not isinstance(value, dict):
@@ -295,7 +381,8 @@ def load_pair_kit() -> Any:
 def load_rubric_validator(version: str | None = None) -> Any:
     """The rubric validator of one JD prompt version. It needs the `jsonschema` package."""
     jd = jd_prompt(version)
-    return _load_module(f"rubric_validator_{jd.version}", jd.validator, f"jd_rubric_validator_{jd.version.replace('.', '')}")
+    name = jd.version.replace(".", "").replace("-", "_")  # a module name: v2.1 gives v21 (unchanged), v2.3-gptoss gives v23_gptoss
+    return _load_module(f"rubric_validator_{jd.version}", jd.validator, f"jd_rubric_validator_{name}")
 
 
 def _check_resume(value: dict[str, Any]) -> dict[str, Any]:
@@ -379,7 +466,8 @@ def validate_reply(task: str, item: Item, text: str) -> dict[str, Any]:
     """Return the fields to store for a valid reply. Any problem, including an unexpected exception from a
     validator, becomes a ValidationError so one odd reply can never abort a whole batch."""
     try:
-        value = parse_strict_object(text)
+        repeats_refused = task == "jd_extraction" and jd_prompt(item.context.get("jd_prompt_version")).reject_duplicate_keys
+        value = parse_strict_object(text, reject_duplicate_keys=repeats_refused)
         if task == "resume_extraction":
             return _check_resume(value)
         if task == "jd_extraction":

@@ -47,6 +47,8 @@ schema-mode prompt is not used, because neither the dual GPU service nor the clo
 | Version | Package | Output folder |
 |---|---|---|
 | `v2.3` (default) | `prompt/jd_rubric_extractor_v2_3_targeted/jd_rubric_v2_3/` | `outputs/production/jd_extraction_v2_3/` |
+| `v2.3-gemma26` (gemma-4-26B-A4B only, chosen automatically for it) | `prompt/jd_rubric_extractor_v2_3_targeted/jd_rubric_v2_3/` plus the rules in `prompt/gemma26_jd_v23_fix/` | `outputs/production/jd_extraction_v2_3_gemma26/` |
+| `v2.3-gptoss` (gpt-oss-20b only, chosen automatically for it) | `prompt/gptoss20b_candidate_processing_optimized_v1/gptoss20b_rubric_v1/` | `outputs/production/jd_extraction_v2_3_gptoss/` |
 | `v2.2` | `prompt/jd_rubric_extractor_v2_2_semantic_fixed/jd_rubric_v2_2/` | `outputs/production/jd_extraction_v2_2/` |
 | `v2.1` | `prompt/Prompt_v2/jd_rubric_extractor_v2_1_fixed/jd_rubric_v2_1/` | `outputs/production/jd_extraction/` |
 
@@ -77,6 +79,68 @@ provenance.
 
 The validator checks a closed list of patterns, not meaning, so it catches these known cases and not every possible
 omission.
+
+### gemma-4-26B-A4B has the Gemma field rules (`v2.3-gemma26`)
+
+With the shared v2.3 prompt, Gemma-26B (QAT Q4_0, thinking off) gave 2 usable rubrics of 20. The failures were format drift:
+35 attempts used a word outside the allowed list for a responsibility's `importance` (`supporting` instead of
+`core`/`secondary`) and 37 added a `source_quote` field that the education and experience objects do not have. The
+`gemma26_jd_v23_fix` package has a block of rules (`GEMMA_RULES`) written for exactly that. `v2.3-gemma26` is the v2.3 prompt
+**exactly as Qwen uses it, followed by that block**, and it is used **only for gemma-4-26B-A4B**: the plan picks it
+automatically for that model, and any other model or the cloud is refused if it asks for it. The schema, validator, output cap
+(12,288), decoding (temperature 0, seed 42), retry and thinking-off setting are the same as Qwen's. The rules are read from
+the package file when the prompt is built, and they are part of the fingerprint, so editing them starts new results. The
+earlier Gemma-26B results stay in their own folder. `--jd-prompt-version v2.3` still gives it the plain prompt.
+
+**Not applied.** The package's main experiment is *schema-constrained decoding* through an HTTP gateway that forwards
+`response_format`, with its own runner (`python -m gemma_jd_fix ...`). Our evaluation path cannot forward a schema (see the gpt-oss
+section), and the package's runner calls an HTTP address directly, which we do not do for local models. Only the package's
+prompt rules are used. Its README says to try the constrained baseline first and the targeted wording only if that still
+fails, so a result here does not show what constrained decoding would give. The package's semantic-validator hook is not
+needed, because our validator is the unchanged v2.3 one. Gemma-4-12B is not covered: the rules are for the 26B model.
+
+### gpt-oss-20b has its own JD prompt (`v2.3-gptoss`)
+
+On the 12 comparison JDs, gpt-oss-20b with the shared v2.3 prompt gave 1 usable rubric: invalid JSON (a stray quote after
+`null` or `true`), quotes with a plain hyphen swapped for U+2011, and skipped listed skills. The gpt-oss package was written
+for those failures. `v2.3-gptoss` uses it, and **only for gpt-oss-20b**: the plan picks it automatically for that model,
+and a plan for any other model or for the cloud that asks for it is refused. Qwen, Gemma and the cloud run exactly as
+before. Specifically:
+
+| Setting | `v2.3-gptoss` | Every other model |
+|---|---|---|
+| System prompt | `GPTOSS20B_JD_EXTRACTOR_STANDALONE.txt`, sent **without** its closing `# Response Formats` block (see below). The package file itself is left as shipped | the v2.3 FULL prompt, sent as the file reads |
+| Schema and validator | the package's copies, byte-identical to v2.3's, so the same checks | v2.3's |
+| Output cap | 8,192 (the package's starting point) | 12,288 |
+| A reply that repeats a JSON key (`"min_years","min_years":null`) | refused with the reason | read as before (the last value wins) |
+| Decoding on the retry | temperature 0.3 and seed 43, because the same greedy request repeated the invalid JSON on 7 of the 8 items that had it | unchanged: temperature 0, seed 42 |
+| Results go to | `jd_extraction_v2_3_gptoss/` | their own folder |
+
+The retry values are our choice. The package only says to retry with a changed setting or decoding state, not which.
+
+**Why the `# Response Formats` block is not sent.** With the prompt exactly as shipped, all 24 attempts on the 12 JDs failed
+before any answer came back: the model server returned HTTP 500, "The model produced output that does not match the
+expected peg-native format", so its own parser for gpt-oss rejected the reply. The shared v2.3 prompt never triggered it.
+On one JD (JD-000314), the same request with only those three lines removed
+(`# Response Formats` / `## jd_rubric` / `// Final response: ...`) returned valid JSON. This was tested on that one JD,
+and the server version matters: the package itself warns that Harmony/GPT-OSS decoding on some llama.cpp versions has
+issues. The removal is in `jd_system_prompt` in `tasks.py` and is part of the fingerprint, so results made with the block
+are never reused.
+
+**Not applied, and why:**
+
+- *Schema mode* (`GPTOSS20B_JD_EXTRACTOR_SCHEMA_MODE.txt` with a response schema). The service's evaluation chat path
+  forwards only the messages, temperature, top_p, max_tokens and seed. A schema is forwarded only by its
+  OpenAI-compatible gateway, which needs the model reloaded in coding-agent mode and a different client. That is a separate
+  piece of work. The package says to use the standalone prompt when the interface cannot send a schema.
+- *Reasoning effort `low`.* The same path cannot set a per-request reasoning effort. gpt-oss stays on the thinking-off
+  deployment it is loaded with.
+- *The candidate matcher* (`GPTOSS20B_CANDIDATE_MATCHER_EXPERIMENTAL.txt`). It scores a resume against a validated JD
+  rubric, and resume-JD pair scoring here reads the raw JD, so there is no rubric to give it. It is marked experimental in
+  the package. Pair scoring is unchanged for every model.
+
+`verify_gptoss.py` and `run_local_once.py` are the package's own command-line tools and are not used by the runner. Its
+duplicate-key check is now part of reply validation.
 
 ### Employment logistics are not job fit
 

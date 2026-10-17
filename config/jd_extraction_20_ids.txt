@@ -1,0 +1,27 @@
+# The 20 JDs for comparing models on JD extraction: the original 12 (config/jd_extraction_12_ids.txt, unchanged) plus 8 more.
+# The 8 were drawn at random with seed 20261017 from Input/jd_dataset.csv, excluding the original 12:
+#   6 JDs shorter than 750 characters and 2 JDs longer than 1,000 characters (their lengths are noted below).
+#   candidate-fit run --task jd_extraction --backend local --local-model qwen3.8-27b --ids-file config/jd_extraction_20_ids.txt
+JD-000002
+JD-000016
+JD-000160
+JD-000314
+JD-000753
+JD-001896
+JD-001951
+JD-003899
+JD-008861
+JD-011997
+JD-013090
+JD-016936
+# new, shorter than 750 characters
+JD-000961
+JD-002855
+JD-004150
+JD-006259
+JD-009644
+JD-014476
+# new, longer than 1,000 characters
+JD-000305
+JD-015413
+# lengths in characters: 000961=724, 002855=453, 004150=650, 006259=521, 009644=642, 014476=516, 000305=1937, 015413=1013

@@ -31,6 +31,9 @@ def write_csv(path, rows, id_col, text_col):
     return path
 
 
+SHARED_VERSIONS = ("v2.1", "v2.2", "v2.3")  # the versions every model uses; v2.3-gptoss is for gpt-oss-20b only
+
+
 def package_fixture():
     """The valid rubric and its JD from the v2.1 package's own tests (it is valid under v2.2 as well)."""
     spec = importlib.util.spec_from_file_location("jd_pkg_fixture", tasks.JD_V21_PACKAGE / "tests" / "test_validator.py")
@@ -122,7 +125,7 @@ def test_fingerprint_changes_with_the_task_the_cap_and_the_reference_date_and_no
     assert len({task_fingerprint(t) for t in tasks.TASK_NAMES}) == 3
 
 
-@pytest.mark.parametrize("version", ["v2.1", "v2.2", "v2.3"])
+@pytest.mark.parametrize("version", ["v2.1", "v2.2", "v2.3", "v2.3-gptoss"])
 @pytest.mark.parametrize("part", ["full_prompt", "schema", "validator"])
 def test_fingerprint_covers_the_jd_prompt_schema_and_validator_of_each_version(monkeypatch, tmp_path, version, part):
     base = task_fingerprint("jd_extraction", jd_prompt_version=version)
@@ -134,7 +137,7 @@ def test_fingerprint_covers_the_jd_prompt_schema_and_validator_of_each_version(m
 
 def test_each_jd_prompt_version_has_its_own_fingerprint_and_output_folder_and_older_ones_keep_theirs():
     fingerprints = {v: task_fingerprint("jd_extraction", jd_prompt_version=v) for v in tasks.JD_PROMPTS}
-    assert len(set(fingerprints.values())) == 3
+    assert len(set(fingerprints.values())) == len(tasks.JD_PROMPTS) == 5
     assert task_fingerprint("jd_extraction") == fingerprints["v2.3"]  # v2.3 is the default
     assert output_task_dir("jd_extraction") == output_task_dir("jd_extraction", "v2.3") == "jd_extraction_v2_3"
     # Results already saved live in these folders under these fingerprints. If either changes on purpose, those results
@@ -155,7 +158,7 @@ def test_an_unknown_jd_prompt_version_is_refused_everywhere():
 
 def test_items_carry_their_prompt_version_so_each_is_checked_by_its_own_validator(tmp_path):
     source = write_csv(tmp_path / "jd.csv", [("JD-1", "job text")], "jd_id", "jd_text")
-    built = {v: build_items("jd_extraction", source=source, jd_prompt_version=v)[0] for v in tasks.JD_PROMPTS}
+    built = {v: build_items("jd_extraction", source=source, jd_prompt_version=v)[0] for v in SHARED_VERSIONS}
     for version, item in built.items():
         assert item.context["jd_prompt_version"] == version and version in item.system.splitlines()[0]
     assert len({item.system for item in built.values()}) == 3
@@ -293,7 +296,7 @@ def test_review_warnings_are_taken_from_the_validator_so_the_list_lives_in_one_p
 
 
 def test_the_validators_load_side_by_side_without_clashing():
-    loaded = {v: tasks.load_rubric_validator(v) for v in tasks.JD_PROMPTS}
+    loaded = {v: tasks.load_rubric_validator(v) for v in SHARED_VERSIONS}
     assert len({id(m) for m in loaded.values()}) == 3
     assert len({m.versioned_cache_key("jd", "m", "x") for m in loaded.values()}) == 3  # each stamps its own schema version
     assert tasks.load_rubric_validator() is loaded["v2.3"]  # no version means the default
@@ -508,3 +511,169 @@ def test_logistics_warnings_are_blocking_for_v23_and_not_for_v22():
     review = "LOGISTICS_POLICY_REVIEW: Explicit location policy should preserve non-negotiable wording"
     assert tasks._blocking_warnings(tasks.load_rubric_validator("v2.3").Report(warnings=[review])) == [review]
     assert tasks._blocking_warnings(tasks.load_rubric_validator("v2.2").Report(warnings=[review])) == []
+
+
+# --- gpt-oss-20b: its own JD prompt and settings, and nothing changes for any other model ---
+
+
+def test_the_gptoss_version_carries_its_settings_and_no_shared_version_sets_any():
+    gptoss = tasks.JD_PROMPTS["v2.3-gptoss"]
+    assert (gptoss.models, gptoss.max_output_tokens, gptoss.reject_duplicate_keys, gptoss.retry_temperature) == (
+        ("gpt-oss-20b",), 8192, True, 0.3)
+    assert output_task_dir("jd_extraction", "v2.3-gptoss") == "jd_extraction_v2_3_gptoss"
+    for version in SHARED_VERSIONS:  # every model-specific setting is off by default, so these versions run as they always did
+        shared = tasks.JD_PROMPTS[version]
+        assert (shared.models, shared.max_output_tokens, shared.reject_duplicate_keys, shared.retry_temperature) == (None, None, False, None)
+    assert tasks.default_jd_prompt_version("gpt-oss-20b") == "v2.3-gptoss"
+    for other in ("qwen3.8-27b", "gemma-4-12b", "qwen3.5-4b", None):
+        assert tasks.default_jd_prompt_version(other) is None  # they keep the shared default
+
+
+def test_the_gptoss_items_use_the_standalone_prompt_the_lower_cap_and_the_retry_setting_and_qwens_do_not(tmp_path):
+    source = write_csv(tmp_path / "jd.csv", [("JD-1", "job text")], "jd_id", "jd_text")
+    (gptoss,) = build_items("jd_extraction", source=source, jd_prompt_version="v2.3-gptoss")
+    (qwen,) = build_items("jd_extraction", source=source)
+    assert gptoss.system == tasks.jd_system_prompt(tasks.JD_PROMPTS["v2.3-gptoss"])  # the standalone prompt, as it is sent
+    assert gptoss.max_output_tokens == 8192 and gptoss.retry_temperature == 0.3
+    assert qwen.system == tasks.JD_PROMPTS["v2.3"].full_prompt.read_text(encoding="utf-8")
+    assert qwen.max_output_tokens == 12288 and qwen.retry_temperature is None
+    assert gptoss.user == qwen.user  # the JD goes to the model the same way
+    (explicit,) = build_items("jd_extraction", source=source, jd_prompt_version="v2.3-gptoss", max_output_tokens=5000)
+    assert explicit.max_output_tokens == 5000  # a cap given on the command line still wins
+    assert task_fingerprint("jd_extraction", jd_prompt_version="v2.3-gptoss", max_output_tokens=5000) != task_fingerprint(
+        "jd_extraction", jd_prompt_version="v2.3-gptoss")
+
+
+def test_the_gptoss_package_reuses_the_v23_schema_and_validator_so_the_v23_checks_apply_unchanged():
+    gptoss, v23 = tasks.JD_PROMPTS["v2.3-gptoss"], tasks.JD_PROMPTS["v2.3"]
+    assert gptoss.schema.read_bytes() == v23.schema.read_bytes() and gptoss.validator.read_bytes() == v23.validator.read_bytes()
+
+
+def test_gptoss_rubrics_are_judged_exactly_as_v23_judges_them():
+    for jd_id, (jd, output) in saved_v22_outputs().items():
+        outcomes = []
+        for version in ("v2.3", "v2.3-gptoss"):
+            item = Item(0, jd_id, "s", "u", 100, {"jd": jd, "jd_prompt_version": version})
+            try:
+                outcomes.append(("accepted", validate_reply("jd_extraction", item, output)))
+            except ValidationError as exc:
+                outcomes.append(("rejected", str(exc)))
+        assert outcomes[0] == outcomes[1], jd_id
+
+
+def test_only_the_gptoss_version_refuses_a_reply_that_repeats_a_json_key():
+    jd, good = package_fixture()
+    repeated = json.dumps(good()).replace('"input_status": "ok"', '"input_status": "ok", "input_status": "ok"', 1)
+    assert repeated.count('"input_status"') == 2
+    gptoss = Item(0, "JD-1", "s", "u", 100, {"jd": jd, "jd_prompt_version": "v2.3-gptoss"})
+    with pytest.raises(ValidationError, match="repeats the JSON key 'input_status'"):
+        validate_reply("jd_extraction", gptoss, repeated)
+    for version in (None, *SHARED_VERSIONS):  # every other prompt reads it as it always did, keeping the last value
+        context = {"jd": jd} if version is None else {"jd": jd, "jd_prompt_version": version}
+        assert validate_reply("jd_extraction", Item(0, "JD-1", "s", "u", 100, context), repeated)["valid_for_cache"] is True
+    assert tasks.parse_strict_object(repeated)["input_status"] == "ok"  # and the strict parser is lenient unless asked
+    with pytest.raises(ValidationError, match="repeats"):
+        tasks.parse_strict_object(repeated, reject_duplicate_keys=True)
+
+
+def test_the_gptoss_fingerprint_changes_with_its_settings_and_the_shared_ones_do_not_depend_on_them(monkeypatch):
+    base = task_fingerprint("jd_extraction", jd_prompt_version="v2.3-gptoss")
+    for change in ({"retry_temperature": 0.5}, {"reject_duplicate_keys": False}):
+        monkeypatch.setitem(tasks.JD_PROMPTS, "v2.3-gptoss", dataclasses.replace(tasks.JD_PROMPTS["v2.3-gptoss"], **change))
+        assert task_fingerprint("jd_extraction", jd_prompt_version="v2.3-gptoss") != base, change
+        monkeypatch.undo()
+    # The shared versions' fingerprints are pinned elsewhere; this shows a model-specific setting cannot reach them.
+    shared = {v: task_fingerprint("jd_extraction", jd_prompt_version=v) for v in SHARED_VERSIONS}
+    monkeypatch.setitem(tasks.JD_PROMPTS, "v2.3-gptoss", dataclasses.replace(tasks.JD_PROMPTS["v2.3-gptoss"], retry_temperature=0.9))
+    assert shared == {v: task_fingerprint("jd_extraction", jd_prompt_version=v) for v in SHARED_VERSIONS}
+
+
+def test_the_gptoss_prompt_is_sent_without_its_response_formats_block_and_the_package_file_is_left_as_shipped():
+    """On our model server that block makes gpt-oss answer in a form the server rejects with HTTP 500 (peg-native format)."""
+    gptoss = tasks.JD_PROMPTS["v2.3-gptoss"]
+    shipped = gptoss.full_prompt.read_text(encoding="utf-8")
+    sent = tasks.jd_system_prompt(gptoss)
+    assert "# Response Formats" in shipped and "# Response Formats" not in sent  # the file is untouched; only what is sent differs
+    removed = [line for line in shipped.splitlines() if line not in sent.splitlines()]
+    assert removed == ["# Response Formats", "## jd_rubric", "// Final response: a single object conforming to the existing JD rubric schema."]
+    assert sent.replace("\n\n# Allowed values", "\n\n# Response Formats\n## jd_rubric\n// Final response: a single object conforming "
+                        "to the existing JD rubric schema.\n\n# Allowed values") == shipped  # nothing else changed
+    for version in SHARED_VERSIONS:  # every shared version is sent exactly as its file reads
+        shared = tasks.JD_PROMPTS[version]
+        assert tasks.jd_system_prompt(shared) == shared.full_prompt.read_text(encoding="utf-8")
+
+
+def test_a_prompt_that_should_have_a_response_formats_block_but_does_not_is_an_error_and_not_a_silent_no_op(tmp_path):
+    plain = tmp_path / "plain.txt"
+    plain.write_text("a prompt with no such block", encoding="utf-8")
+    broken = dataclasses.replace(tasks.JD_PROMPTS["v2.3-gptoss"], full_prompt=plain)
+    with pytest.raises(ValueError, match="expects a '# Response Formats' block"):
+        tasks.jd_system_prompt(broken)
+
+
+def test_turning_the_block_removal_off_changes_the_gptoss_fingerprint_so_older_failed_results_are_not_reused(monkeypatch):
+    base = task_fingerprint("jd_extraction", jd_prompt_version="v2.3-gptoss")
+    monkeypatch.setitem(tasks.JD_PROMPTS, "v2.3-gptoss", dataclasses.replace(tasks.JD_PROMPTS["v2.3-gptoss"], without_response_formats=False))
+    assert task_fingerprint("jd_extraction", jd_prompt_version="v2.3-gptoss") != base
+
+
+# --- gemma-4-26B-A4B: the v2.3 prompt plus the Gemma field rules, for that model only ---
+
+
+def test_the_gemma26_version_is_the_v23_prompt_plus_the_package_rules_and_nothing_else():
+    import importlib.util
+
+    gemma, v23 = tasks.JD_PROMPTS["v2.3-gemma26"], tasks.JD_PROMPTS["v2.3"]
+    base = v23.full_prompt.read_text(encoding="utf-8")
+    sent = tasks.jd_system_prompt(gemma)
+    assert sent.startswith(base.rstrip()) and len(sent) > len(base)  # Qwen's prompt is untouched; rules come after it
+    spec = importlib.util.spec_from_file_location("gemma_pkg_core", tasks.JD_GEMMA_PACKAGE / "gemma_jd_fix" / "core.py")
+    package = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(package)
+    assert sent == package.apply_gemma_rules(base, "targeted")  # exactly what the package's own function builds
+    assert sent.endswith(package.GEMMA_RULES) and "key_responsibilities[].importance: core / secondary ONLY" in sent
+    # the same schema, validator, output cap and retry as Qwen: the rules are the only difference
+    assert (gemma.schema, gemma.validator) == (v23.schema, v23.validator)
+    assert (gemma.max_output_tokens, gemma.reject_duplicate_keys, gemma.retry_temperature, gemma.without_response_formats) == (
+        None, False, None, False)
+    assert gemma.models == ("gemma-4-26b-a4b",) and output_task_dir("jd_extraction", "v2.3-gemma26") == "jd_extraction_v2_3_gemma26"
+    assert tasks.jd_system_prompt(v23) == base  # Qwen's version is still sent exactly as its file reads
+
+
+def test_only_the_26b_gemma_gets_the_gemma_rules_by_default():
+    assert tasks.default_jd_prompt_version("gemma-4-26b-a4b") == "v2.3-gemma26"
+    for other in ("gemma-4-12b", "qwen3.8-27b", "qwen3.5-4b", None):
+        assert tasks.default_jd_prompt_version(other) in (None,)  # they keep the shared v2.3
+    assert tasks.default_jd_prompt_version("gpt-oss-20b") == "v2.3-gptoss"
+    for version in SHARED_VERSIONS:
+        assert tasks.JD_PROMPTS[version].addendum_from is None  # no shared version carries an addendum
+
+
+def test_the_gemma_rules_are_part_of_the_fingerprint_so_edited_rules_never_reuse_older_results(monkeypatch, tmp_path):
+    base = task_fingerprint("jd_extraction", jd_prompt_version="v2.3-gemma26")
+    assert base != task_fingerprint("jd_extraction", jd_prompt_version="v2.3")
+    edited = tmp_path / "core.py"
+    edited.write_text('GEMMA_RULES = "different rules"\n', encoding="utf-8")
+    monkeypatch.setitem(tasks.JD_PROMPTS, "v2.3-gemma26", dataclasses.replace(
+        tasks.JD_PROMPTS["v2.3-gemma26"], addendum_from=(edited, "GEMMA_RULES")))
+    assert task_fingerprint("jd_extraction", jd_prompt_version="v2.3-gemma26") != base
+    items = build_items("jd_extraction", item_ids=["JD-000314"], jd_prompt_version="v2.3")
+    assert items[0].system == tasks.JD_PROMPTS["v2.3"].full_prompt.read_text(encoding="utf-8")
+
+
+def test_gemma_items_send_the_rules_and_gemma_replies_are_judged_by_the_unchanged_v23_checks(tmp_path):
+    source = write_csv(tmp_path / "jd.csv", [("JD-1", "job text")], "jd_id", "jd_text")
+    (gemma,) = build_items("jd_extraction", source=source, jd_prompt_version="v2.3-gemma26")
+    (qwen,) = build_items("jd_extraction", source=source)
+    assert gemma.system == tasks.jd_system_prompt(tasks.JD_PROMPTS["v2.3-gemma26"]) and gemma.system != qwen.system
+    assert gemma.user == qwen.user and gemma.max_output_tokens == qwen.max_output_tokens == 12288
+    assert gemma.retry_temperature is None and gemma.context["jd_prompt_version"] == "v2.3-gemma26"
+    for jd_id, (jd, output) in saved_v22_outputs().items():  # the same accept/reject decisions as v2.3
+        outcomes = []
+        for version in ("v2.3", "v2.3-gemma26"):
+            item = Item(0, jd_id, "s", "u", 100, {"jd": jd, "jd_prompt_version": version})
+            try:
+                outcomes.append(("accepted", validate_reply("jd_extraction", item, output)))
+            except ValidationError as exc:
+                outcomes.append(("rejected", str(exc)))
+        assert outcomes[0] == outcomes[1], jd_id

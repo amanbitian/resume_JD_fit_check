@@ -149,8 +149,9 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--reasoning-effort", choices=["minimal", "low", "medium", "high"],
                      help="OpenAI only; hidden reasoning counts against the output cap")
     run.add_argument("--jd-prompt-version", choices=list(JD_PROMPTS),
-                     help=f"JD extraction only: which prompt version to run (default {DEFAULT_JD_PROMPT_VERSION}). "
-                     "Each version writes to its own output folder, so a new prompt never overwrites older results")
+                     help=f"JD extraction only: which prompt version to run (default {DEFAULT_JD_PROMPT_VERSION}; gpt-oss-20b "
+                     "uses v2.3-gptoss, which only it can run). Each version writes to its own output folder, so a new "
+                     "prompt never overwrites older results")
     run.add_argument("--max-cost-usd", type=float, help="Refuse a cloud run whose worst-case estimate is higher")
     run.add_argument("--ids-file", help="Run exactly these items: a JSON list of ids (or objects with an id field) "
                      "or a text file with one id per line. Cannot be combined with --limit")

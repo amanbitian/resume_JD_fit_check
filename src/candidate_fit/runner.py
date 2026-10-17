@@ -29,6 +29,7 @@ from candidate_fit.tasks import (
     DEFAULT_REFERENCE_DATE,
     TASK_NAMES,
     build_items,
+    default_jd_prompt_version,
     jd_prompt,
     output_task_dir,
     task_fingerprint,
@@ -76,6 +77,9 @@ class RunPlan:
             if self.task != "jd_extraction":
                 raise ValueError("a JD prompt version applies to the jd_extraction task only")
             jd_prompt(self.jd_prompt_version)  # raises for an unknown version
+        written_for = jd_prompt(self.effective_jd_prompt_version).models if self.task == "jd_extraction" else None
+        if written_for and not (self.backend == "local" and self.local_model in written_for):
+            raise ValueError(f"JD prompt {self.effective_jd_prompt_version} is written for {', '.join(written_for)} only")
         if self.backend == "local":
             if self.local_model not in LOCAL_MODELS:
                 raise ValueError(f"choose a local model from {', '.join(LOCAL_MODELS)}")
@@ -97,17 +101,24 @@ class RunPlan:
         if self.item_ids is not None and self.limit:
             raise ValueError("give either a list of item ids or a limit, not both")
 
+    @property
+    def effective_jd_prompt_version(self) -> str | None:
+        """The version asked for, else the one written for this local model (gpt-oss-20b has its own), else None for the default."""
+        if self.jd_prompt_version is not None:
+            return self.jd_prompt_version
+        return default_jd_prompt_version(self.local_model) if self.backend == "local" else None
+
     def folder(self) -> Path:
         model = self.local_model if self.backend == "local" else f"{self.cloud_provider}-{self.cloud_model}"
         safe = "".join(c if c.isalnum() or c in "-._" else "_" for c in model)
-        return self.output_root / output_task_dir(self.task, self.jd_prompt_version) / f"{self.backend}-{safe}"
+        return self.output_root / output_task_dir(self.task, self.effective_jd_prompt_version) / f"{self.backend}-{safe}"
 
 
 def plan_summary(plan: RunPlan, item_count: int, input_tokens: int, max_output: int) -> tuple[list[str], float | None]:
     """Lines to show before confirming, and the worst-case USD estimate for cloud runs (None when unknown)."""
     lines = [f"Task: {plan.task}", f"Items: {item_count:,}" + (" (the listed ids)" if plan.item_ids is not None else " (all)" if not plan.limit else f" (sample of {plan.limit})")]
     if plan.task == "jd_extraction":
-        lines.insert(1, f"JD prompt: {jd_prompt(plan.jd_prompt_version).version}")
+        lines.insert(1, f"JD prompt: {jd_prompt(plan.effective_jd_prompt_version).version}")
     usd: float | None = None
     if plan.backend == "local":
         lines.append(f"Backend: local, {LOCAL_MODELS[plan.local_model][2]}")
@@ -146,14 +157,14 @@ def execute(plan: RunPlan, *, confirm: Callable[[list[str]], bool], log: Callabl
     plan.validate()
     items = build_items(plan.task, limit=plan.limit, seed=plan.seed, reference_date=plan.reference_date,
                         max_output_tokens=plan.max_output_tokens, item_ids=plan.item_ids,
-                        jd_prompt_version=plan.jd_prompt_version)
+                        jd_prompt_version=plan.effective_jd_prompt_version)
     if not items:
         raise RuntimeError("no items to run")
     ids = [item.item_id for item in items]
     if len(set(ids)) != len(ids):
         raise RuntimeError("the dataset has duplicate item ids; results are keyed by id, so every item needs a unique one")
     fingerprint = task_fingerprint(plan.task, reference_date=plan.reference_date, max_output_tokens=plan.max_output_tokens,
-                                   jd_prompt_version=plan.jd_prompt_version)
+                                   jd_prompt_version=plan.effective_jd_prompt_version)
     model_name = plan.cloud_model if plan.backend == "cloud" else LOCAL_MODELS[plan.local_model][1]
     if export_only:  # rebuild results.csv from saved results; nothing is loaded, confirmed or sent
         return {"csv": str(export_csv(plan.task, items, plan.folder(), model_name, fingerprint)), "exported_only": True}

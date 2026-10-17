@@ -197,3 +197,55 @@ def test_a_model_the_user_already_loaded_is_used_as_is_and_left_loaded(service, 
     result = runner("gpt-oss-20b").run("resume_extraction", items(1), tmp_path)
     assert result["ok"] == 1 and all(c[0] not in ("/api/clients/deploy_lane", "/api/unload") for c in service.calls)
     assert service.lanes["9070xt"] == ("gpt-oss-20b-GGUF", 0)
+
+
+def jd_item_for(version, retry_temperature):
+    from candidate_fit import tasks
+
+    return Item(0, "JD-1", "system", "job", 500, {"jd": "a job", "jd_prompt_version": version}, retry_temperature=retry_temperature)
+
+
+def test_a_gptoss_retry_changes_the_decoding_and_the_first_attempt_does_not(service, tmp_path):
+    service.replies = ["not json", "still not json"]
+    summary = runner("gpt-oss-20b").run("jd_extraction", [jd_item_for("v2.3-gptoss", 0.3)], tmp_path)
+    first, second = service.chats()
+    assert (first["temperature"], first["seed"]) == (0, 42)  # the first attempt is the usual greedy request
+    assert (second["temperature"], second["seed"]) == (0.3, 43) and summary["failed"] == 1
+    rows = load_results(tmp_path / "results.jsonl")
+    assert "retry_decoding" not in rows[0] and rows[1]["retry_decoding"] == {"temperature": 0.3, "seed": 43}
+
+
+def test_a_retry_for_any_other_item_is_exactly_as_before(service, tmp_path):
+    """Qwen's items have no retry temperature, so the second request is the first request plus the rejection note."""
+    service.replies = ["not json", "still not json"]
+    runner("qwen3.8-27b").run("jd_extraction", [jd_item_for("v2.3", None)], tmp_path)
+    first, second = service.chats()
+    assert (first["temperature"], first["seed"]) == (0, 42) and (second["temperature"], second["seed"]) == (0, 42)
+    assert {k: v for k, v in second.items() if k != "messages"} == {k: v for k, v in first.items() if k != "messages"}
+    assert second["messages"][0] == first["messages"][0] and second["messages"][1]["content"].startswith(first["messages"][1]["content"])
+    assert all("retry_decoding" not in r for r in load_results(tmp_path / "results.jsonl"))
+
+
+def test_gptoss_is_sent_back_for_a_repeated_key_with_the_reason_and_accepted_when_fixed(service, tmp_path):
+    from test_production_tasks import package_fixture
+
+    jd, good = package_fixture()
+    clean = json.dumps(good())
+    repeated = clean.replace('"input_status": "ok"', '"input_status": "ok", "input_status": "ok"', 1)
+    service.replies = [repeated, clean]
+    item = Item(0, "JD-1", "system", "job", 500, {"jd": jd, "jd_prompt_version": "v2.3-gptoss"}, retry_temperature=0.3)
+    summary = runner("gpt-oss-20b").run("jd_extraction", [item], tmp_path)
+    retry = service.chats()[1]["messages"][1]["content"]
+    assert "Your previous reply was rejected" in retry and "repeats the JSON key" in retry
+    assert [r["ok"] for r in load_results(tmp_path / "results.jsonl")] == [False, True] and summary["ok"] == 1
+
+
+def test_gemma_26b_is_a_selectable_model_on_the_small_lane_and_has_its_own_jd_prompt():
+    from candidate_fit import tasks
+    from candidate_fit.runner import RunPlan
+
+    assert local_runner.LOCAL_MODELS["gemma-4-26b-a4b"][:2] == ("9070xt", "gemma-4-26B-A4B-it-QAT-Q4_0")
+    plan = RunPlan(task="jd_extraction", backend="local", local_model="gemma-4-26b-a4b")
+    plan.validate()
+    # v2.3 plus the Gemma rules (the plain shared v2.3 is still available to it with --jd-prompt-version v2.3)
+    assert plan.effective_jd_prompt_version == "v2.3-gemma26" == tasks.default_jd_prompt_version("gemma-4-26b-a4b")

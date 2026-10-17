@@ -249,3 +249,83 @@ def test_the_run_command_takes_a_jd_prompt_version_and_defaults_to_the_current_o
     with pytest.raises(SystemExit):
         cli.main(base + ["--jd-prompt-version", "v9"])  # argparse rejects a version that does not exist
     assert "invalid choice" in capsys.readouterr().err
+
+
+# --- gpt-oss-20b gets its own JD prompt automatically; no other model can be given it ---
+
+
+def test_a_gptoss_plan_picks_its_own_prompt_and_folder_and_every_other_models_plan_is_unchanged(tmp_path):
+    gptoss = RunPlan(task="jd_extraction", backend="local", local_model="gpt-oss-20b", output_root=tmp_path)
+    assert gptoss.effective_jd_prompt_version == "v2.3-gptoss"
+    assert gptoss.folder() == tmp_path / "jd_extraction_v2_3_gptoss" / "local-gpt-oss-20b"
+    gptoss.validate()
+    for model in ("qwen3.8-27b", "gemma-4-12b", "qwen3.5-4b"):
+        plan = RunPlan(task="jd_extraction", backend="local", local_model=model, output_root=tmp_path)
+        assert plan.effective_jd_prompt_version is None  # the shared default, as before
+        assert plan.folder() == tmp_path / "jd_extraction_v2_3" / f"local-{model}"
+    cloud = RunPlan(task="jd_extraction", backend="cloud", cloud_provider="anthropic", cloud_model="m", output_root=tmp_path)
+    assert cloud.effective_jd_prompt_version is None
+    other_task = RunPlan(task="resume_extraction", backend="local", local_model="gpt-oss-20b", output_root=tmp_path)
+    assert other_task.folder() == tmp_path / "resume_extraction" / "local-gpt-oss-20b"  # only the JD task has a model prompt
+    other_task.validate()
+
+
+def test_the_gptoss_prompt_is_refused_for_every_other_model_and_for_the_cloud(tmp_path):
+    for plan in (RunPlan(task="jd_extraction", backend="local", local_model="qwen3.8-27b", jd_prompt_version="v2.3-gptoss"),
+                 RunPlan(task="jd_extraction", backend="local", local_model="gemma-4-12b", jd_prompt_version="v2.3-gptoss"),
+                 RunPlan(task="jd_extraction", backend="cloud", cloud_provider="anthropic", cloud_model="m", jd_prompt_version="v2.3-gptoss")):
+        with pytest.raises(ValueError, match="written for gpt-oss-20b only"):
+            plan.validate()
+    RunPlan(task="jd_extraction", backend="local", local_model="gpt-oss-20b", jd_prompt_version="v2.3-gptoss").validate()
+    # gpt-oss can still be asked for a shared version, for example to reproduce the earlier run
+    older = RunPlan(task="jd_extraction", backend="local", local_model="gpt-oss-20b", jd_prompt_version="v2.3", output_root=tmp_path)
+    older.validate()
+    assert older.folder() == tmp_path / "jd_extraction_v2_3" / "local-gpt-oss-20b"
+
+
+def test_the_prompt_version_passed_on_is_gptoss_s_own_for_gptoss_and_unset_for_the_others(tmp_path, monkeypatch):
+    seen = {}
+    monkeypatch.setattr(runner, "build_items", lambda *a, **k: seen.update(k) or [Item(0, "JD-1", "s", "u", 100, {"jd": "x"})])
+    shown = {}
+    for model in ("gpt-oss-20b", "qwen3.8-27b"):
+        lines = []
+        plan = RunPlan(task="jd_extraction", backend="local", local_model=model, output_root=tmp_path)
+        execute(plan, confirm=lambda summary: lines.extend(summary) or False, log=lambda m: None)
+        shown[model] = (seen["jd_prompt_version"], lines)
+    assert shown["gpt-oss-20b"][0] == "v2.3-gptoss" and "JD prompt: v2.3-gptoss" in shown["gpt-oss-20b"][1]
+    assert shown["qwen3.8-27b"][0] is None and "JD prompt: v2.3" in shown["qwen3.8-27b"][1]
+
+
+def test_the_run_command_gives_gptoss_its_prompt_without_a_flag_and_leaves_qwen_on_the_default(monkeypatch):
+    from candidate_fit import cli
+
+    plans = []
+    monkeypatch.setattr("candidate_fit.runner.execute", lambda plan, **kwargs: plans.append(plan) or {"ok": 1})
+    for model in ("gpt-oss-20b", "qwen3.8-27b"):
+        with pytest.raises(SystemExit):
+            cli.main(["run", "--task", "jd_extraction", "--backend", "local", "--local-model", model])
+    assert [p.effective_jd_prompt_version for p in plans] == ["v2.3-gptoss", None]
+    assert plans[0].folder().parts[-2] == "jd_extraction_v2_3_gptoss" and plans[1].folder().parts[-2] == "jd_extraction_v2_3"
+
+
+def test_the_26b_gemma_plan_picks_the_gemma_rules_and_no_other_models_plan_changes(tmp_path):
+    gemma = RunPlan(task="jd_extraction", backend="local", local_model="gemma-4-26b-a4b", output_root=tmp_path)
+    gemma.validate()
+    assert gemma.effective_jd_prompt_version == "v2.3-gemma26"
+    assert gemma.folder() == tmp_path / "jd_extraction_v2_3_gemma26" / "local-gemma-4-26b-a4b"
+    for model in ("qwen3.8-27b", "gemma-4-12b", "qwen3.5-4b"):  # the others keep the shared v2.3 and its folder
+        plan = RunPlan(task="jd_extraction", backend="local", local_model=model, output_root=tmp_path)
+        assert plan.effective_jd_prompt_version is None and plan.folder() == tmp_path / "jd_extraction_v2_3" / f"local-{model}"
+    # the 26B can still be asked for the plain shared prompt, for a before-and-after comparison
+    plain = RunPlan(task="jd_extraction", backend="local", local_model="gemma-4-26b-a4b", jd_prompt_version="v2.3", output_root=tmp_path)
+    plain.validate()
+    assert plain.folder() == tmp_path / "jd_extraction_v2_3" / "local-gemma-4-26b-a4b"
+
+
+def test_the_gemma_rules_are_refused_for_every_other_model_and_for_the_cloud():
+    for plan in (RunPlan(task="jd_extraction", backend="local", local_model="qwen3.8-27b", jd_prompt_version="v2.3-gemma26"),
+                 RunPlan(task="jd_extraction", backend="local", local_model="gemma-4-12b", jd_prompt_version="v2.3-gemma26"),
+                 RunPlan(task="jd_extraction", backend="local", local_model="gpt-oss-20b", jd_prompt_version="v2.3-gemma26"),
+                 RunPlan(task="jd_extraction", backend="cloud", cloud_provider="anthropic", cloud_model="m", jd_prompt_version="v2.3-gemma26")):
+        with pytest.raises(ValueError, match="written for gemma-4-26b-a4b only"):
+            plan.validate()

@@ -42,6 +42,7 @@ LOCAL_MODELS = {
     "gemma-4-12b": ("9070xt", "gemma-4-12B-it-QAT-Q4_0", "gemma-4-12B on the 9070 XT (16 GB)"),
     "qwen3.5-4b": ("9070xt", "Qwen3.5-4B-Q4_K_M", "Qwen3.5-4B on the 9070 XT (16 GB)"),
     "gpt-oss-20b": ("9070xt", "gpt-oss-20b-GGUF", "gpt-oss-20B on the 9070 XT (16 GB)"),
+    "gemma-4-26b-a4b": ("9070xt", "gemma-4-26B-A4B-it-QAT-Q4_0", "gemma-4-26B-A4B (QAT Q4_0) on the 9070 XT (16 GB)"),
 }
 
 
@@ -165,15 +166,15 @@ class LocalRunner:
             time.sleep(2)
         return False
 
-    def chat(self, item: Item, user_text: str) -> dict[str, Any]:
-        """One request. Raises OSError if the service cannot be reached."""
+    def chat(self, item: Item, user_text: str, *, temperature: float = 0, seed: int = 42) -> dict[str, Any]:
+        """One request. Raises OSError if the service cannot be reached. The defaults are the settings of every first attempt."""
         if self._client_id is None:
             self._client_id = client_id()  # read once per run, not once per request
         body = {
             "client_id": self._client_id, "target": self.lane, "task_label": "candidate_fit_local",
             "workload_kind": "evaluation", "connection_type": "batch",
             "messages": [{"role": "system", "content": item.system}, {"role": "user", "content": user_text}],
-            "temperature": 0, "seed": 42, "max_tokens": item.max_output_tokens, "timeout_seconds": 900,
+            "temperature": temperature, "seed": seed, "max_tokens": item.max_output_tokens, "timeout_seconds": 900,
         }
         status, payload = api_post("/api/chat", body, timeout=1000)
         if status != 200:
@@ -183,12 +184,12 @@ class LocalRunner:
                 "finish_reason": result.get("finish_reason"), "usage": result.get("usage") or {},
                 "timing": result.get("timing") or {}, "error": result.get("error_text")}
 
-    def chat_with_retries(self, item: Item, user_text: str) -> dict[str, Any]:
+    def chat_with_retries(self, item: Item, user_text: str, **decoding: Any) -> dict[str, Any]:
         """Retry transient failures (service unreachable or busy). The reply says `unreachable` if it never got through."""
         reply: dict[str, Any] = {}
         for attempt in range(len(RETRY_DELAYS) + 1):
             try:
-                reply = self.chat(item, user_text)
+                reply = self.chat(item, user_text, **decoding)
             except OSError as exc:
                 reply = {"status": "failed", "output": "", "unreachable": True, "error": f"service unreachable: {exc}"}
             transient = reply.get("unreachable") or reply.get("http_status") in RETRY_HTTP
@@ -223,8 +224,13 @@ class LocalRunner:
                         if attempt > 1 and last_error:
                             user_text += (f"\n\nYour previous reply was rejected: {last_error}. "
                                           "Return one complete JSON object only.")
+                        # Only an item that asks for it (a JD prompt version with a retry temperature) changes the decoding
+                        # on a retry: the same greedy request would give the same reply again. All others retry as before.
+                        decoding: dict[str, Any] = {}
+                        if attempt > 1 and item.retry_temperature is not None:
+                            decoding = {"temperature": item.retry_temperature, "seed": 42 + attempt - 1}
                         started = time.perf_counter()
-                        reply = self.chat_with_retries(item, user_text)
+                        reply = self.chat_with_retries(item, user_text, **decoding)
                         seconds = time.perf_counter() - started
                         if reply.get("unreachable"):
                             # Not the model's fault: leave the item for the next run and do not use up an attempt.
@@ -245,6 +251,8 @@ class LocalRunner:
                                "prefill_tokens_per_sec": timing.get("prefill_tokens_per_second"),
                                "latency_seconds": round(seconds, 3), "output": reply.get("output", ""),
                                "error": reply.get("error")}
+                        if decoding:
+                            row["retry_decoding"] = decoding
                         last_error = None
                         if reply.get("status") != "completed":
                             last_error = row["error"] = row["error"] or f"status {reply.get('status')}"

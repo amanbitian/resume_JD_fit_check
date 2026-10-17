@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "properties": {
+    "importance": { "type": "string", "enum": ["core", "secondary"] }
+  },
+  "required": ["importance"],
+  "additionalProperties": false
+}

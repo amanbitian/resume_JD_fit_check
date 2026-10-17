@@ -1,0 +1,31 @@
+# The 25 JDs for the Gemma-26B check: the 20 in config/jd_extraction_20_ids.txt (unchanged) plus 5 more.
+# The 5 were drawn at random with seed 20261018 from Input/jd_dataset.csv, excluding the 20: JDs shorter than 500 characters
+# (lengths noted at the end).
+#   candidate-fit run --task jd_extraction --backend local --local-model gemma-4-26b-a4b --ids-file config/jd_extraction_25_ids.txt
+JD-000002
+JD-000016
+JD-000160
+JD-000314
+JD-000753
+JD-001896
+JD-001951
+JD-003899
+JD-008861
+JD-011997
+JD-013090
+JD-016936
+JD-000961
+JD-002855
+JD-004150
+JD-006259
+JD-009644
+JD-014476
+JD-000305
+JD-015413
+# new, shorter than 500 characters
+JD-002442
+JD-006993
+JD-011115
+JD-015240
+JD-016637
+# lengths in characters: 002442=441, 006993=448, 011115=434, 015240=455, 016637=445
