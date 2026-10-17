@@ -60,6 +60,7 @@ CSV_COLUMNS = [
     "needs_human_review",
     "token_count",
     "token_per_sec",
+    "thinking_tokens",
     "output_tokens",
     "output",
 ]
@@ -174,6 +175,7 @@ def _new_metrics(stage: str) -> dict[str, Any]:
         "attempts": 0,
         "input_tokens": 0,
         "output_tokens": 0,
+        "thinking_tokens": None,  # None until the orchestrator reports it
         "latency_seconds": 0.0,
         "finish_reason": None,
         "cached": False,
@@ -202,6 +204,8 @@ def run_stage(client: Any, *, stage: str, system_prompt: str, user_prompt: str, 
         metrics["attempts"] = attempt
         metrics["input_tokens"] += int(usage.get("input_tokens") or 0)
         metrics["output_tokens"] += int(usage.get("output_tokens") or 0)
+        if usage.get("thinking_tokens") is not None:
+            metrics["thinking_tokens"] = (metrics["thinking_tokens"] or 0) + int(usage["thinking_tokens"])
         metrics["latency_seconds"] = round(metrics["latency_seconds"] + completion.latency_seconds, 4)
         metrics["finish_reason"] = completion.finish_reason
         raw = completion.content
@@ -438,6 +442,8 @@ def stage_export(args: argparse.Namespace) -> None:
             input_tokens = sum(s.get("input_tokens") or 0 for s in stages)
             output_tokens = sum(s.get("output_tokens") or 0 for s in stages)
             seconds = sum(s.get("latency_seconds") or 0 for s in stages)
+            reported = [s["thinking_tokens"] for s in stages if s.get("thinking_tokens") is not None]
+            thinking = sum(reported) if reported else ""  # blank when no stage reported it
             ok = bool(record) and record.get("status") == "ok"
             result = (record or {}).get("result") or {}
             if not record:
@@ -461,6 +467,7 @@ def stage_export(args: argparse.Namespace) -> None:
                     "needs_human_review": result.get("needs_human_review", "") if ok else "",
                     "token_count": input_tokens or "",
                     "token_per_sec": round(output_tokens / seconds, 2) if ok and seconds and output_tokens else "",
+                    "thinking_tokens": thinking,
                     "output_tokens": output_tokens or "",
                     "output": output,
                 }

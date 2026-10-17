@@ -173,3 +173,28 @@ def test_status_check_gives_up_when_the_service_never_answers(monkeypatch):
     monkeypatch.setattr(pv2.time, "sleep", lambda seconds: None)
     with pytest.raises(ConnectionResetError):
         pv2.get_status(attempts=3)
+
+
+class ThinkingClient(FakeClient):
+    def __init__(self, replies, usages):
+        super().__init__(replies)
+        self.usages = list(usages)
+
+    def complete(self, user_prompt, *, system_prompt, response_schema, stage):
+        completion = super().complete(user_prompt, system_prompt=system_prompt, response_schema=response_schema, stage=stage)
+        return Completion(content=completion.content, usage=self.usages.pop(0), latency_seconds=2.0, finish_reason="stop")
+
+
+def test_thinking_tokens_are_summed_across_retries_when_reported():
+    bad = json.dumps(assessment(work=11))
+    client = ThinkingClient([bad, json.dumps(assessment())], [
+        {"input_tokens": 100, "output_tokens": 40, "thinking_tokens": 7},
+        {"input_tokens": 100, "output_tokens": 40, "thinking_tokens": 5},
+    ])
+    record = score(client)
+    assert record["status"] == "ok" and record["thinking_tokens"] == 12
+
+
+def test_thinking_tokens_stay_unknown_when_the_orchestrator_does_not_report_them():
+    record = score(FakeClient([json.dumps(assessment())]))
+    assert record["thinking_tokens"] is None  # not written as a false 0

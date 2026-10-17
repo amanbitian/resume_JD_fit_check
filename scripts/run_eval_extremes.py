@@ -37,7 +37,7 @@ PROMPTS = {"single_pass": "single-pass", "optimized": "optimized"}
 # lane -> (model catalog name, short tag used in file names)
 MODELS = {
     "r9700": ("Qwen3.8-27B-Q4_K_M", "qwen3.8-27b"),
-    "9070xt": ("gemma-4-12B-it-QAT-Q4_0", "gemma-4-12b"),
+    "9070xt": ("Qwen3.5-4B-Q4_K_M", "qwen3.5-4b"),
 }
 CSV_COLUMNS = [
     "pair_id",

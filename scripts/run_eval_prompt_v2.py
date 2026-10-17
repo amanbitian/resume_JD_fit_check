@@ -64,6 +64,7 @@ CSV_COLUMNS = [
     "score_breakdown",
     "token_count",
     "token_per_sec",
+    "thinking_tokens",
     "output_tokens",
     "output",
 ]
@@ -195,7 +196,9 @@ def score_pair(client: Any, record: Any, *, kit: Any, system_prompt: str, attemp
         "prompt_version": "Prompt_v2 compact-v4.1",
         "prompt_sha256": prompt_hash(system_prompt),
     }
-    metrics: dict[str, Any] = {"attempts": 0, "input_tokens": 0, "output_tokens": 0, "latency_seconds": 0.0, "finish_reason": None}
+    # thinking_tokens stays None unless the orchestrator reports it, so "not reported" is not written as 0.
+    metrics: dict[str, Any] = {"attempts": 0, "input_tokens": 0, "output_tokens": 0, "thinking_tokens": None,
+                               "latency_seconds": 0.0, "finish_reason": None}
     user_prompt = json.dumps({"job_description": record.job_description, "resume": record.resume}, ensure_ascii=False)
     raw = ""
     last_error: Exception = ValueError("no attempt")
@@ -213,6 +216,8 @@ def score_pair(client: Any, record: Any, *, kit: Any, system_prompt: str, attemp
         usage = completion.usage or {}
         metrics["input_tokens"] += int(usage.get("input_tokens") or 0)
         metrics["output_tokens"] += int(usage.get("output_tokens") or 0)
+        if usage.get("thinking_tokens") is not None:
+            metrics["thinking_tokens"] = (metrics["thinking_tokens"] or 0) + int(usage["thinking_tokens"])
         metrics["latency_seconds"] = round(metrics["latency_seconds"] + completion.latency_seconds, 4)
         metrics["finish_reason"] = completion.finish_reason
         raw = completion.content
@@ -279,6 +284,12 @@ def stage_run(args: argparse.Namespace) -> None:
         model, tag = MODELS[lane]
         counters: dict[str, Any] = {"lane": lane, "scored": 0, "errors": 0, "skipped": 0}
         loaded = False
+        out_path = OUT_DIR / f"{tag}-prompt_v2.jsonl"
+        done = {pair_id for pair_id, row in current_records(out_path, system_hash).items() if row.get("status") == "ok"}
+        if all(record.pair_id in done for record in records):
+            counters["skipped"] = len(records)
+            log(f"{tag}: all {len(records)} pairs already scored with this prompt; not loading {model}")
+            return counters
         try:
             loaded = ensure_lane(lane, model, input_tokens=input_tokens, max_output_tokens=args.max_output_tokens)
             client = DualGPUClient(
@@ -291,8 +302,6 @@ def stage_run(args: argparse.Namespace) -> None:
                 retries=1,
                 max_tokens=args.max_output_tokens,
             )
-            out_path = OUT_DIR / f"{tag}-prompt_v2.jsonl"
-            done = {pair_id for pair_id, row in current_records(out_path, system_hash).items() if row.get("status") == "ok"}
             for record in records:
                 if record.pair_id in done:
                     counters["skipped"] += 1
@@ -359,6 +368,7 @@ def stage_export(args: argparse.Namespace) -> None:
                     "score_breakdown": breakdown,
                     "token_count": (record or {}).get("input_tokens") or "",
                     "token_per_sec": round(output_tokens / seconds, 2) if ok and seconds and output_tokens else "",
+                    "thinking_tokens": _cell((record or {}).get("thinking_tokens")),
                     "output_tokens": output_tokens or "",
                     "output": output,
                 }

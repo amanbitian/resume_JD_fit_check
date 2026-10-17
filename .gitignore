@@ -14,3 +14,5 @@ metrics/
 .candidate-fit-client.json
 *.sqlite3
 
+
+Input/Candidate_JD_eval_159k.parquet

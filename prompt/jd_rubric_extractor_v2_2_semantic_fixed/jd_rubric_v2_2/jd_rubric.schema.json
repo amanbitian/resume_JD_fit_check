@@ -1,0 +1,726 @@
+{
+  "type": "object",
+  "properties": {
+    "input_status": {
+      "type": "string",
+      "enum": [
+        "ok",
+        "partial",
+        "not_a_jd",
+        "empty_or_unreadable",
+        "multiple_roles"
+      ]
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "suspicious_instructions_detected": {
+      "type": "boolean"
+    },
+    "job_title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "normalized_title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "role_family": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "seniority": {
+      "type": "string",
+      "enum": [
+        "intern",
+        "entry",
+        "mid",
+        "senior",
+        "lead_principal",
+        "manager",
+        "senior_manager_director",
+        "executive",
+        "unclear"
+      ]
+    },
+    "seniority_basis": {
+      "type": "string",
+      "enum": [
+        "title",
+        "years",
+        "scope",
+        "unclear"
+      ]
+    },
+    "management_scope": {
+      "type": "string",
+      "enum": [
+        "individual_contributor",
+        "people_manager",
+        "either",
+        "unclear"
+      ]
+    },
+    "employment_type": {
+      "type": "string",
+      "enum": [
+        "full_time",
+        "part_time",
+        "contract",
+        "internship",
+        "freelance",
+        "unclear"
+      ]
+    },
+    "work_arrangement": {
+      "type": "string",
+      "enum": [
+        "onsite",
+        "hybrid",
+        "remote",
+        "unclear"
+      ]
+    },
+    "locations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "role_summary": {
+      "type": "string"
+    },
+    "primary_functional_domain": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "software_engineering",
+        "devops_cloud_infrastructure",
+        "quality_assurance_testing",
+        "data_engineering",
+        "data_analytics",
+        "data_science_ai_ml",
+        "security_risk",
+        "it_support_administration",
+        "product_management",
+        "project_program_management",
+        "design_creative",
+        "content_writing_communications",
+        "marketing",
+        "sales_business_development",
+        "customer_success_support",
+        "finance_accounting",
+        "human_resources_recruiting",
+        "operations_supply_chain",
+        "consulting_strategy",
+        "legal_compliance",
+        "research_science",
+        "teaching_training",
+        "healthcare_clinical",
+        "electrical_electronics_engineering",
+        "mechanical_engineering",
+        "civil_engineering",
+        "administrative",
+        "other",
+        null
+      ]
+    },
+    "secondary_functional_domains": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "software_engineering",
+          "devops_cloud_infrastructure",
+          "quality_assurance_testing",
+          "data_engineering",
+          "data_analytics",
+          "data_science_ai_ml",
+          "security_risk",
+          "it_support_administration",
+          "product_management",
+          "project_program_management",
+          "design_creative",
+          "content_writing_communications",
+          "marketing",
+          "sales_business_development",
+          "customer_success_support",
+          "finance_accounting",
+          "human_resources_recruiting",
+          "operations_supply_chain",
+          "consulting_strategy",
+          "legal_compliance",
+          "research_science",
+          "teaching_training",
+          "healthcare_clinical",
+          "electrical_electronics_engineering",
+          "mechanical_engineering",
+          "civil_engineering",
+          "administrative",
+          "other"
+        ]
+      }
+    },
+    "functional_subdomains": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "primary_industry_domain": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "technology_software",
+        "it_services_outsourcing",
+        "edtech_education",
+        "financial_services_banking",
+        "fintech_payments",
+        "insurance",
+        "healthcare_life_sciences",
+        "ecommerce_retail_consumer",
+        "manufacturing_industrial",
+        "automotive_aerospace",
+        "energy_utilities",
+        "telecommunications",
+        "media_entertainment_gaming",
+        "advertising_marketing_services",
+        "professional_services_consulting",
+        "government_public_sector",
+        "transportation_logistics",
+        "real_estate_construction",
+        "hospitality_travel",
+        "agriculture",
+        "nonprofit",
+        "other",
+        null
+      ]
+    },
+    "secondary_industry_domains": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "technology_software",
+          "it_services_outsourcing",
+          "edtech_education",
+          "financial_services_banking",
+          "fintech_payments",
+          "insurance",
+          "healthcare_life_sciences",
+          "ecommerce_retail_consumer",
+          "manufacturing_industrial",
+          "automotive_aerospace",
+          "energy_utilities",
+          "telecommunications",
+          "media_entertainment_gaming",
+          "advertising_marketing_services",
+          "professional_services_consulting",
+          "government_public_sector",
+          "transportation_logistics",
+          "real_estate_construction",
+          "hospitality_travel",
+          "agriculture",
+          "nonprofit",
+          "other"
+        ]
+      }
+    },
+    "industry_subdomains": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "domain_rationale": {
+      "type": "string"
+    },
+    "key_responsibilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^D[1-9][0-9]*$"
+          },
+          "responsibility": {
+            "type": "string"
+          },
+          "importance": {
+            "type": "string",
+            "enum": [
+              "core",
+              "secondary"
+            ]
+          },
+          "source_quote": {
+            "type": "string",
+            "maxLength": 160
+          }
+        },
+        "required": [
+          "id",
+          "responsibility",
+          "importance",
+          "source_quote"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^S[1-9][0-9]*$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "raw": {
+            "type": "string"
+          },
+          "skill_type": {
+            "type": "string",
+            "enum": [
+              "technical",
+              "tool",
+              "domain_knowledge",
+              "process_method",
+              "interpersonal"
+            ]
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "mandatory",
+              "preferred"
+            ]
+          },
+          "importance": {
+            "type": "string",
+            "enum": [
+              "critical",
+              "important",
+              "supporting"
+            ]
+          },
+          "priority_origin": {
+            "type": "string",
+            "enum": [
+              "explicit",
+              "heading",
+              "responsibility",
+              "inferred"
+            ]
+          },
+          "hard_gate_explicit": {
+            "type": "boolean"
+          },
+          "any_of_group": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^G[1-9][0-9]*$"
+          },
+          "min_years": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "expected_level": {
+            "type": "string",
+            "enum": [
+              "basic",
+              "working",
+              "advanced",
+              "expert",
+              "unspecified"
+            ]
+          },
+          "jd_evidence": {
+            "type": "string"
+          },
+          "source_quote": {
+            "type": "string",
+            "maxLength": 160
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "raw",
+          "skill_type",
+          "priority",
+          "importance",
+          "priority_origin",
+          "hard_gate_explicit",
+          "any_of_group",
+          "min_years",
+          "expected_level",
+          "jd_evidence",
+          "source_quote"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "any_of_groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^G[1-9][0-9]*$"
+          },
+          "description": {
+            "type": "string"
+          },
+          "member_skill_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "min_required": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "open_category": {
+            "type": "boolean"
+          },
+          "category_label": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "mandatory",
+              "preferred"
+            ]
+          },
+          "importance": {
+            "type": "string",
+            "enum": [
+              "critical",
+              "important",
+              "supporting"
+            ]
+          },
+          "priority_origin": {
+            "type": "string",
+            "enum": [
+              "explicit",
+              "heading",
+              "responsibility",
+              "inferred"
+            ]
+          },
+          "hard_gate_explicit": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "description",
+          "member_skill_ids",
+          "min_required",
+          "open_category",
+          "category_label",
+          "priority",
+          "importance",
+          "priority_origin",
+          "hard_gate_explicit"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "top_critical_skill_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "critical_skill_rationale": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "why": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "why"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "experience_requirement": {
+      "type": "object",
+      "properties": {
+        "min_years": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "max_years": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "basis": {
+          "type": "string",
+          "enum": [
+            "total",
+            "relevant",
+            "unclear"
+          ]
+        },
+        "priority": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "mandatory",
+            "preferred",
+            null
+          ]
+        },
+        "hard_gate_explicit": {
+          "type": "boolean"
+        },
+        "jd_evidence": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "min_years",
+        "max_years",
+        "basis",
+        "priority",
+        "hard_gate_explicit",
+        "jd_evidence"
+      ],
+      "additionalProperties": false
+    },
+    "education_requirement": {
+      "type": "object",
+      "properties": {
+        "min_level": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "secondary",
+            "diploma",
+            "bachelor",
+            "postgraduate_diploma",
+            "master",
+            "mba_pgdm",
+            "doctorate",
+            "other",
+            null
+          ]
+        },
+        "accepted_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "priority": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "mandatory",
+            "preferred",
+            null
+          ]
+        },
+        "equivalent_experience_accepted": {
+          "type": "boolean"
+        },
+        "hard_gate_explicit": {
+          "type": "boolean"
+        },
+        "jd_evidence": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "min_level",
+        "accepted_fields",
+        "priority",
+        "equivalent_experience_accepted",
+        "hard_gate_explicit",
+        "jd_evidence"
+      ],
+      "additionalProperties": false
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^R[1-9][0-9]*$"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "certification",
+              "domain_experience",
+              "role_experience",
+              "management_experience",
+              "language",
+              "location",
+              "work_authorization",
+              "travel_shift",
+              "other"
+            ]
+          },
+          "requirement": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "mandatory",
+              "preferred"
+            ]
+          },
+          "importance": {
+            "type": "string",
+            "enum": [
+              "critical",
+              "important",
+              "supporting"
+            ]
+          },
+          "priority_origin": {
+            "type": "string",
+            "enum": [
+              "explicit",
+              "heading",
+              "responsibility",
+              "inferred"
+            ]
+          },
+          "hard_gate_explicit": {
+            "type": "boolean"
+          },
+          "min_years": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "jd_evidence": {
+            "type": "string"
+          },
+          "source_quote": {
+            "type": "string",
+            "maxLength": 160
+          }
+        },
+        "required": [
+          "id",
+          "category",
+          "requirement",
+          "priority",
+          "importance",
+          "priority_origin",
+          "hard_gate_explicit",
+          "min_years",
+          "jd_evidence",
+          "source_quote"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "ambiguities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "input_status",
+    "warnings",
+    "suspicious_instructions_detected",
+    "job_title",
+    "normalized_title",
+    "role_family",
+    "seniority",
+    "seniority_basis",
+    "management_scope",
+    "employment_type",
+    "work_arrangement",
+    "locations",
+    "role_summary",
+    "primary_functional_domain",
+    "secondary_functional_domains",
+    "functional_subdomains",
+    "primary_industry_domain",
+    "secondary_industry_domains",
+    "industry_subdomains",
+    "domain_rationale",
+    "key_responsibilities",
+    "skills",
+    "any_of_groups",
+    "top_critical_skill_ids",
+    "critical_skill_rationale",
+    "experience_requirement",
+    "education_requirement",
+    "requirements",
+    "ambiguities"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Canonical JD Rubric v2.1 — strict compatibility schema",
+  "description": "All fields required; no extra wrappers or renamed keys. Source quote and cross-field integrity require separate application validation."
+}

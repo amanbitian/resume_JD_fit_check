@@ -1,0 +1,195 @@
+{
+  "runs": 12,
+  "cache_valid": 9,
+  "results": [
+    {
+      "jd_id": "JD-000002",
+      "model": "Qwen3.8-27B-Q4_K_M",
+      "finish_reason": "stop",
+      "valid_for_cache": false,
+      "accepted_for_scoring": false,
+      "needs_rubric_review": true,
+      "errors": [
+        "MISSING_OPEN_ALTERNATIVE_GROUP: ['Salesforce', 'ServiceNow'] must share one G# group"
+      ],
+      "warnings": [
+        "LOGISTICS_POLICY_REVIEW: Explicit work_authorization policy should preserve non-negotiable wording; do not use as a technical-fit gate",
+        "LOGISTICS_POLICY_REVIEW: Explicit location policy should preserve non-negotiable wording; do not use as a technical-fit gate"
+      ],
+      "coverage": [],
+      "input_status": "ok",
+      "parsed_after_fence_normalization": true
+    },
+    {
+      "jd_id": "JD-000016",
+      "model": "Qwen3.8-27B-Q4_K_M",
+      "finish_reason": "stop",
+      "valid_for_cache": true,
+      "accepted_for_scoring": true,
+      "needs_rubric_review": false,
+      "errors": [],
+      "warnings": [],
+      "coverage": [],
+      "input_status": "ok",
+      "parsed_after_fence_normalization": true
+    },
+    {
+      "jd_id": "JD-000160",
+      "model": "Qwen3.8-27B-Q4_K_M",
+      "finish_reason": "stop",
+      "valid_for_cache": true,
+      "accepted_for_scoring": true,
+      "needs_rubric_review": false,
+      "errors": [],
+      "warnings": [],
+      "coverage": [],
+      "input_status": "partial",
+      "parsed_after_fence_normalization": true
+    },
+    {
+      "jd_id": "JD-000314",
+      "model": "Qwen3.8-27B-Q4_K_M",
+      "finish_reason": "stop",
+      "valid_for_cache": true,
+      "accepted_for_scoring": true,
+      "needs_rubric_review": false,
+      "errors": [],
+      "warnings": [],
+      "coverage": [],
+      "input_status": "partial",
+      "parsed_after_fence_normalization": true
+    },
+    {
+      "jd_id": "JD-000753",
+      "model": "Qwen3.8-27B-Q4_K_M",
+      "finish_reason": "stop",
+      "valid_for_cache": true,
+      "accepted_for_scoring": true,
+      "needs_rubric_review": false,
+      "errors": [],
+      "warnings": [],
+      "coverage": [
+        "mustskills entries checked: 10",
+        "goodskills entries checked: 6"
+      ],
+      "input_status": "ok",
+      "parsed_after_fence_normalization": true
+    },
+    {
+      "jd_id": "JD-001896",
+      "model": "Qwen3.8-27B-Q4_K_M",
+      "finish_reason": "stop",
+      "valid_for_cache": true,
+      "accepted_for_scoring": true,
+      "needs_rubric_review": false,
+      "errors": [],
+      "warnings": [],
+      "coverage": [
+        "mustskills entries checked: 10",
+        "goodskills entries checked: 6"
+      ],
+      "input_status": "ok",
+      "parsed_after_fence_normalization": true
+    },
+    {
+      "jd_id": "JD-001951",
+      "model": "Qwen3.8-27B-Q4_K_M",
+      "finish_reason": "stop",
+      "valid_for_cache": true,
+      "accepted_for_scoring": true,
+      "needs_rubric_review": false,
+      "errors": [],
+      "warnings": [],
+      "coverage": [
+        "mustskills entries checked: 5",
+        "goodskills entries checked: 4"
+      ],
+      "input_status": "partial",
+      "parsed_after_fence_normalization": true
+    },
+    {
+      "jd_id": "JD-003899",
+      "model": "Qwen3.8-27B-Q4_K_M",
+      "finish_reason": "stop",
+      "valid_for_cache": true,
+      "accepted_for_scoring": true,
+      "needs_rubric_review": false,
+      "errors": [],
+      "warnings": [],
+      "coverage": [
+        "mustskills entries checked: 10",
+        "goodskills entries checked: 6"
+      ],
+      "input_status": "ok",
+      "parsed_after_fence_normalization": true
+    },
+    {
+      "jd_id": "JD-008861",
+      "model": "Qwen3.8-27B-Q4_K_M",
+      "finish_reason": "stop",
+      "valid_for_cache": false,
+      "accepted_for_scoring": false,
+      "needs_rubric_review": true,
+      "errors": [
+        "MISSING_EXPLICIT_OTHER_SKILL: otherskills lists 'problem solving' but skills does not contain it"
+      ],
+      "warnings": [],
+      "coverage": [
+        "mustskills entries checked: 5",
+        "goodskills entries checked: 3"
+      ],
+      "input_status": "partial",
+      "parsed_after_fence_normalization": true
+    },
+    {
+      "jd_id": "JD-011997",
+      "model": "Qwen3.8-27B-Q4_K_M",
+      "finish_reason": "stop",
+      "valid_for_cache": true,
+      "accepted_for_scoring": true,
+      "needs_rubric_review": false,
+      "errors": [],
+      "warnings": [],
+      "coverage": [
+        "mustskills entries checked: 10",
+        "goodskills entries checked: 6"
+      ],
+      "input_status": "ok",
+      "parsed_after_fence_normalization": true
+    },
+    {
+      "jd_id": "JD-013090",
+      "model": "Qwen3.8-27B-Q4_K_M",
+      "finish_reason": "stop",
+      "valid_for_cache": true,
+      "accepted_for_scoring": true,
+      "needs_rubric_review": false,
+      "errors": [],
+      "warnings": [],
+      "coverage": [
+        "mustskills entries checked: 10",
+        "goodskills entries checked: 6"
+      ],
+      "input_status": "ok",
+      "parsed_after_fence_normalization": true
+    },
+    {
+      "jd_id": "JD-016936",
+      "model": "Qwen3.8-27B-Q4_K_M",
+      "finish_reason": "stop",
+      "valid_for_cache": false,
+      "accepted_for_scoring": false,
+      "needs_rubric_review": true,
+      "errors": [
+        "MISSING_EXPLICIT_OTHER_SKILL: otherskills lists 'problem solving' but skills does not contain it"
+      ],
+      "warnings": [],
+      "coverage": [
+        "mustskills entries checked: 5",
+        "goodskills entries checked: 3"
+      ],
+      "input_status": "ok",
+      "parsed_after_fence_normalization": true
+    }
+  ]
+}

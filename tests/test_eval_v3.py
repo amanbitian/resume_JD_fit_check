@@ -148,3 +148,24 @@ def test_parse_first_json_object_ignores_trailing_text():
     assert v3.parse_first_json_object('```json\n{"a": 1}\n```\nextra {"b": 2}') == {"a": 1}
     with pytest.raises(ValueError):
         v3.parse_first_json_object("no json here")
+
+
+def test_stage_thinking_tokens_are_summed_across_retries():
+    from candidate_fit.client import Completion as _Completion
+
+    class Reporting:
+        model = "fake"
+        lane = "r9700"
+
+        def __init__(self):
+            self.usages = [
+                {"input_tokens": 10, "output_tokens": 5, "thinking_tokens": 3},
+                {"input_tokens": 10, "output_tokens": 5, "thinking_tokens": 4},
+            ]
+            self.replies = ["not json", json.dumps({"ok": True})]
+
+        def complete(self, user_prompt, *, system_prompt, response_schema, stage):
+            return _Completion(content=self.replies.pop(0), usage=self.usages.pop(0), latency_seconds=1.0, finish_reason="stop")
+
+    _value, _raw, metrics = v3.run_stage(Reporting(), stage="s", system_prompt="p", user_prompt="u", validate=lambda v: None)
+    assert metrics["thinking_tokens"] == 7 and metrics["attempts"] == 2

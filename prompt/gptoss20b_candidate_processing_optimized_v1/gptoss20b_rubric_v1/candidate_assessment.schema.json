@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Candidate evidence assessment v2 compatibility",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "scored",
+        "unscorable"
+      ]
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^R[1-9][0-9]*$"
+          },
+          "jd": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "skill",
+              "responsibility",
+              "education",
+              "experience",
+              "other"
+            ]
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "mandatory",
+              "preferred",
+              "unclear"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "met",
+              "partial",
+              "not_evidenced",
+              "uncertain"
+            ]
+          },
+          "quote": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "jd",
+          "kind",
+          "priority",
+          "status",
+          "quote"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "work": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 10
+    },
+    "role": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 10
+    },
+    "years": {
+      "type": "object",
+      "properties": {
+        "required": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "relevant": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "certain": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "required",
+        "relevant",
+        "certain"
+      ],
+      "additionalProperties": false
+    },
+    "reason": {
+      "type": "string"
+    },
+    "review": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "status",
+    "checks",
+    "work",
+    "role",
+    "years",
+    "reason",
+    "review"
+  ],
+  "additionalProperties": false
+}

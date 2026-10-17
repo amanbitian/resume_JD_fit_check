@@ -1,0 +1,3834 @@
+﻿"item_id","jd","model","status","attempt","finish_reason","json_valid","input_status","validator_warnings","input_tokens","output_tokens","thinking_tokens","tokens_per_sec","prefill_tokens_per_sec","latency_seconds","error","output"
+"JD-000002","Personal development and becoming the best you is all about growth and exploring new skills and opportunities  both in and out of the office. At Accruent, we call this Grow Without Limits, and were proud to offer each of our employees the resources, coaching and support necessary to achieve Growth Without Limits in their personal and professional lives. Explore where the path takes you.
+Why You Want To Work For Our Engineering Team
+The Engineering team is vital to the success of our current and emerging software developments. As part of this team, you will be able to deliver enhancements and customizations on new and existing products to make an impact for the business and our customers. As we continue to expand our product suite, we look for innovative team members to persevere in the ever-changing environment of technology. Our goal is to optimize our products to make sure our customers are mission ready!
+The Software Engineer is responsible for coding, testing, and implementing products for Accruents Maintenance Connection Enterprise Asset Management software suite. Responsibilities include mentoring entry level Software Associates, reviewing technical requirements, and developing code in a variety of programming languages for a web-based enterprise application.
+The ideal candidate will be highly motivated and have a passion for technology and creative problem solving. If you are self-driven, enjoy working in a team environment, have an entrepreneurial spirit and enjoy creating innovative solutions to sophisticated problems, Accruent may be a fit for you!
+This role will be working onwith our Maintenance Connection product within the Asset Management Services industry. Maintenance Connections software optimizes maintenance operations, delivering the critical insights and centralized data needed for better decision-making, lower costs, and total compliance with federal and state reporting, indirect cost audits and sustainability requirements.
+This position reports directly to the Engineering Manager.
+How You'll Make a Difference
+Create code that meets design specifications, follows standards, and is easy to maintain . When required, makes suggestions for new designs.Perform and design testing protocols to ensure that the product is fully tested.Ensure that all enhancements, bug fixes, and new products are documented.Work with various teams in the organization to ensure appropriate project requirements are met.Mentor entry level Software Associates on engineering and company best practices.Ability to teach other non-technical customersother team members information about the code.Participate in a Development team that is responsible for developing quality software.Create product using a test-driven design approach.Ability to carry out all policies and procedures as established by the team, department or company at large.Consistently demonstrate Accruents values: grit, integrity, drive to excellence, results orientation, winning attitude, humility.
+What You Bring To The Table
+Bachelors Degree in Computer Science or equivalent experience.2+ years of professional software development experience.Expertise in the following: JavaScript, Node.js ecosystem, HTML, CSSExperience with .NET Framework 3.5, MVC, Entity Framework, OData, React + ReduxSQL-likeRelational database design and usageClear understanding of software development practices and lifecycles.Solid understanding of Object-Oriented concepts.Knowledge of or familiarity with REST APIs.Self-reliant and motivated self-starter.Project and task oriented with a focus on details.Ability to work well within group or individually on projects.
+Preferred Skillsexperience
+Experience with industry best practices and Agile development methodologiesAn appreciation for unit testing and test-driven development (TDD)Curiosity about new technologies & languagesFamiliarity with developing on an enterprise-level SaaS (Salesforce, ServiceNow, etc.)
+Please Note
+This job does not require travel domestically or internationally, This is a full-time, exempt opportunity. Relocation will not be considered for this position. At this time, visa sponsorship is not available. 
+The salary range for this position is $77,200 - $143,400. This position is also eligible for a bonus as part of the compensation package.
+Base pay offered may vary depending on various factors, including, but not limited to: job-related knowledge; skills; experience; and other eligibility factors such as geographic location. The Total Rewards package includes competitive base pay and an opportunity to enroll in a variety of benefit programs, generally including health insurance, flexible spending accounts, health savings accounts, retirement savings plans, life and disability insurance programs, and several programs that provide for both paid and unpaid time away from work.
+About Accruent
+At Accruent (a subsidiary or affiliate of Fortive Corporation), we strive to be on the cutting edge of the software world, providing purpose-built intelligent solutions that raise customer expectations, shift paradigms and transform the way businesses operate and achieve success.
+We aim to provide the same transformational growth for our 1,000+ employees which includes a vibrant office culture in major cities like Austin and Amsterdam  and 10,000 customers in more than 150 countries  we know youll gain new experiences along the way. In our continued effort to help our teams Grow Without Limits, we provide all employees with the resources, coaching and support they need to reach new heights and experience true professional and personal development  and we do this because we believe it will help us grow as a global company in return.
+Every person can bring something incredible to the table, and we can always achieve more together. So, if you are courageous, adaptable, collaborative and interested in becoming the best you, we encourage you to join us for the ride  even if you dont believe you have the exact experience to fill a particular role.
+Explore the path. Join Accruent.
+About Fortive
+Fortives essential technology makes the world stronger, safer, and smarter. We accelerate transformation across a broad range of applications including environmental, health and safety compliance, industrial condition monitoring, next-generation product design, and healthcare safety solutions.
+We are a global industrial technology innovator with a startup spirit. Our forward-looking companies lead the way in software-powered workflow solutions, data-driven intelligence, AI-powered automation, and other disruptive technologies. Were a force for progress, working alongside our customers and partners to solve challenges on a global scale, from workplace safety in the most demanding conditions to groundbreaking sustainability solutions.
+We are a diverse team 17,000 strong, united by a dynamic, inclusive culture and energized by limitless learning and growth. We use the proven Fortive Business System (FBS) to accelerate our positive impact.
+At Fortive, we believe in you. We believe in your potentialyour ability to learn, grow, and make a difference. At Fortive, we believe in us. We believe in the power of people working together to solve problems no one could solve alone. At Fortive, we believe in growth. Were honest about whats working and what isnt, and we never stop improving and innovating.
+Fortive: For you, for us, for growth.
+Fortive Corporation and all Fortive Companies are proud to be equal opportunity employers. We value and encourage diversity and solicit applications from all qualified applicants without regard to race, color, national origin, religion, sex, age, marital status, disability, veteran status, sexual orientation, gender identity or expression, or other characteristics protected by law. Fortive and all Fortive Companies are also committed to providing reasonable accommodations for applicants with disabilities. Individuals who need a reasonable accommodation because of a disability for any part of the employment process should ask to speak with a Human Resources representative to request an accommodation.
+","Qwen3.8-27B-Q4_K_M","ok","1","stop","True","ok","HARD_GATE_QUOTE_WEAK: R1: quote lacks hard-minimum wording; inspect full JD context; HARD_GATE_QUOTE_WEAK: R2: quote lacks hard-minimum wording; inspect full JD context","4151","4184","","31.239","1177.342","142.583","","{
+  ""input_status"": ""ok"",
+  ""warnings"": [
+    ""Ambiguous slash-separated skills: .NET Framework 3.5, MVC, Entity Framework, OData, React + Redux"",
+    ""Ambiguous slash-separated skills: SQL-likeRelational database design and usage"",
+    ""Ambiguous slash-separated skills: Salesforce, ServiceNow, etc."",
+    ""Ambiguous slash-separated skills: JavaScript, Node.js ecosystem, HTML, CSS"",
+    ""Ambiguous slash-separated skills: JavaScript, Node.js ecosystem, HTML, CSS""
+  ],
+  ""suspicious_instructions_detected"": false,
+  ""job_title"": ""Software Engineer"",
+  ""normalized_title"": ""Software Engineer"",
+  ""role_family"": ""software_engineering"",
+  ""seniority"": ""mid"",
+  ""seniority_basis"": ""years"",
+  ""management_scope"": ""individual_contributor"",
+  ""employment_type"": ""full_time"",
+  ""work_arrangement"": ""unclear"",
+  ""locations"": [],
+  ""role_summary"": ""Develop, test, and maintain code for Accruent's Maintenance Connection enterprise asset management software, mentoring junior staff and collaborating on product enhancements."",
+  ""primary_functional_domain"": ""software_engineering"",
+  ""secondary_functional_domains"": [],
+  ""functional_subdomains"": [
+    ""web_development"",
+    ""enterprise_software"",
+    ""asset_management""
+  ],
+  ""primary_industry_domain"": ""technology_software"",
+  ""secondary_industry_domains"": [
+    ""manufacturing_industrial""
+  ],
+  ""industry_subdomains"": [
+    ""asset_management_software"",
+    ""maintenance_operations""
+  ],
+  ""domain_rationale"": ""Role involves coding for a web-based enterprise asset management product, focusing on software development and maintenance within the industrial technology sector."",
+  ""key_responsibilities"": [
+    {
+      ""id"": ""D1"",
+      ""responsibility"": ""Create code meeting design specifications and standards"",
+      ""importance"": ""core"",
+      ""source_quote"": ""Create code that meets design specifications, follows standards, and is easy to maintain""
+    },
+    {
+      ""id"": ""D2"",
+      ""responsibility"": ""Design and perform testing protocols"",
+      ""importance"": ""core"",
+      ""source_quote"": ""Perform and design testing protocols to ensure that the product is fully tested""
+    },
+    {
+      ""id"": ""D3"",
+      ""responsibility"": ""Document enhancements, bug fixes, and new products"",
+      ""importance"": ""core"",
+      ""source_quote"": ""Ensure that all enhancements, bug fixes, and new products are documented""
+    },
+    {
+      ""id"": ""D4"",
+      ""responsibility"": ""Collaborate with teams to meet project requirements"",
+      ""importance"": ""core"",
+      ""source_quote"": ""Work with various teams in the organization to ensure appropriate project requirements are met""
+    },
+    {
+      ""id"": ""D5"",
+      ""responsibility"": ""Mentor entry-level Software Associates"",
+      ""importance"": ""secondary"",
+      ""source_quote"": ""Mentor entry level Software Associates on engineering and company best practices""
+    },
+    {
+      ""id"": ""D6"",
+      ""responsibility"": ""Teach non-technical customers about code"",
+      ""importance"": ""secondary"",
+      ""source_quote"": ""Ability to teach other non-technical customersother team members information about the code""
+    },
+    {
+      ""id"": ""D7"",
+      ""responsibility"": ""Develop software using test-driven design"",
+      ""importance"": ""core"",
+      ""source_quote"": ""Create product using a test-driven design approach""
+    },
+    {
+      ""id"": ""D8"",
+      ""responsibility"": ""Review technical requirements"",
+      ""importance"": ""secondary"",
+      ""source_quote"": ""reviewing technical requirements""
+    }
+  ],
+  ""skills"": [
+    {
+      ""id"": ""S1"",
+      ""name"": ""JavaScript"",
+      ""raw"": ""JavaScript"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""critical"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Listed under expertise in required skills"",
+      ""source_quote"": ""Expertise in the following: JavaScript, Node.js ecosystem, HTML, CSS""
+    },
+    {
+      ""id"": ""S2"",
+      ""name"": ""Node.js"",
+      ""raw"": ""Node.js ecosystem"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""critical"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Listed under expertise in required skills"",
+      ""source_quote"": ""Expertise in the following: JavaScript, Node.js ecosystem, HTML, CSS""
+    },
+    {
+      ""id"": ""S3"",
+      ""name"": ""HTML"",
+      ""raw"": ""HTML"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Listed under expertise in required skills"",
+      ""source_quote"": ""Expertise in the following: JavaScript, Node.js ecosystem, HTML, CSS""
+    },
+    {
+      ""id"": ""S4"",
+      ""name"": ""CSS"",
+      ""raw"": ""CSS"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Listed under expertise in required skills"",
+      ""source_quote"": ""Expertise in the following: JavaScript, Node.js ecosystem, HTML, CSS""
+    },
+    {
+      ""id"": ""S5"",
+      ""name"": "".NET Framework"",
+      ""raw"": "".NET Framework 3.5"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Listed under experience in required skills"",
+      ""source_quote"": ""Experience with .NET Framework 3.5, MVC, Entity Framework, OData, React + Redux""
+    },
+    {
+      ""id"": ""S6"",
+      ""name"": ""MVC"",
+      ""raw"": ""MVC"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Listed under experience in required skills"",
+      ""source_quote"": ""Experience with .NET Framework 3.5, MVC, Entity Framework, OData, React + Redux""
+    },
+    {
+      ""id"": ""S7"",
+      ""name"": ""Entity Framework"",
+      ""raw"": ""Entity Framework"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Listed under experience in required skills"",
+      ""source_quote"": ""Experience with .NET Framework 3.5, MVC, Entity Framework, OData, React + Redux""
+    },
+    {
+      ""id"": ""S8"",
+      ""name"": ""OData"",
+      ""raw"": ""OData"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""basic"",
+      ""jd_evidence"": ""Listed under experience in required skills"",
+      ""source_quote"": ""Experience with .NET Framework 3.5, MVC, Entity Framework, OData, React + Redux""
+    },
+    {
+      ""id"": ""S9"",
+      ""name"": ""React"",
+      ""raw"": ""React"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Listed under experience in required skills"",
+      ""source_quote"": ""Experience with .NET Framework 3.5, MVC, Entity Framework, OData, React + Redux""
+    },
+    {
+      ""id"": ""S10"",
+      ""name"": ""Redux"",
+      ""raw"": ""Redux"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Listed under experience in required skills"",
+      ""source_quote"": ""Experience with .NET Framework 3.5, MVC, Entity Framework, OData, React + Redux""
+    },
+    {
+      ""id"": ""S11"",
+      ""name"": ""SQL"",
+      ""raw"": ""SQL-like"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Listed under required skills"",
+      ""source_quote"": ""SQL-likeRelational database design and usage""
+    },
+    {
+      ""id"": ""S12"",
+      ""name"": ""Relational Database Design"",
+      ""raw"": ""Relational database design and usage"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Listed under required skills"",
+      ""source_quote"": ""SQL-likeRelational database design and usage""
+    },
+    {
+      ""id"": ""S13"",
+      ""name"": ""Object-Oriented Programming"",
+      ""raw"": ""Object-Oriented concepts"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Listed under required skills"",
+      ""source_quote"": ""Solid understanding of Object-Oriented concepts""
+    },
+    {
+      ""id"": ""S14"",
+      ""name"": ""REST APIs"",
+      ""raw"": ""REST APIs"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""basic"",
+      ""jd_evidence"": ""Listed under required skills"",
+      ""source_quote"": ""Knowledge of or familiarity with REST APIs""
+    },
+    {
+      ""id"": ""S15"",
+      ""name"": ""Agile Development"",
+      ""raw"": ""Agile development methodologies"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""basic"",
+      ""jd_evidence"": ""Listed under preferred skills"",
+      ""source_quote"": ""Experience with industry best practices and Agile development methodologies""
+    },
+    {
+      ""id"": ""S16"",
+      ""name"": ""Test-Driven Development"",
+      ""raw"": ""test-driven development (TDD)"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""basic"",
+      ""jd_evidence"": ""Listed under preferred skills"",
+      ""source_quote"": ""An appreciation for unit testing and test-driven development (TDD)""
+    },
+    {
+      ""id"": ""S17"",
+      ""name"": ""Salesforce"",
+      ""raw"": ""Salesforce"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": ""G1"",
+      ""min_years"": null,
+      ""expected_level"": ""basic"",
+      ""jd_evidence"": ""Listed under preferred skills"",
+      ""source_quote"": ""Familiarity with developing on an enterprise-level SaaS (Salesforce, ServiceNow, etc.)""
+    },
+    {
+      ""id"": ""S18"",
+      ""name"": ""ServiceNow"",
+      ""raw"": ""ServiceNow"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": ""G1"",
+      ""min_years"": null,
+      ""expected_level"": ""basic"",
+      ""jd_evidence"": ""Listed under preferred skills"",
+      ""source_quote"": ""Familiarity with developing on an enterprise-level SaaS (Salesforce, ServiceNow, etc.)""
+    }
+  ],
+  ""any_of_groups"": [
+    {
+      ""id"": ""G1"",
+      ""description"": ""Enterprise SaaS platforms"",
+      ""member_skill_ids"": [
+        ""S17"",
+        ""S18""
+      ],
+      ""min_required"": 1,
+      ""open_category"": true,
+      ""category_label"": ""enterprise_saas"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false
+    }
+  ],
+  ""top_critical_skill_ids"": [
+    ""S1"",
+    ""S2""
+  ],
+  ""critical_skill_rationale"": [
+    {
+      ""id"": ""S1"",
+      ""why"": ""Core language for web-based enterprise application development""
+    },
+    {
+      ""id"": ""S2"",
+      ""why"": ""Core runtime environment for backend development""
+    }
+  ],
+  ""experience_requirement"": {
+    ""min_years"": 2,
+    ""max_years"": null,
+    ""basis"": ""relevant"",
+    ""priority"": ""mandatory"",
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""2+ years of professional software development experience""
+  },
+  ""education_requirement"": {
+    ""min_level"": ""bachelor"",
+    ""accepted_fields"": [
+      ""Computer Science""
+    ],
+    ""priority"": ""mandatory"",
+    ""equivalent_experience_accepted"": true,
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""Bachelors Degree in Computer Science or equivalent experience""
+  },
+  ""requirements"": [
+    {
+      ""id"": ""R1"",
+      ""category"": ""work_authorization"",
+      ""requirement"": ""Visa sponsorship not available"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""critical"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": true,
+      ""min_years"": null,
+      ""jd_evidence"": ""At this time, visa sponsorship is not available"",
+      ""source_quote"": ""At this time, visa sponsorship is not available""
+    },
+    {
+      ""id"": ""R2"",
+      ""category"": ""location"",
+      ""requirement"": ""Relocation will not be considered"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": true,
+      ""min_years"": null,
+      ""jd_evidence"": ""Relocation will not be considered for this position"",
+      ""source_quote"": ""Relocation will not be considered for this position""
+    }
+  ],
+  ""ambiguities"": [
+    ""Unclear if .NET Framework 3.5 is strictly required or just experience"",
+    ""Unclear if React and Redux are strictly required or just experience"",
+    ""Unclear if SQL-like implies specific SQL dialect or general SQL knowledge"",
+    ""Unclear if Salesforce/ServiceNow are strictly required or just familiarity"",
+    ""Unclear if 'equivalent experience' for degree has specific year count""
+  ]
+}"
+"JD-000016","The Qualtrics XM Platform is a system of action that helps businesses to attract customers who stay longer and buy more, to engage and empower employees to do the best work of their lives, to develop breakthrough products people love, and to build a brand people cant imagine living without.
+Joining Qualtrics means becoming part of a team bold enough to chase breakthrough experiences - like building a technology that will be a force for good. A team committed to diversity, equity, and inclusion because of a conviction that every voice holds value, with a vision for representation that matches the world around us and inclusion that far exceeds it. You could belong to a team whose values center on transparency, being all in, having customer obsession, acting as one team, and operating with scrappiness. All so you can do the best work of your career.
+We believe every interaction is an opportunity. Are we yours?
+At Qualtrics, we create software the worlds best brands use to deliver exceptional frontline experiences, build high-performing teams, and design products people love. But we are more than a platformwe are the creators and stewards of the Experience Management category serving over 18K clients globally. Building a category takes grit, determination, and a disdain for conventionbut most of all it requires close-knit, high-functioning teams with an unwavering dedication to serving our customers.
+When you join one of our teams, youll be part of a nimble group thats empowered to set aggressive goals and move fast to achieve them. Strategic risks are encouraged and complex problems are solved together, by passing the mic and iterating until the best solution comes to light. You wont have to look to find growth opportunitiesready or not, theyll find you. From retail to government to healthcare, were on a mission to bring humanity, connection, and empathy back to business. Join over 6,000 people across the globe who think thats work worth doing.
+Software Engineer - Intern
+Why We Have This Role
+As a software engineer at Qualtrics, you will be building systems to help our customers both understand and respond to the experience data provided by their customers or employees. Designing systems in an agile environment to withstand hyper growth and owning quality from end to end is a rewarding challenge and one of the reasons Qualtrics is such an exciting place to work!
+How Youll Find Success
+Strong level of curiosityAbility to create trust in customers and teams through thorough communicationTakes initiative and shows scrappiness in getting things doneProven ability to work well in teams - partnering with managers, cross functional teams, and teammatesTakes analytical mindset to approach problems and find solutionsShows desire to learn new skills and grow in the role
+How Youll Grow
+Develop the ability to build scalable, fast, robust, and simple SaaS solutions.Develop familiarity with containerization and full-stack development.Learn to implement new functionality from provided requirements and specifications.Benefit from working with other engineers, tech-ops, and product managersLearn Agile methodologies by attending daily stand-up meetings, prioritizing tasks, and working with a sense of urgency to meet a scheduled plan to deliver value to our customers
+Things Youll Do You'll own a project. It will push you out of your comfort zone, and you'll see meaningful growth as a result.Design distributed, low latency services for ingesting, processing, and aggregating dataBuild integrations with SaaS leaders like Slack, Salesforce, and TableauCreate analytics that identify trends and sentiment in free-form text data using natural language processing and machine learningBuild widgets for visualizing data in dashboards and reportsDevelop an integrated ticketing platform that allows organizations to close the loop on customer feedbackBuild world-class survey editing and survey taking experiences
+What Were Looking For On Your Resume
+Currently studying for a degree in Computer Science, Software Engineering, or Computer EngineeringExperience with Web-related technologies including HTMLCSS and JavaScriptExperience with JavaScript frameworks including angular or nodeExperience with modern programming languages (Java, PHP, Scala)Database  Data Storage experience (SQL  MySQL)Strong level of curiosityMust be legally authorized to work in job location without Qualtrics sponsorship now or in the futureAvailable for a 12 week internship during summer of 2024
+What You Should Know About This Team
+Our team is a collection of extremely passionate engineers who are riding the cutting edge of cloud computing and web scalability. We organize and sort terabytes of data and develop solutions that are used by millions of users every day. We design tools that make sophisticated research simple. Few teams offer such amazing learning opportunities and possibilities for advancement like the Qualtrics Engineering team.
+Our Teams Favorite Perks and Benefits
+Relocation and financial support for housing.We like to retain our high performers. In fact, 85% of our interns receive an offer to return full time after graduation.ExeQtive Chats connect you with our executive team through Q&As and discussions about their career journeys.You'll have opportunities to develop professional skills & learn more about career opportunities though business-specific learning sessions.You'll be assigned a mentor on day one. They'll be a great resource to get advice or direction on your project as well as your personal development and career path.Seattle employees enjoy commuter benefits, weekday catered lunches, and access to the Qualtrics Tower fitness center.
+Must be legally authorized to work in job location without Qualtrics sponsorship now or in the future
+The base pay range for this position is $68.5k - 85.5k per year; however, base pay offered may vary depending on location, job-related knowledge, education, skills, and experience. Relocation assistance may be included in an employment offer, in addition to a range of medical, financial, and other benefits, based on eligibility criteria.
+Qualtrics is an equal opportunity employer meaning that all qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability, status as a protected veteran, or any other protected characteristic.
+Applicants in the United States of America have rights under Federal Employment Laws: Family & Medical Leave Act, Equal Opportunity Employment, Employee Polygraph Protection Act
+Qualtrics is committed to the inclusion of all qualified individuals. As part of this commitment, Qualtrics will ensure that persons with disabilities are provided with reasonable accommodations. If reasonable accommodation is needed to participate in the job application or interview process, to perform essential job functions, andor to receive other benefits and privileges of employment, please let your Qualtrics contactrecruiter know.
+Qualtrics Work Experience - As we look to the future, we believe that our teams are better together. Being together will help us learn more, grow faster and ultimately deliver better results for our customers and Qualtrics. Roles tied to an office location work 4 days per week in the office together and 1 day from home, with a strong spirit of flexibility around taking time for personal, health, and family moments in our work weeks. Our managers work with their teams to create a collaborative, engaged work environment, and arrangement that works for each of our team members.
+Not finding a role thats the right fit for now? Qualtrics Insiders is the one-stop shop for all things Qualtrics Life. Sign up for exclusive access to content created with you in mind and get the scoop on what we have going on at Qualtrics - upcoming events, behind the behind the scenes stories from the team, interview tips, hot jobs, and more. No spam - we promise! You'll hear from us two times a month max with fresh, totally tailored info - so be sure to stay connected as you explore your best role and company fit.","Qwen3.8-27B-Q4_K_M","ok","1","stop","True","ok","","4211","3852","","31.185","1020.144","129.282","","{
+  ""input_status"": ""ok"",
+  ""warnings"": [
+    ""JD mentions summer 2024, reference date is 2026"",
+    ""Ambiguous slash-separated skills (HTMLCSS, SQL MySQL)""
+  ],
+  ""suspicious_instructions_detected"": false,
+  ""job_title"": ""Software Engineer - Intern"",
+  ""normalized_title"": ""Software Engineer Intern"",
+  ""role_family"": ""software_engineering"",
+  ""seniority"": ""intern"",
+  ""seniority_basis"": ""title"",
+  ""management_scope"": ""individual_contributor"",
+  ""employment_type"": ""internship"",
+  ""work_arrangement"": ""hybrid"",
+  ""locations"": [
+    ""Seattle""
+  ],
+  ""role_summary"": ""Intern building scalable SaaS systems, data ingestion services, and integrations using JavaScript, Java, and SQL in an agile environment."",
+  ""primary_functional_domain"": ""software_engineering"",
+  ""secondary_functional_domains"": [
+    ""data_engineering""
+  ],
+  ""functional_subdomains"": [
+    ""backend_development"",
+    ""frontend_development"",
+    ""data_ingestion"",
+    ""saas_development""
+  ],
+  ""primary_industry_domain"": ""technology_software"",
+  ""secondary_industry_domains"": [],
+  ""industry_subdomains"": [
+    ""experience_management"",
+    ""saas_platform""
+  ],
+  ""domain_rationale"": ""Role involves building software systems, data services, and integrations for a SaaS platform."",
+  ""key_responsibilities"": [
+    {
+      ""id"": ""D1"",
+      ""responsibility"": ""Design distributed, low latency services for ingesting, processing, and aggregating data"",
+      ""importance"": ""core"",
+      ""source_quote"": ""Design distributed, low latency services for ingesting, processing, and aggregating data""
+    },
+    {
+      ""id"": ""D2"",
+      ""responsibility"": ""Build integrations with SaaS leaders like Slack, Salesforce, and Tableau"",
+      ""importance"": ""core"",
+      ""source_quote"": ""Build integrations with SaaS leaders like Slack, Salesforce, and Tableau""
+    },
+    {
+      ""id"": ""D3"",
+      ""responsibility"": ""Create analytics using natural language processing and machine learning"",
+      ""importance"": ""core"",
+      ""source_quote"": ""Create analytics that identify trends and sentiment in free-form text data using natural language processing and machine learning""
+    },
+    {
+      ""id"": ""D4"",
+      ""responsibility"": ""Build widgets for visualizing data in dashboards and reports"",
+      ""importance"": ""core"",
+      ""source_quote"": ""Build widgets for visualizing data in dashboards and reports""
+    },
+    {
+      ""id"": ""D5"",
+      ""responsibility"": ""Develop an integrated ticketing platform for customer feedback"",
+      ""importance"": ""core"",
+      ""source_quote"": ""Develop an integrated ticketing platform that allows organizations to close the loop on customer feedback""
+    },
+    {
+      ""id"": ""D6"",
+      ""responsibility"": ""Build world-class survey editing and survey taking experiences"",
+      ""importance"": ""core"",
+      ""source_quote"": ""Build world-class survey editing and survey taking experiences""
+    },
+    {
+      ""id"": ""D7"",
+      ""responsibility"": ""Implement new functionality from provided requirements and specifications"",
+      ""importance"": ""secondary"",
+      ""source_quote"": ""Learn to implement new functionality from provided requirements and specifications""
+    },
+    {
+      ""id"": ""D8"",
+      ""responsibility"": ""Work with other engineers, tech-ops, and product managers"",
+      ""importance"": ""secondary"",
+      ""source_quote"": ""Benefit from working with other engineers, tech-ops, and product managers""
+    },
+    {
+      ""id"": ""D9"",
+      ""responsibility"": ""Learn Agile methodologies by attending daily stand-up meetings"",
+      ""importance"": ""secondary"",
+      ""source_quote"": ""Learn Agile methodologies by attending daily stand-up meetings, prioritizing tasks, and working with a sense of urgency""
+    }
+  ],
+  ""skills"": [
+    {
+      ""id"": ""S1"",
+      ""name"": ""HTML"",
+      ""raw"": ""HTMLCSS"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Experience with Web-related technologies including HTMLCSS"",
+      ""source_quote"": ""Experience with Web-related technologies including HTMLCSS and JavaScript""
+    },
+    {
+      ""id"": ""S2"",
+      ""name"": ""CSS"",
+      ""raw"": ""HTMLCSS"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Experience with Web-related technologies including HTMLCSS"",
+      ""source_quote"": ""Experience with Web-related technologies including HTMLCSS and JavaScript""
+    },
+    {
+      ""id"": ""S3"",
+      ""name"": ""JavaScript"",
+      ""raw"": ""JavaScript"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""critical"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Experience with Web-related technologies including HTMLCSS and JavaScript"",
+      ""source_quote"": ""Experience with Web-related technologies including HTMLCSS and JavaScript""
+    },
+    {
+      ""id"": ""S4"",
+      ""name"": ""Angular"",
+      ""raw"": ""angular"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": ""G1"",
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Experience with JavaScript frameworks including angular or node"",
+      ""source_quote"": ""Experience with JavaScript frameworks including angular or node""
+    },
+    {
+      ""id"": ""S5"",
+      ""name"": ""Node.js"",
+      ""raw"": ""node"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": ""G1"",
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Experience with JavaScript frameworks including angular or node"",
+      ""source_quote"": ""Experience with JavaScript frameworks including angular or node""
+    },
+    {
+      ""id"": ""S6"",
+      ""name"": ""Java"",
+      ""raw"": ""Java"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": ""G2"",
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Experience with modern programming languages (Java, PHP, Scala)"",
+      ""source_quote"": ""Experience with modern programming languages (Java, PHP, Scala)""
+    },
+    {
+      ""id"": ""S7"",
+      ""name"": ""PHP"",
+      ""raw"": ""PHP"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": ""G2"",
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Experience with modern programming languages (Java, PHP, Scala)"",
+      ""source_quote"": ""Experience with modern programming languages (Java, PHP, Scala)""
+    },
+    {
+      ""id"": ""S8"",
+      ""name"": ""Scala"",
+      ""raw"": ""Scala"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": ""G2"",
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Experience with modern programming languages (Java, PHP, Scala)"",
+      ""source_quote"": ""Experience with modern programming languages (Java, PHP, Scala)""
+    },
+    {
+      ""id"": ""S9"",
+      ""name"": ""SQL"",
+      ""raw"": ""SQL"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": ""G3"",
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Database Data Storage experience (SQL MySQL)"",
+      ""source_quote"": ""Database  Data Storage experience (SQL  MySQL)""
+    },
+    {
+      ""id"": ""S10"",
+      ""name"": ""MySQL"",
+      ""raw"": ""MySQL"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": ""G3"",
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Database Data Storage experience (SQL MySQL)"",
+      ""source_quote"": ""Database  Data Storage experience (SQL  MySQL)""
+    },
+    {
+      ""id"": ""S11"",
+      ""name"": ""Natural Language Processing"",
+      ""raw"": ""natural language processing"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""responsibility"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""basic"",
+      ""jd_evidence"": ""Create analytics... using natural language processing and machine learning"",
+      ""source_quote"": ""Create analytics that identify trends and sentiment in free-form text data using natural language processing and machine learning""
+    },
+    {
+      ""id"": ""S12"",
+      ""name"": ""Machine Learning"",
+      ""raw"": ""machine learning"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""responsibility"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""basic"",
+      ""jd_evidence"": ""Create analytics... using natural language processing and machine learning"",
+      ""source_quote"": ""Create analytics that identify trends and sentiment in free-form text data using natural language processing and machine learning""
+    },
+    {
+      ""id"": ""S13"",
+      ""name"": ""Agile Methodologies"",
+      ""raw"": ""Agile methodologies"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""responsibility"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""basic"",
+      ""jd_evidence"": ""Learn Agile methodologies by attending daily stand-up meetings"",
+      ""source_quote"": ""Learn Agile methodologies by attending daily stand-up meetings, prioritizing tasks, and working with a sense of urgency""
+    },
+    {
+      ""id"": ""S14"",
+      ""name"": ""Containerization"",
+      ""raw"": ""containerization"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""responsibility"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""basic"",
+      ""jd_evidence"": ""Develop familiarity with containerization and full-stack development"",
+      ""source_quote"": ""Develop familiarity with containerization and full-stack development""
+    }
+  ],
+  ""any_of_groups"": [
+    {
+      ""id"": ""G1"",
+      ""description"": ""JavaScript frameworks"",
+      ""member_skill_ids"": [
+        ""S4"",
+        ""S5""
+      ],
+      ""min_required"": 1,
+      ""open_category"": false,
+      ""category_label"": ""JavaScript Frameworks"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false
+    },
+    {
+      ""id"": ""G2"",
+      ""description"": ""Modern programming languages"",
+      ""member_skill_ids"": [
+        ""S6"",
+        ""S7"",
+        ""S8""
+      ],
+      ""min_required"": 1,
+      ""open_category"": false,
+      ""category_label"": ""Modern Programming Languages"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false
+    },
+    {
+      ""id"": ""G3"",
+      ""description"": ""Database/Data Storage"",
+      ""member_skill_ids"": [
+        ""S9"",
+        ""S10""
+      ],
+      ""min_required"": 1,
+      ""open_category"": false,
+      ""category_label"": ""Database/Data Storage"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false
+    }
+  ],
+  ""top_critical_skill_ids"": [
+    ""S3""
+  ],
+  ""critical_skill_rationale"": [
+    {
+      ""id"": ""S3"",
+      ""why"": ""Explicitly required for web technologies and frameworks.""
+    }
+  ],
+  ""experience_requirement"": {
+    ""min_years"": 0,
+    ""max_years"": null,
+    ""basis"": ""total"",
+    ""priority"": ""mandatory"",
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""Currently studying for a degree... Available for a 12 week internship""
+  },
+  ""education_requirement"": {
+    ""min_level"": ""bachelor"",
+    ""accepted_fields"": [
+      ""Computer Science"",
+      ""Software Engineering"",
+      ""Computer Engineering""
+    ],
+    ""priority"": ""mandatory"",
+    ""equivalent_experience_accepted"": false,
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""Currently studying for a degree in Computer Science, Software Engineering, or Computer Engineering""
+  },
+  ""requirements"": [
+    {
+      ""id"": ""R1"",
+      ""category"": ""work_authorization"",
+      ""requirement"": ""Legally authorized to work in job location without sponsorship"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""critical"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": true,
+      ""min_years"": null,
+      ""jd_evidence"": ""Must be legally authorized to work in job location without Qualtrics sponsorship"",
+      ""source_quote"": ""Must be legally authorized to work in job location without Qualtrics sponsorship now or in the future""
+    },
+    {
+      ""id"": ""R2"",
+      ""category"": ""other"",
+      ""requirement"": ""Available for a 12 week internship during summer of 2024"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""min_years"": null,
+      ""jd_evidence"": ""Available for a 12 week internship during summer of 2024"",
+      ""source_quote"": ""Available for a 12 week internship during summer of 2024""
+    }
+  ],
+  ""ambiguities"": [
+    ""HTMLCSS and SQL MySQL slash-separated skills ambiguous"",
+    ""Summer 2024 date conflicts with 2026 reference date""
+  ]
+}"
+"JD-000160","Experienced Business Analyst in Telecom PromosAnalyze promo & defect data and create analyses & summarize as specified.Root cause analysesPreparation of training materials.Support process definitionDocumentation","Qwen3.8-27B-Q4_K_M","ok","1","stop","True","partial","","2670","1183","","31.52","275.752","42.04","","{
+  ""input_status"": ""partial"",
+  ""warnings"": [
+    ""JD is extremely brief and lacks detail"",
+    ""No explicit skills or years mentioned""
+  ],
+  ""suspicious_instructions_detected"": false,
+  ""job_title"": ""Experienced Business Analyst in Telecom Promos"",
+  ""normalized_title"": ""Business Analyst"",
+  ""role_family"": ""business_analysis"",
+  ""seniority"": ""mid"",
+  ""seniority_basis"": ""title"",
+  ""management_scope"": ""individual_contributor"",
+  ""employment_type"": ""unclear"",
+  ""work_arrangement"": ""unclear"",
+  ""locations"": [],
+  ""role_summary"": ""Analyze promo and defect data, perform root cause analysis, prepare training materials, and support process definition and documentation."",
+  ""primary_functional_domain"": ""data_analytics"",
+  ""secondary_functional_domains"": [
+    ""operations_supply_chain""
+  ],
+  ""functional_subdomains"": [
+    ""business_analysis"",
+    ""data_analysis"",
+    ""process_improvement""
+  ],
+  ""primary_industry_domain"": ""telecommunications"",
+  ""secondary_industry_domains"": [],
+  ""industry_subdomains"": [
+    ""telecom_promotions""
+  ],
+  ""domain_rationale"": ""JD explicitly mentions Telecom Promos and data analysis duties."",
+  ""key_responsibilities"": [
+    {
+      ""id"": ""D1"",
+      ""responsibility"": ""Analyze promo and defect data and create analyses"",
+      ""importance"": ""core"",
+      ""source_quote"": ""Analyze promo & defect data and create analyses & summarize as specified.""
+    },
+    {
+      ""id"": ""D2"",
+      ""responsibility"": ""Perform root cause analyses"",
+      ""importance"": ""core"",
+      ""source_quote"": ""Root cause analyses""
+    },
+    {
+      ""id"": ""D3"",
+      ""responsibility"": ""Prepare training materials"",
+      ""importance"": ""secondary"",
+      ""source_quote"": ""Preparation of training materials.""
+    },
+    {
+      ""id"": ""D4"",
+      ""responsibility"": ""Support process definition"",
+      ""importance"": ""secondary"",
+      ""source_quote"": ""Support process definition""
+    },
+    {
+      ""id"": ""D5"",
+      ""responsibility"": ""Create documentation"",
+      ""importance"": ""secondary"",
+      ""source_quote"": ""Documentation""
+    }
+  ],
+  ""skills"": [
+    {
+      ""id"": ""S1"",
+      ""name"": ""Data Analysis"",
+      ""raw"": ""Analyze promo & defect data"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""critical"",
+      ""priority_origin"": ""responsibility"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Duty to analyze data"",
+      ""source_quote"": ""Analyze promo & defect data""
+    },
+    {
+      ""id"": ""S2"",
+      ""name"": ""Root Cause Analysis"",
+      ""raw"": ""Root cause analyses"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""responsibility"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Duty to perform RCA"",
+      ""source_quote"": ""Root cause analyses""
+    },
+    {
+      ""id"": ""S3"",
+      ""name"": ""Documentation"",
+      ""raw"": ""Documentation"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""responsibility"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""basic"",
+      ""jd_evidence"": ""Duty to document"",
+      ""source_quote"": ""Documentation""
+    }
+  ],
+  ""any_of_groups"": [],
+  ""top_critical_skill_ids"": [
+    ""S1""
+  ],
+  ""critical_skill_rationale"": [
+    {
+      ""id"": ""S1"",
+      ""why"": ""Central to core duty of analyzing data.""
+    }
+  ],
+  ""experience_requirement"": {
+    ""min_years"": null,
+    ""max_years"": null,
+    ""basis"": ""unclear"",
+    ""priority"": null,
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": null
+  },
+  ""education_requirement"": {
+    ""min_level"": null,
+    ""accepted_fields"": [],
+    ""priority"": null,
+    ""equivalent_experience_accepted"": false,
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": null
+  },
+  ""requirements"": [],
+  ""ambiguities"": [
+    ""No specific tools or technologies mentioned"",
+    ""Seniority inferred from title only""
+  ]
+}"
+"JD-000314","I own a small landscaping business that needs help with accountingtaxes.","Qwen3.8-27B-Q4_K_M","ok","1","stop","True","not_a_jd","","2651","380","","31.55","253.018","16.564","","{
+  ""input_status"": ""not_a_jd"",
+  ""warnings"": [
+    ""Input is a business need, not a job description.""
+  ],
+  ""suspicious_instructions_detected"": false,
+  ""job_title"": null,
+  ""normalized_title"": null,
+  ""role_family"": null,
+  ""seniority"": ""unclear"",
+  ""seniority_basis"": ""unclear"",
+  ""management_scope"": ""unclear"",
+  ""employment_type"": ""unclear"",
+  ""work_arrangement"": ""unclear"",
+  ""locations"": [],
+  ""role_summary"": """",
+  ""primary_functional_domain"": null,
+  ""secondary_functional_domains"": [],
+  ""functional_subdomains"": [],
+  ""primary_industry_domain"": null,
+  ""secondary_industry_domains"": [],
+  ""industry_subdomains"": [],
+  ""domain_rationale"": """",
+  ""key_responsibilities"": [],
+  ""skills"": [],
+  ""any_of_groups"": [],
+  ""top_critical_skill_ids"": [],
+  ""critical_skill_rationale"": [],
+  ""experience_requirement"": {
+    ""min_years"": null,
+    ""max_years"": null,
+    ""basis"": ""unclear"",
+    ""priority"": null,
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": null
+  },
+  ""education_requirement"": {
+    ""min_level"": null,
+    ""accepted_fields"": [],
+    ""priority"": null,
+    ""equivalent_experience_accepted"": false,
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": null
+  },
+  ""requirements"": [],
+  ""ambiguities"": []
+}"
+"JD-000753","jobtitle: ai engineer, experience"": ""12-14 years"", jobdescription: collaborate with cross-functional teams; analyze business requirements; write clean and maintainable code; create technical documentation; monitor production systems; deploy applications to cloud; design system architecture; build ci/cd pipelines, education: bachelor's degree in computer science, mustskills: ""flask, mongodb, tensorflow, node.js, pytorch, terraform, docker, c++, postgresql, ansible"", goodskills: agile, distributed systems, cloud computing, performance optimization, data visualization, microservices, otherskills: strong technical expertise., practical implementation experience., problem-solving capabilities., experience working in production-level environments.,","Qwen3.8-27B-Q4_K_M","ok","1","stop","True","ok","","2776","3247","","31.348","526.184","110.154","","{
+  ""input_status"": ""ok"",
+  ""warnings"": [
+    ""Ambiguous 'otherskills' section lacks explicit priority"",
+    ""No explicit hard gate wording found for skills""
+  ],
+  ""suspicious_instructions_detected"": false,
+  ""job_title"": ""ai engineer"",
+  ""normalized_title"": ""AI Engineer"",
+  ""role_family"": ""software_engineering"",
+  ""seniority"": ""senior"",
+  ""seniority_basis"": ""years"",
+  ""management_scope"": ""individual_contributor"",
+  ""employment_type"": ""full_time"",
+  ""work_arrangement"": ""unclear"",
+  ""locations"": [],
+  ""role_summary"": ""Senior AI engineer designing architecture, building CI/CD, and deploying cloud applications using Python, C++, and ML frameworks."",
+  ""primary_functional_domain"": ""software_engineering"",
+  ""secondary_functional_domains"": [
+    ""data_science_ai_ml""
+  ],
+  ""functional_subdomains"": [
+    ""ai_engineering"",
+    ""cloud_deployment"",
+    ""backend_development""
+  ],
+  ""primary_industry_domain"": ""technology_software"",
+  ""secondary_industry_domains"": [],
+  ""industry_subdomains"": [
+    ""ai_software""
+  ],
+  ""domain_rationale"": ""JD focuses on AI engineering, cloud deployment, and backend development using specific ML and infrastructure tools."",
+  ""key_responsibilities"": [
+    {
+      ""id"": ""D1"",
+      ""responsibility"": ""Collaborate with cross-functional teams"",
+      ""importance"": ""core"",
+      ""source_quote"": ""collaborate with cross-functional teams""
+    },
+    {
+      ""id"": ""D2"",
+      ""responsibility"": ""Analyze business requirements"",
+      ""importance"": ""core"",
+      ""source_quote"": ""analyze business requirements""
+    },
+    {
+      ""id"": ""D3"",
+      ""responsibility"": ""Write clean and maintainable code"",
+      ""importance"": ""core"",
+      ""source_quote"": ""write clean and maintainable code""
+    },
+    {
+      ""id"": ""D4"",
+      ""responsibility"": ""Create technical documentation"",
+      ""importance"": ""secondary"",
+      ""source_quote"": ""create technical documentation""
+    },
+    {
+      ""id"": ""D5"",
+      ""responsibility"": ""Monitor production systems"",
+      ""importance"": ""core"",
+      ""source_quote"": ""monitor production systems""
+    },
+    {
+      ""id"": ""D6"",
+      ""responsibility"": ""Deploy applications to cloud"",
+      ""importance"": ""core"",
+      ""source_quote"": ""deploy applications to cloud""
+    },
+    {
+      ""id"": ""D7"",
+      ""responsibility"": ""Design system architecture"",
+      ""importance"": ""core"",
+      ""source_quote"": ""design system architecture""
+    },
+    {
+      ""id"": ""D8"",
+      ""responsibility"": ""Build CI/CD pipelines"",
+      ""importance"": ""core"",
+      ""source_quote"": ""build ci/cd pipelines""
+    }
+  ],
+  ""skills"": [
+    {
+      ""id"": ""S1"",
+      ""name"": ""Flask"",
+      ""raw"": ""flask"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""flask""
+    },
+    {
+      ""id"": ""S2"",
+      ""name"": ""MongoDB"",
+      ""raw"": ""mongodb"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""mongodb""
+    },
+    {
+      ""id"": ""S3"",
+      ""name"": ""TensorFlow"",
+      ""raw"": ""tensorflow"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""critical"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""tensorflow""
+    },
+    {
+      ""id"": ""S4"",
+      ""name"": ""Node.js"",
+      ""raw"": ""node.js"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""node.js""
+    },
+    {
+      ""id"": ""S5"",
+      ""name"": ""PyTorch"",
+      ""raw"": ""pytorch"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""critical"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""pytorch""
+    },
+    {
+      ""id"": ""S6"",
+      ""name"": ""Terraform"",
+      ""raw"": ""terraform"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""terraform""
+    },
+    {
+      ""id"": ""S7"",
+      ""name"": ""Docker"",
+      ""raw"": ""docker"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""docker""
+    },
+    {
+      ""id"": ""S8"",
+      ""name"": ""C++"",
+      ""raw"": ""c++"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""c++""
+    },
+    {
+      ""id"": ""S9"",
+      ""name"": ""PostgreSQL"",
+      ""raw"": ""postgresql"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""postgresql""
+    },
+    {
+      ""id"": ""S10"",
+      ""name"": ""Ansible"",
+      ""raw"": ""ansible"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""ansible""
+    },
+    {
+      ""id"": ""S11"",
+      ""name"": ""Agile"",
+      ""raw"": ""agile"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""agile""
+    },
+    {
+      ""id"": ""S12"",
+      ""name"": ""Distributed Systems"",
+      ""raw"": ""distributed systems"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""distributed systems""
+    },
+    {
+      ""id"": ""S13"",
+      ""name"": ""Cloud Computing"",
+      ""raw"": ""cloud computing"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""cloud computing""
+    },
+    {
+      ""id"": ""S14"",
+      ""name"": ""Performance Optimization"",
+      ""raw"": ""performance optimization"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""preferred"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""performance optimization""
+    },
+    {
+      ""id"": ""S15"",
+      ""name"": ""Data Visualization"",
+      ""raw"": ""data visualization"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""data visualization""
+    },
+    {
+      ""id"": ""S16"",
+      ""name"": ""Microservices"",
+      ""raw"": ""microservices"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""microservices""
+    },
+    {
+      ""id"": ""S17"",
+      ""name"": ""CI/CD"",
+      ""raw"": ""ci/cd"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""critical"",
+      ""priority_origin"": ""responsibility"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Duty: build ci/cd pipelines"",
+      ""source_quote"": ""build ci/cd pipelines""
+    }
+  ],
+  ""any_of_groups"": [],
+  ""top_critical_skill_ids"": [
+    ""S3"",
+    ""S5"",
+    ""S17""
+  ],
+  ""critical_skill_rationale"": [
+    {
+      ""id"": ""S3"",
+      ""why"": ""Core ML framework for AI engineering duties""
+    },
+    {
+      ""id"": ""S5"",
+      ""why"": ""Core ML framework for AI engineering duties""
+    },
+    {
+      ""id"": ""S17"",
+      ""why"": ""Explicit core duty to build pipelines""
+    }
+  ],
+  ""experience_requirement"": {
+    ""min_years"": 12,
+    ""max_years"": 14,
+    ""basis"": ""total"",
+    ""priority"": ""mandatory"",
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""experience: 12-14 years""
+  },
+  ""education_requirement"": {
+    ""min_level"": ""bachelor"",
+    ""accepted_fields"": [
+      ""computer science""
+    ],
+    ""priority"": ""mandatory"",
+    ""equivalent_experience_accepted"": false,
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""bachelor's degree in computer science""
+  },
+  ""requirements"": [],
+  ""ambiguities"": [
+    ""Priority of 'otherskills' items is unclear"",
+    ""No explicit hard gate language for mustskills""
+  ]
+}"
+"JD-001896","jobtitle: backend developer, experience"": ""11-17 years"", jobdescription: perform code reviews; develop scalable applications; implement security best practices; troubleshoot technical issues; write clean and maintainable code; automate workflows; create technical documentation; analyze business requirements, education: bachelor's degree in computer science, information technology, or a related field., mustskills: ""node.js, ansible, java, javascript, tensorflow, jenkins, kafka, rest apis, react, pytorch"", goodskills: enterprise applications, agile, scalability, performance optimization, scrum, big data, otherskills: strong technical expertise., practical implementation experience., problem-solving capabilities., experience working in production-level environments.,","Qwen3.8-27B-Q4_K_M","ok","1","stop","True","ok","","2778","3228","","31.359","517.743","107.576","","{
+  ""input_status"": ""ok"",
+  ""warnings"": [
+    ""React listed in backend role mustskills"",
+    ""TensorFlow/PyTorch listed in backend role""
+  ],
+  ""suspicious_instructions_detected"": false,
+  ""job_title"": ""backend developer"",
+  ""normalized_title"": ""Backend Developer"",
+  ""role_family"": ""software_engineering"",
+  ""seniority"": ""senior"",
+  ""seniority_basis"": ""years"",
+  ""management_scope"": ""individual_contributor"",
+  ""employment_type"": ""full_time"",
+  ""work_arrangement"": ""unclear"",
+  ""locations"": [],
+  ""role_summary"": ""Senior backend developer responsible for scalable application development, code reviews, security implementation, and workflow automation using Node.js, Java, and AI frameworks."",
+  ""primary_functional_domain"": ""software_engineering"",
+  ""secondary_functional_domains"": [
+    ""data_science_ai_ml""
+  ],
+  ""functional_subdomains"": [
+    ""backend_development"",
+    ""api_development"",
+    ""ci_cd"",
+    ""machine_learning""
+  ],
+  ""primary_industry_domain"": ""other"",
+  ""secondary_industry_domains"": [],
+  ""industry_subdomains"": [],
+  ""domain_rationale"": ""JD specifies backend development, API creation, and AI framework usage without specifying a particular industry sector."",
+  ""key_responsibilities"": [
+    {
+      ""id"": ""D1"",
+      ""responsibility"": ""Perform code reviews"",
+      ""importance"": ""core"",
+      ""source_quote"": ""perform code reviews""
+    },
+    {
+      ""id"": ""D2"",
+      ""responsibility"": ""Develop scalable applications"",
+      ""importance"": ""core"",
+      ""source_quote"": ""develop scalable applications""
+    },
+    {
+      ""id"": ""D3"",
+      ""responsibility"": ""Implement security best practices"",
+      ""importance"": ""core"",
+      ""source_quote"": ""implement security best practices""
+    },
+    {
+      ""id"": ""D4"",
+      ""responsibility"": ""Troubleshoot technical issues"",
+      ""importance"": ""secondary"",
+      ""source_quote"": ""troubleshoot technical issues""
+    },
+    {
+      ""id"": ""D5"",
+      ""responsibility"": ""Write clean and maintainable code"",
+      ""importance"": ""core"",
+      ""source_quote"": ""write clean and maintainable code""
+    },
+    {
+      ""id"": ""D6"",
+      ""responsibility"": ""Automate workflows"",
+      ""importance"": ""secondary"",
+      ""source_quote"": ""automate workflows""
+    },
+    {
+      ""id"": ""D7"",
+      ""responsibility"": ""Create technical documentation"",
+      ""importance"": ""secondary"",
+      ""source_quote"": ""create technical documentation""
+    },
+    {
+      ""id"": ""D8"",
+      ""responsibility"": ""Analyze business requirements"",
+      ""importance"": ""secondary"",
+      ""source_quote"": ""analyze business requirements""
+    }
+  ],
+  ""skills"": [
+    {
+      ""id"": ""S1"",
+      ""name"": ""Node.js"",
+      ""raw"": ""node.js"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""critical"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""node.js""
+    },
+    {
+      ""id"": ""S2"",
+      ""name"": ""Ansible"",
+      ""raw"": ""ansible"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""ansible""
+    },
+    {
+      ""id"": ""S3"",
+      ""name"": ""Java"",
+      ""raw"": ""java"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""critical"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""java""
+    },
+    {
+      ""id"": ""S4"",
+      ""name"": ""JavaScript"",
+      ""raw"": ""javascript"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""javascript""
+    },
+    {
+      ""id"": ""S5"",
+      ""name"": ""TensorFlow"",
+      ""raw"": ""tensorflow"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""tensorflow""
+    },
+    {
+      ""id"": ""S6"",
+      ""name"": ""Jenkins"",
+      ""raw"": ""jenkins"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""jenkins""
+    },
+    {
+      ""id"": ""S7"",
+      ""name"": ""Kafka"",
+      ""raw"": ""kafka"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""kafka""
+    },
+    {
+      ""id"": ""S8"",
+      ""name"": ""REST APIs"",
+      ""raw"": ""rest apis"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""critical"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""rest apis""
+    },
+    {
+      ""id"": ""S9"",
+      ""name"": ""React"",
+      ""raw"": ""react"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""react""
+    },
+    {
+      ""id"": ""S10"",
+      ""name"": ""PyTorch"",
+      ""raw"": ""pytorch"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""pytorch""
+    },
+    {
+      ""id"": ""S11"",
+      ""name"": ""Enterprise Applications"",
+      ""raw"": ""enterprise applications"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""enterprise applications""
+    },
+    {
+      ""id"": ""S12"",
+      ""name"": ""Agile"",
+      ""raw"": ""agile"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""agile""
+    },
+    {
+      ""id"": ""S13"",
+      ""name"": ""Scalability"",
+      ""raw"": ""scalability"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""scalability""
+    },
+    {
+      ""id"": ""S14"",
+      ""name"": ""Performance Optimization"",
+      ""raw"": ""performance optimization"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""preferred"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""performance optimization""
+    },
+    {
+      ""id"": ""S15"",
+      ""name"": ""Scrum"",
+      ""raw"": ""scrum"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""scrum""
+    },
+    {
+      ""id"": ""S16"",
+      ""name"": ""Big Data"",
+      ""raw"": ""big data"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""big data""
+    }
+  ],
+  ""any_of_groups"": [],
+  ""top_critical_skill_ids"": [
+    ""S1"",
+    ""S3"",
+    ""S8""
+  ],
+  ""critical_skill_rationale"": [
+    {
+      ""id"": ""S1"",
+      ""why"": ""Core backend language listed in mustskills""
+    },
+    {
+      ""id"": ""S3"",
+      ""why"": ""Core backend language listed in mustskills""
+    },
+    {
+      ""id"": ""S8"",
+      ""why"": ""Essential for backend application development""
+    }
+  ],
+  ""experience_requirement"": {
+    ""min_years"": 11,
+    ""max_years"": 17,
+    ""basis"": ""total"",
+    ""priority"": ""mandatory"",
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""experience: 11-17 years""
+  },
+  ""education_requirement"": {
+    ""min_level"": ""bachelor"",
+    ""accepted_fields"": [
+      ""computer science"",
+      ""information technology"",
+      ""related field""
+    ],
+    ""priority"": ""mandatory"",
+    ""equivalent_experience_accepted"": false,
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""bachelor's degree in computer science, information technology, or a related field.""
+  },
+  ""requirements"": [
+    {
+      ""id"": ""R1"",
+      ""category"": ""domain_experience"",
+      ""requirement"": ""Experience working in production-level environments"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""min_years"": null,
+      ""jd_evidence"": ""otherskills: experience working in production-level environments."",
+      ""source_quote"": ""experience working in production-level environments.""
+    }
+  ],
+  ""ambiguities"": [
+    ""React and AI frameworks listed for backend role"",
+    ""No explicit hard gate wording for mustskills""
+  ]
+}"
+"JD-001951","jobtitle: senior qa engineer, experience: ""0 years"", jobdescription: lead technical architecture; mentor junior developers; drive product roadmaps; implement ci/cd, education: ""bachelor of technology in computer science – xyz university"", mustskills: ""mongodb; tableau; linux; docker; c++"", goodskills: spring boot; hadoop; microservices; rust the ideal candidate should demonstrate strong problem-solving ability and real-world production experience., otherskills: ""problem solving, effective communication, technical writing""","Qwen3.8-27B-Q4_K_M","ok","1","stop","True","partial","","2741","2566","","31.393","449.229","86.248","","{
+  ""input_status"": ""partial"",
+  ""warnings"": [
+    ""Experience listed as 0 years contradicts Senior title"",
+    ""Education field not explicitly required in text"",
+    ""CI/CD skill derived from duty, not explicit list""
+  ],
+  ""suspicious_instructions_detected"": false,
+  ""job_title"": ""senior qa engineer"",
+  ""normalized_title"": ""Senior QA Engineer"",
+  ""role_family"": ""quality_assurance_testing"",
+  ""seniority"": ""senior"",
+  ""seniority_basis"": ""title"",
+  ""management_scope"": ""people_manager"",
+  ""employment_type"": ""unclear"",
+  ""work_arrangement"": ""unclear"",
+  ""locations"": [],
+  ""role_summary"": ""Lead technical architecture, mentor developers, drive roadmaps, and implement CI/CD with strong problem-solving and production experience."",
+  ""primary_functional_domain"": ""quality_assurance_testing"",
+  ""secondary_functional_domains"": [
+    ""software_engineering""
+  ],
+  ""functional_subdomains"": [
+    ""technical_architecture"",
+    ""ci_cd"",
+    ""mentoring""
+  ],
+  ""primary_industry_domain"": ""other"",
+  ""secondary_industry_domains"": [],
+  ""industry_subdomains"": [],
+  ""domain_rationale"": ""JD lists QA title but duties focus on architecture, mentoring, and CI/CD implementation."",
+  ""key_responsibilities"": [
+    {
+      ""id"": ""D1"",
+      ""responsibility"": ""Lead technical architecture"",
+      ""importance"": ""core"",
+      ""source_quote"": ""lead technical architecture""
+    },
+    {
+      ""id"": ""D2"",
+      ""responsibility"": ""Mentor junior developers"",
+      ""importance"": ""core"",
+      ""source_quote"": ""mentor junior developers""
+    },
+    {
+      ""id"": ""D3"",
+      ""responsibility"": ""Drive product roadmaps"",
+      ""importance"": ""core"",
+      ""source_quote"": ""drive product roadmaps""
+    },
+    {
+      ""id"": ""D4"",
+      ""responsibility"": ""Implement CI/CD"",
+      ""importance"": ""core"",
+      ""source_quote"": ""implement ci/cd""
+    }
+  ],
+  ""skills"": [
+    {
+      ""id"": ""S1"",
+      ""name"": ""MongoDB"",
+      ""raw"": ""mongodb"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""mongodb""
+    },
+    {
+      ""id"": ""S2"",
+      ""name"": ""Tableau"",
+      ""raw"": ""tableau"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""tableau""
+    },
+    {
+      ""id"": ""S3"",
+      ""name"": ""Linux"",
+      ""raw"": ""linux"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""linux""
+    },
+    {
+      ""id"": ""S4"",
+      ""name"": ""Docker"",
+      ""raw"": ""docker"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""docker""
+    },
+    {
+      ""id"": ""S5"",
+      ""name"": ""C++"",
+      ""raw"": ""c++"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""c++""
+    },
+    {
+      ""id"": ""S6"",
+      ""name"": ""Spring Boot"",
+      ""raw"": ""spring boot"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""spring boot""
+    },
+    {
+      ""id"": ""S7"",
+      ""name"": ""Hadoop"",
+      ""raw"": ""hadoop"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""hadoop""
+    },
+    {
+      ""id"": ""S8"",
+      ""name"": ""Microservices"",
+      ""raw"": ""microservices"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""microservices""
+    },
+    {
+      ""id"": ""S9"",
+      ""name"": ""Rust"",
+      ""raw"": ""rust"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""rust""
+    },
+    {
+      ""id"": ""S10"",
+      ""name"": ""CI/CD"",
+      ""raw"": ""ci/cd"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""critical"",
+      ""priority_origin"": ""responsibility"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Duty to implement CI/CD"",
+      ""source_quote"": ""implement ci/cd""
+    },
+    {
+      ""id"": ""S11"",
+      ""name"": ""Problem Solving"",
+      ""raw"": ""problem solving"",
+      ""skill_type"": ""interpersonal"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Demonstrate strong problem-solving ability"",
+      ""source_quote"": ""strong problem-solving ability""
+    },
+    {
+      ""id"": ""S12"",
+      ""name"": ""Effective Communication"",
+      ""raw"": ""effective communication"",
+      ""skill_type"": ""interpersonal"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Listed in otherskills"",
+      ""source_quote"": ""effective communication""
+    },
+    {
+      ""id"": ""S13"",
+      ""name"": ""Technical Writing"",
+      ""raw"": ""technical writing"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Listed in otherskills"",
+      ""source_quote"": ""technical writing""
+    }
+  ],
+  ""any_of_groups"": [],
+  ""top_critical_skill_ids"": [
+    ""S10""
+  ],
+  ""critical_skill_rationale"": [
+    {
+      ""id"": ""S10"",
+      ""why"": ""Explicit core duty to implement CI/CD""
+    }
+  ],
+  ""experience_requirement"": {
+    ""min_years"": 0,
+    ""max_years"": null,
+    ""basis"": ""total"",
+    ""priority"": ""mandatory"",
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""Experience listed as 0 years""
+  },
+  ""education_requirement"": {
+    ""min_level"": ""bachelor"",
+    ""accepted_fields"": [
+      ""computer science""
+    ],
+    ""priority"": ""mandatory"",
+    ""equivalent_experience_accepted"": false,
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""Bachelor of Technology in Computer Science""
+  },
+  ""requirements"": [
+    {
+      ""id"": ""R1"",
+      ""category"": ""domain_experience"",
+      ""requirement"": ""Real-world production experience"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""min_years"": null,
+      ""jd_evidence"": ""Demonstrate real-world production experience"",
+      ""source_quote"": ""real-world production experience""
+    }
+  ],
+  ""ambiguities"": [
+    ""0 years experience conflicts with Senior title"",
+    ""QA title vs Architecture/DevOps duties""
+  ]
+}"
+"JD-003899","jobtitle: ai engineer, experience"": ""3-8 years"", jobdescription: collaborate with cross-functional teams; analyze business requirements; write clean and maintainable code; create technical documentation; monitor production systems; deploy applications to cloud; design system architecture; build ci/cd pipelines, education: bachelor's degree in information technology, mustskills: ""node.js, c++, postgresql, power bi, spark, mongodb, flask, aws, react, pytorch"", goodskills: analytics, distributed systems, deep learning, agile, automation, microservices, otherskills: strong technical expertise., practical implementation experience., problem-solving capabilities., experience working in production-level environments.,","Qwen3.8-27B-Q4_K_M","ok","1","stop","True","ok","","2771","3331","","31.325","507.533","110.916","","{
+  ""input_status"": ""ok"",
+  ""warnings"": [
+    ""Ambiguous slash-separated skills in mustskills list"",
+    ""Unclear if 'strong technical expertise' is a specific skill""
+  ],
+  ""suspicious_instructions_detected"": false,
+  ""job_title"": ""ai engineer"",
+  ""normalized_title"": ""AI Engineer"",
+  ""role_family"": ""software_engineering"",
+  ""seniority"": ""mid"",
+  ""seniority_basis"": ""years"",
+  ""management_scope"": ""individual_contributor"",
+  ""employment_type"": ""full_time"",
+  ""work_arrangement"": ""unclear"",
+  ""locations"": [],
+  ""role_summary"": ""AI engineer responsible for designing, building, and deploying AI applications and cloud systems with cross-functional collaboration."",
+  ""primary_functional_domain"": ""data_science_ai_ml"",
+  ""secondary_functional_domains"": [
+    ""software_engineering"",
+    ""devops_cloud_infrastructure""
+  ],
+  ""functional_subdomains"": [
+    ""ai_engineering"",
+    ""cloud_deployment"",
+    ""backend_development""
+  ],
+  ""primary_industry_domain"": ""technology_software"",
+  ""secondary_industry_domains"": [],
+  ""industry_subdomains"": [
+    ""ai_solutions""
+  ],
+  ""domain_rationale"": ""Role focuses on AI engineering, cloud deployment, and backend development using specified tech stack."",
+  ""key_responsibilities"": [
+    {
+      ""id"": ""D1"",
+      ""responsibility"": ""Collaborate with cross-functional teams"",
+      ""importance"": ""core"",
+      ""source_quote"": ""collaborate with cross-functional teams""
+    },
+    {
+      ""id"": ""D2"",
+      ""responsibility"": ""Analyze business requirements"",
+      ""importance"": ""core"",
+      ""source_quote"": ""analyze business requirements""
+    },
+    {
+      ""id"": ""D3"",
+      ""responsibility"": ""Write clean and maintainable code"",
+      ""importance"": ""core"",
+      ""source_quote"": ""write clean and maintainable code""
+    },
+    {
+      ""id"": ""D4"",
+      ""responsibility"": ""Create technical documentation"",
+      ""importance"": ""secondary"",
+      ""source_quote"": ""create technical documentation""
+    },
+    {
+      ""id"": ""D5"",
+      ""responsibility"": ""Monitor production systems"",
+      ""importance"": ""core"",
+      ""source_quote"": ""monitor production systems""
+    },
+    {
+      ""id"": ""D6"",
+      ""responsibility"": ""Deploy applications to cloud"",
+      ""importance"": ""core"",
+      ""source_quote"": ""deploy applications to cloud""
+    },
+    {
+      ""id"": ""D7"",
+      ""responsibility"": ""Design system architecture"",
+      ""importance"": ""core"",
+      ""source_quote"": ""design system architecture""
+    },
+    {
+      ""id"": ""D8"",
+      ""responsibility"": ""Build CI/CD pipelines"",
+      ""importance"": ""core"",
+      ""source_quote"": ""build ci/cd pipelines""
+    }
+  ],
+  ""skills"": [
+    {
+      ""id"": ""S1"",
+      ""name"": ""Node.js"",
+      ""raw"": ""node.js"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""node.js""
+    },
+    {
+      ""id"": ""S2"",
+      ""name"": ""C++"",
+      ""raw"": ""c++"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""c++""
+    },
+    {
+      ""id"": ""S3"",
+      ""name"": ""PostgreSQL"",
+      ""raw"": ""postgresql"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""postgresql""
+    },
+    {
+      ""id"": ""S4"",
+      ""name"": ""Power BI"",
+      ""raw"": ""power bi"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""power bi""
+    },
+    {
+      ""id"": ""S5"",
+      ""name"": ""Spark"",
+      ""raw"": ""spark"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""spark""
+    },
+    {
+      ""id"": ""S6"",
+      ""name"": ""MongoDB"",
+      ""raw"": ""mongodb"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""mongodb""
+    },
+    {
+      ""id"": ""S7"",
+      ""name"": ""Flask"",
+      ""raw"": ""flask"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""flask""
+    },
+    {
+      ""id"": ""S8"",
+      ""name"": ""AWS"",
+      ""raw"": ""aws"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""critical"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills, required for cloud deployment"",
+      ""source_quote"": ""aws""
+    },
+    {
+      ""id"": ""S9"",
+      ""name"": ""React"",
+      ""raw"": ""react"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""react""
+    },
+    {
+      ""id"": ""S10"",
+      ""name"": ""PyTorch"",
+      ""raw"": ""pytorch"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""critical"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills, core AI framework"",
+      ""source_quote"": ""pytorch""
+    },
+    {
+      ""id"": ""S11"",
+      ""name"": ""Analytics"",
+      ""raw"": ""analytics"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""analytics""
+    },
+    {
+      ""id"": ""S12"",
+      ""name"": ""Distributed Systems"",
+      ""raw"": ""distributed systems"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""distributed systems""
+    },
+    {
+      ""id"": ""S13"",
+      ""name"": ""Deep Learning"",
+      ""raw"": ""deep learning"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""deep learning""
+    },
+    {
+      ""id"": ""S14"",
+      ""name"": ""Agile"",
+      ""raw"": ""agile"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""agile""
+    },
+    {
+      ""id"": ""S15"",
+      ""name"": ""Automation"",
+      ""raw"": ""automation"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""automation""
+    },
+    {
+      ""id"": ""S16"",
+      ""name"": ""Microservices"",
+      ""raw"": ""microservices"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""microservices""
+    },
+    {
+      ""id"": ""S17"",
+      ""name"": ""CI/CD"",
+      ""raw"": ""ci/cd"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""responsibility"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Required to build CI/CD pipelines"",
+      ""source_quote"": ""build ci/cd pipelines""
+    }
+  ],
+  ""any_of_groups"": [],
+  ""top_critical_skill_ids"": [
+    ""S8"",
+    ""S10""
+  ],
+  ""critical_skill_rationale"": [
+    {
+      ""id"": ""S8"",
+      ""why"": ""Essential for cloud deployment duty""
+    },
+    {
+      ""id"": ""S10"",
+      ""why"": ""Core AI framework for AI engineer role""
+    }
+  ],
+  ""experience_requirement"": {
+    ""min_years"": 3,
+    ""max_years"": 8,
+    ""basis"": ""total"",
+    ""priority"": ""mandatory"",
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""3-8 years experience required""
+  },
+  ""education_requirement"": {
+    ""min_level"": ""bachelor"",
+    ""accepted_fields"": [
+      ""information technology""
+    ],
+    ""priority"": ""mandatory"",
+    ""equivalent_experience_accepted"": false,
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""Bachelor's degree in information technology""
+  },
+  ""requirements"": [
+    {
+      ""id"": ""R1"",
+      ""category"": ""domain_experience"",
+      ""requirement"": ""Experience working in production-level environments"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""min_years"": null,
+      ""jd_evidence"": ""Listed in otherskills"",
+      ""source_quote"": ""experience working in production-level environments.""
+    }
+  ],
+  ""ambiguities"": [
+    ""Unclear if 'strong technical expertise' is a specific skill"",
+    ""Ambiguous slash-separated skills in mustskills list""
+  ]
+}"
+"JD-008861","jobtitle: blockchain developer, experience: ""21 years"", jobdescription: manage operations; implement specialized protocols; optimize performance; lead team initiatives, education: ""bachelor of technology – xyz university"", mustskills: ""aws; azure; python; go; gcp"", goodskills: kubernetes; nlp; hadoop the ideal candidate should demonstrate strong professional expertise., otherskills: ""problem solving, agile methodology, team leadership""","Qwen3.8-27B-Q4_K_M","ok","1","stop","True","partial","","2726","2121","","31.419","436.649","71.934","","{
+  ""input_status"": ""partial"",
+  ""warnings"": [
+    ""21 years experience is likely a typo"",
+    ""Bachelor of Technology field unspecified"",
+    ""NLP/Hadoop relevance to blockchain unclear""
+  ],
+  ""suspicious_instructions_detected"": false,
+  ""job_title"": ""blockchain developer"",
+  ""normalized_title"": ""Blockchain Developer"",
+  ""role_family"": ""software_engineering"",
+  ""seniority"": ""lead_principal"",
+  ""seniority_basis"": ""scope"",
+  ""management_scope"": ""people_manager"",
+  ""employment_type"": ""unclear"",
+  ""work_arrangement"": ""unclear"",
+  ""locations"": [],
+  ""role_summary"": ""Manage operations, implement protocols, optimize performance, and lead team initiatives for blockchain solutions."",
+  ""primary_functional_domain"": ""software_engineering"",
+  ""secondary_functional_domains"": [],
+  ""functional_subdomains"": [
+    ""blockchain_development"",
+    ""protocol_implementation"",
+    ""performance_optimization""
+  ],
+  ""primary_industry_domain"": ""technology_software"",
+  ""secondary_industry_domains"": [],
+  ""industry_subdomains"": [
+    ""blockchain""
+  ],
+  ""domain_rationale"": ""JD specifies blockchain developer role with protocol implementation and performance optimization duties."",
+  ""key_responsibilities"": [
+    {
+      ""id"": ""D1"",
+      ""responsibility"": ""Manage operations"",
+      ""importance"": ""core"",
+      ""source_quote"": ""manage operations""
+    },
+    {
+      ""id"": ""D2"",
+      ""responsibility"": ""Implement specialized protocols"",
+      ""importance"": ""core"",
+      ""source_quote"": ""implement specialized protocols""
+    },
+    {
+      ""id"": ""D3"",
+      ""responsibility"": ""Optimize performance"",
+      ""importance"": ""core"",
+      ""source_quote"": ""optimize performance""
+    },
+    {
+      ""id"": ""D4"",
+      ""responsibility"": ""Lead team initiatives"",
+      ""importance"": ""core"",
+      ""source_quote"": ""lead team initiatives""
+    }
+  ],
+  ""skills"": [
+    {
+      ""id"": ""S1"",
+      ""name"": ""AWS"",
+      ""raw"": ""aws"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""aws""
+    },
+    {
+      ""id"": ""S2"",
+      ""name"": ""Azure"",
+      ""raw"": ""azure"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""azure""
+    },
+    {
+      ""id"": ""S3"",
+      ""name"": ""Python"",
+      ""raw"": ""python"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""python""
+    },
+    {
+      ""id"": ""S4"",
+      ""name"": ""Go"",
+      ""raw"": ""go"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""go""
+    },
+    {
+      ""id"": ""S5"",
+      ""name"": ""GCP"",
+      ""raw"": ""gcp"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""gcp""
+    },
+    {
+      ""id"": ""S6"",
+      ""name"": ""Kubernetes"",
+      ""raw"": ""kubernetes"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""kubernetes""
+    },
+    {
+      ""id"": ""S7"",
+      ""name"": ""NLP"",
+      ""raw"": ""nlp"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""nlp""
+    },
+    {
+      ""id"": ""S8"",
+      ""name"": ""Hadoop"",
+      ""raw"": ""hadoop"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""hadoop""
+    },
+    {
+      ""id"": ""S9"",
+      ""name"": ""Problem Solving"",
+      ""raw"": ""problem solving"",
+      ""skill_type"": ""interpersonal"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in otherskills"",
+      ""source_quote"": ""problem solving""
+    },
+    {
+      ""id"": ""S10"",
+      ""name"": ""Agile Methodology"",
+      ""raw"": ""agile methodology"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in otherskills"",
+      ""source_quote"": ""agile methodology""
+    },
+    {
+      ""id"": ""S11"",
+      ""name"": ""Team Leadership"",
+      ""raw"": ""team leadership"",
+      ""skill_type"": ""interpersonal"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in otherskills"",
+      ""source_quote"": ""team leadership""
+    }
+  ],
+  ""any_of_groups"": [],
+  ""top_critical_skill_ids"": [],
+  ""critical_skill_rationale"": [],
+  ""experience_requirement"": {
+    ""min_years"": 21,
+    ""max_years"": null,
+    ""basis"": ""total"",
+    ""priority"": ""mandatory"",
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""Stated as 21 years""
+  },
+  ""education_requirement"": {
+    ""min_level"": ""bachelor"",
+    ""accepted_fields"": [
+      ""Technology""
+    ],
+    ""priority"": ""mandatory"",
+    ""equivalent_experience_accepted"": false,
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""Bachelor of Technology required""
+  },
+  ""requirements"": [],
+  ""ambiguities"": [
+    ""21 years experience is unusually high"",
+    ""NLP and Hadoop are not typical blockchain skills""
+  ]
+}"
+"JD-011997","jobtitle: research engineer, experience"": ""8-13 years"", jobdescription: integrate third-party apis; troubleshoot technical issues; write clean and maintainable code; monitor production systems; optimize database performance; automate workflows; deploy applications to cloud; implement security best practices, education: bachelor's degree in computer science, information technology, or a related field., mustskills: ""tensorflow, ansible, pytorch, c#, kafka, ci/cd, redis, selenium, spring boot, node.js"", goodskills: data engineering, security, enterprise applications, performance optimization, analytics, saas, otherskills: strong technical expertise., practical implementation experience., problem-solving capabilities., experience working in production-level environments.,","Qwen3.8-27B-Q4_K_M","ok","1","stop","True","ok","","2780","3035","","31.349","535.3","101.348","","{
+  ""input_status"": ""ok"",
+  ""warnings"": [
+    ""Ambiguous slash-separated skills in mustskills list"",
+    ""Unclear if 'otherskills' are mandatory or preferred""
+  ],
+  ""suspicious_instructions_detected"": false,
+  ""job_title"": ""research engineer"",
+  ""normalized_title"": ""Research Engineer"",
+  ""role_family"": ""software_engineering"",
+  ""seniority"": ""senior"",
+  ""seniority_basis"": ""years"",
+  ""management_scope"": ""individual_contributor"",
+  ""employment_type"": ""full_time"",
+  ""work_arrangement"": ""unclear"",
+  ""locations"": [],
+  ""role_summary"": ""Senior research engineer integrating APIs, optimizing databases, deploying cloud apps, and implementing security best practices with 8-13 years experience."",
+  ""primary_functional_domain"": ""software_engineering"",
+  ""secondary_functional_domains"": [
+    ""devops_cloud_infrastructure""
+  ],
+  ""functional_subdomains"": [
+    ""api_integration"",
+    ""cloud_deployment"",
+    ""database_optimization"",
+    ""security_implementation"",
+    ""workflow_automation""
+  ],
+  ""primary_industry_domain"": ""technology_software"",
+  ""secondary_industry_domains"": [],
+  ""industry_subdomains"": [
+    ""enterprise_software""
+  ],
+  ""domain_rationale"": ""JD focuses on software engineering tasks like API integration, coding, and cloud deployment within a technology context."",
+  ""key_responsibilities"": [
+    {
+      ""id"": ""D1"",
+      ""responsibility"": ""Integrate third-party APIs"",
+      ""importance"": ""core"",
+      ""source_quote"": ""integrate third-party apis""
+    },
+    {
+      ""id"": ""D2"",
+      ""responsibility"": ""Troubleshoot technical issues"",
+      ""importance"": ""core"",
+      ""source_quote"": ""troubleshoot technical issues""
+    },
+    {
+      ""id"": ""D3"",
+      ""responsibility"": ""Write clean and maintainable code"",
+      ""importance"": ""core"",
+      ""source_quote"": ""write clean and maintainable code""
+    },
+    {
+      ""id"": ""D4"",
+      ""responsibility"": ""Monitor production systems"",
+      ""importance"": ""core"",
+      ""source_quote"": ""monitor production systems""
+    },
+    {
+      ""id"": ""D5"",
+      ""responsibility"": ""Optimize database performance"",
+      ""importance"": ""core"",
+      ""source_quote"": ""optimize database performance""
+    },
+    {
+      ""id"": ""D6"",
+      ""responsibility"": ""Automate workflows"",
+      ""importance"": ""core"",
+      ""source_quote"": ""automate workflows""
+    },
+    {
+      ""id"": ""D7"",
+      ""responsibility"": ""Deploy applications to cloud"",
+      ""importance"": ""core"",
+      ""source_quote"": ""deploy applications to cloud""
+    },
+    {
+      ""id"": ""D8"",
+      ""responsibility"": ""Implement security best practices"",
+      ""importance"": ""core"",
+      ""source_quote"": ""implement security best practices""
+    }
+  ],
+  ""skills"": [
+    {
+      ""id"": ""S1"",
+      ""name"": ""TensorFlow"",
+      ""raw"": ""tensorflow"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""tensorflow""
+    },
+    {
+      ""id"": ""S2"",
+      ""name"": ""Ansible"",
+      ""raw"": ""ansible"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""ansible""
+    },
+    {
+      ""id"": ""S3"",
+      ""name"": ""PyTorch"",
+      ""raw"": ""pytorch"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""pytorch""
+    },
+    {
+      ""id"": ""S4"",
+      ""name"": ""C#"",
+      ""raw"": ""c#"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""c#""
+    },
+    {
+      ""id"": ""S5"",
+      ""name"": ""Kafka"",
+      ""raw"": ""kafka"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""kafka""
+    },
+    {
+      ""id"": ""S6"",
+      ""name"": ""CI/CD"",
+      ""raw"": ""ci/cd"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""ci/cd""
+    },
+    {
+      ""id"": ""S7"",
+      ""name"": ""Redis"",
+      ""raw"": ""redis"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""redis""
+    },
+    {
+      ""id"": ""S8"",
+      ""name"": ""Selenium"",
+      ""raw"": ""selenium"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""selenium""
+    },
+    {
+      ""id"": ""S9"",
+      ""name"": ""Spring Boot"",
+      ""raw"": ""spring boot"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""spring boot""
+    },
+    {
+      ""id"": ""S10"",
+      ""name"": ""Node.js"",
+      ""raw"": ""node.js"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""node.js""
+    },
+    {
+      ""id"": ""S11"",
+      ""name"": ""Data Engineering"",
+      ""raw"": ""data engineering"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""data engineering""
+    },
+    {
+      ""id"": ""S12"",
+      ""name"": ""Security"",
+      ""raw"": ""security"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""security""
+    },
+    {
+      ""id"": ""S13"",
+      ""name"": ""Enterprise Applications"",
+      ""raw"": ""enterprise applications"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""enterprise applications""
+    },
+    {
+      ""id"": ""S14"",
+      ""name"": ""Performance Optimization"",
+      ""raw"": ""performance optimization"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""performance optimization""
+    },
+    {
+      ""id"": ""S15"",
+      ""name"": ""Analytics"",
+      ""raw"": ""analytics"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""analytics""
+    },
+    {
+      ""id"": ""S16"",
+      ""name"": ""SaaS"",
+      ""raw"": ""saas"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""saas""
+    }
+  ],
+  ""any_of_groups"": [],
+  ""top_critical_skill_ids"": [],
+  ""critical_skill_rationale"": [],
+  ""experience_requirement"": {
+    ""min_years"": 8,
+    ""max_years"": 13,
+    ""basis"": ""total"",
+    ""priority"": ""mandatory"",
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""8-13 years""
+  },
+  ""education_requirement"": {
+    ""min_level"": ""bachelor"",
+    ""accepted_fields"": [
+      ""computer science"",
+      ""information technology"",
+      ""related field""
+    ],
+    ""priority"": ""mandatory"",
+    ""equivalent_experience_accepted"": false,
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""bachelor's degree in computer science, information technology, or a related field.""
+  },
+  ""requirements"": [],
+  ""ambiguities"": [
+    ""CI/CD slash notation ambiguous as single skill or two"",
+    ""Otherskills priority unclear (mandatory vs preferred)""
+  ]
+}"
+"JD-013090","jobtitle: game developer, experience"": ""7-10 years"", jobdescription: write clean and maintainable code; collaborate with cross-functional teams; analyze business requirements; build ci/cd pipelines; integrate third-party apis; troubleshoot technical issues; optimize database performance; monitor production systems, education: bachelor's degree in computer science, information technology, or a related field., mustskills: ""docker, pandas, c#, jenkins, terraform, javascript, redis, angular, python, tableau"", goodskills: analytics, microservices, agile, devops, cloud computing, deep learning, otherskills: strong technical expertise., practical implementation experience., problem-solving capabilities., experience working in production-level environments.,","Qwen3.8-27B-Q4_K_M","ok","1","stop","True","ok","","2780","3378","","31.322","536.255","112.37","","{
+  ""input_status"": ""ok"",
+  ""warnings"": [
+    ""Docker listed as must-skill despite no explicit duty"",
+    ""Pandas listed as must-skill despite no explicit duty"",
+    ""Tableau listed as must-skill despite no explicit duty"",
+    ""Angular listed as must-skill despite no explicit duty"",
+    ""Redis listed as must-skill despite no explicit duty""
+  ],
+  ""suspicious_instructions_detected"": false,
+  ""job_title"": ""game developer"",
+  ""normalized_title"": ""Game Developer"",
+  ""role_family"": ""software_engineering"",
+  ""seniority"": ""senior"",
+  ""seniority_basis"": ""years"",
+  ""management_scope"": ""individual_contributor"",
+  ""employment_type"": ""full_time"",
+  ""work_arrangement"": ""unclear"",
+  ""locations"": [],
+  ""role_summary"": ""Senior game developer responsible for writing clean code, building CI/CD pipelines, integrating APIs, and optimizing database performance in production environments."",
+  ""primary_functional_domain"": ""software_engineering"",
+  ""secondary_functional_domains"": [
+    ""devops_cloud_infrastructure""
+  ],
+  ""functional_subdomains"": [
+    ""backend_development"",
+    ""ci_cd"",
+    ""database_optimization""
+  ],
+  ""primary_industry_domain"": ""media_entertainment_gaming"",
+  ""secondary_industry_domains"": [],
+  ""industry_subdomains"": [
+    ""game_development""
+  ],
+  ""domain_rationale"": ""Title is 'game developer' and duties involve software engineering tasks like CI/CD and API integration."",
+  ""key_responsibilities"": [
+    {
+      ""id"": ""D1"",
+      ""responsibility"": ""Write clean and maintainable code"",
+      ""importance"": ""core"",
+      ""source_quote"": ""write clean and maintainable code""
+    },
+    {
+      ""id"": ""D2"",
+      ""responsibility"": ""Collaborate with cross-functional teams"",
+      ""importance"": ""secondary"",
+      ""source_quote"": ""collaborate with cross-functional teams""
+    },
+    {
+      ""id"": ""D3"",
+      ""responsibility"": ""Analyze business requirements"",
+      ""importance"": ""secondary"",
+      ""source_quote"": ""analyze business requirements""
+    },
+    {
+      ""id"": ""D4"",
+      ""responsibility"": ""Build CI/CD pipelines"",
+      ""importance"": ""core"",
+      ""source_quote"": ""build ci/cd pipelines""
+    },
+    {
+      ""id"": ""D5"",
+      ""responsibility"": ""Integrate third-party APIs"",
+      ""importance"": ""core"",
+      ""source_quote"": ""integrate third-party apis""
+    },
+    {
+      ""id"": ""D6"",
+      ""responsibility"": ""Troubleshoot technical issues"",
+      ""importance"": ""secondary"",
+      ""source_quote"": ""troubleshoot technical issues""
+    },
+    {
+      ""id"": ""D7"",
+      ""responsibility"": ""Optimize database performance"",
+      ""importance"": ""core"",
+      ""source_quote"": ""optimize database performance""
+    },
+    {
+      ""id"": ""D8"",
+      ""responsibility"": ""Monitor production systems"",
+      ""importance"": ""secondary"",
+      ""source_quote"": ""monitor production systems""
+    }
+  ],
+  ""skills"": [
+    {
+      ""id"": ""S1"",
+      ""name"": ""Docker"",
+      ""raw"": ""docker"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""docker""
+    },
+    {
+      ""id"": ""S2"",
+      ""name"": ""Pandas"",
+      ""raw"": ""pandas"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""pandas""
+    },
+    {
+      ""id"": ""S3"",
+      ""name"": ""C#"",
+      ""raw"": ""c#"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""c#""
+    },
+    {
+      ""id"": ""S4"",
+      ""name"": ""Jenkins"",
+      ""raw"": ""jenkins"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""jenkins""
+    },
+    {
+      ""id"": ""S5"",
+      ""name"": ""Terraform"",
+      ""raw"": ""terraform"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""terraform""
+    },
+    {
+      ""id"": ""S6"",
+      ""name"": ""JavaScript"",
+      ""raw"": ""javascript"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""javascript""
+    },
+    {
+      ""id"": ""S7"",
+      ""name"": ""Redis"",
+      ""raw"": ""redis"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""redis""
+    },
+    {
+      ""id"": ""S8"",
+      ""name"": ""Angular"",
+      ""raw"": ""angular"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""angular""
+    },
+    {
+      ""id"": ""S9"",
+      ""name"": ""Python"",
+      ""raw"": ""python"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""python""
+    },
+    {
+      ""id"": ""S10"",
+      ""name"": ""Tableau"",
+      ""raw"": ""tableau"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""tableau""
+    },
+    {
+      ""id"": ""S11"",
+      ""name"": ""Analytics"",
+      ""raw"": ""analytics"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""analytics""
+    },
+    {
+      ""id"": ""S12"",
+      ""name"": ""Microservices"",
+      ""raw"": ""microservices"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""microservices""
+    },
+    {
+      ""id"": ""S13"",
+      ""name"": ""Agile"",
+      ""raw"": ""agile"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""agile""
+    },
+    {
+      ""id"": ""S14"",
+      ""name"": ""DevOps"",
+      ""raw"": ""devops"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""devops""
+    },
+    {
+      ""id"": ""S15"",
+      ""name"": ""Cloud Computing"",
+      ""raw"": ""cloud computing"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""cloud computing""
+    },
+    {
+      ""id"": ""S16"",
+      ""name"": ""Deep Learning"",
+      ""raw"": ""deep learning"",
+      ""skill_type"": ""domain_knowledge"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""deep learning""
+    },
+    {
+      ""id"": ""S17"",
+      ""name"": ""CI/CD"",
+      ""raw"": ""ci/cd"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""critical"",
+      ""priority_origin"": ""responsibility"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""working"",
+      ""jd_evidence"": ""Duty: build ci/cd pipelines"",
+      ""source_quote"": ""build ci/cd pipelines""
+    }
+  ],
+  ""any_of_groups"": [],
+  ""top_critical_skill_ids"": [
+    ""S17""
+  ],
+  ""critical_skill_rationale"": [
+    {
+      ""id"": ""S17"",
+      ""why"": ""Explicitly required to build CI/CD pipelines as a core duty.""
+    }
+  ],
+  ""experience_requirement"": {
+    ""min_years"": 7,
+    ""max_years"": 10,
+    ""basis"": ""total"",
+    ""priority"": ""mandatory"",
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""experience: 7-10 years""
+  },
+  ""education_requirement"": {
+    ""min_level"": ""bachelor"",
+    ""accepted_fields"": [
+      ""computer science"",
+      ""information technology"",
+      ""related field""
+    ],
+    ""priority"": ""mandatory"",
+    ""equivalent_experience_accepted"": false,
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""bachelor's degree in computer science, information technology, or a related field.""
+  },
+  ""requirements"": [
+    {
+      ""id"": ""R1"",
+      ""category"": ""domain_experience"",
+      ""requirement"": ""Experience working in production-level environments"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""min_years"": null,
+      ""jd_evidence"": ""otherskills: experience working in production-level environments."",
+      ""source_quote"": ""experience working in production-level environments.""
+    }
+  ],
+  ""ambiguities"": [
+    ""Must-skills like Docker/Pandas/Tableau not linked to specific duties"",
+    ""Unclear if 'related field' includes non-CS degrees""
+  ]
+}"
+"JD-016936","jobtitle: cloud architect, experience: ""15 years"", jobdescription: design scalable systems; implement ci/cd; optimize performance; lead technical initiatives, education: ""bachelor of technology – xyz university"", mustskills: ""machine learning; sql; tableau; deep learning; flask"", goodskills: python; microservices; docker the ideal candidate should demonstrate strong problem-solving ability., otherskills: ""problem solving, agile methodology, team leadership""","Qwen3.8-27B-Q4_K_M","ok","1","stop","True","ok","","2728","2401","","31.347","437.263","81.113","","{
+  ""input_status"": ""ok"",
+  ""warnings"": [
+    ""Cloud Architect title conflicts with ML/Flask skills"",
+    ""Bachelor degree listed as specific university"",
+    ""15 years experience conflicts with typical Cloud Architect scope""
+  ],
+  ""suspicious_instructions_detected"": false,
+  ""job_title"": ""cloud architect"",
+  ""normalized_title"": ""Cloud Architect"",
+  ""role_family"": ""software_engineering"",
+  ""seniority"": ""lead_principal"",
+  ""seniority_basis"": ""years"",
+  ""management_scope"": ""individual_contributor"",
+  ""employment_type"": ""unclear"",
+  ""work_arrangement"": ""unclear"",
+  ""locations"": [],
+  ""role_summary"": ""Design scalable systems, implement CI/CD, optimize performance, and lead technical initiatives with ML and data skills."",
+  ""primary_functional_domain"": ""software_engineering"",
+  ""secondary_functional_domains"": [
+    ""data_science_ai_ml""
+  ],
+  ""functional_subdomains"": [
+    ""cloud_architecture"",
+    ""machine_learning"",
+    ""devops""
+  ],
+  ""primary_industry_domain"": ""technology_software"",
+  ""secondary_industry_domains"": [],
+  ""industry_subdomains"": [
+    ""cloud_computing""
+  ],
+  ""domain_rationale"": ""JD specifies cloud architecture, CI/CD, and ML skills, indicating a hybrid engineering and data role."",
+  ""key_responsibilities"": [
+    {
+      ""id"": ""D1"",
+      ""responsibility"": ""Design scalable systems"",
+      ""importance"": ""core"",
+      ""source_quote"": ""design scalable systems""
+    },
+    {
+      ""id"": ""D2"",
+      ""responsibility"": ""Implement CI/CD"",
+      ""importance"": ""core"",
+      ""source_quote"": ""implement ci/cd""
+    },
+    {
+      ""id"": ""D3"",
+      ""responsibility"": ""Optimize performance"",
+      ""importance"": ""core"",
+      ""source_quote"": ""optimize performance""
+    },
+    {
+      ""id"": ""D4"",
+      ""responsibility"": ""Lead technical initiatives"",
+      ""importance"": ""core"",
+      ""source_quote"": ""lead technical initiatives""
+    }
+  ],
+  ""skills"": [
+    {
+      ""id"": ""S1"",
+      ""name"": ""Machine Learning"",
+      ""raw"": ""machine learning"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""critical"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""machine learning""
+    },
+    {
+      ""id"": ""S2"",
+      ""name"": ""SQL"",
+      ""raw"": ""sql"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""sql""
+    },
+    {
+      ""id"": ""S3"",
+      ""name"": ""Tableau"",
+      ""raw"": ""tableau"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""tableau""
+    },
+    {
+      ""id"": ""S4"",
+      ""name"": ""Deep Learning"",
+      ""raw"": ""deep learning"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""deep learning""
+    },
+    {
+      ""id"": ""S5"",
+      ""name"": ""Flask"",
+      ""raw"": ""flask"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in mustskills"",
+      ""source_quote"": ""flask""
+    },
+    {
+      ""id"": ""S6"",
+      ""name"": ""Python"",
+      ""raw"": ""python"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""preferred"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""python""
+    },
+    {
+      ""id"": ""S7"",
+      ""name"": ""Microservices"",
+      ""raw"": ""microservices"",
+      ""skill_type"": ""technical"",
+      ""priority"": ""preferred"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""microservices""
+    },
+    {
+      ""id"": ""S8"",
+      ""name"": ""Docker"",
+      ""raw"": ""docker"",
+      ""skill_type"": ""tool"",
+      ""priority"": ""preferred"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in goodskills"",
+      ""source_quote"": ""docker""
+    },
+    {
+      ""id"": ""S9"",
+      ""name"": ""CI/CD"",
+      ""raw"": ""ci/cd"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""critical"",
+      ""priority_origin"": ""responsibility"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Required to implement CI/CD"",
+      ""source_quote"": ""implement ci/cd""
+    },
+    {
+      ""id"": ""S10"",
+      ""name"": ""Problem Solving"",
+      ""raw"": ""problem solving"",
+      ""skill_type"": ""interpersonal"",
+      ""priority"": ""mandatory"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""explicit"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Demonstrate strong problem-solving ability"",
+      ""source_quote"": ""demonstrate strong problem-solving ability""
+    },
+    {
+      ""id"": ""S11"",
+      ""name"": ""Agile Methodology"",
+      ""raw"": ""agile methodology"",
+      ""skill_type"": ""process_method"",
+      ""priority"": ""preferred"",
+      ""importance"": ""supporting"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in otherskills"",
+      ""source_quote"": ""agile methodology""
+    },
+    {
+      ""id"": ""S12"",
+      ""name"": ""Team Leadership"",
+      ""raw"": ""team leadership"",
+      ""skill_type"": ""interpersonal"",
+      ""priority"": ""preferred"",
+      ""importance"": ""important"",
+      ""priority_origin"": ""heading"",
+      ""hard_gate_explicit"": false,
+      ""any_of_group"": null,
+      ""min_years"": null,
+      ""expected_level"": ""unspecified"",
+      ""jd_evidence"": ""Listed in otherskills"",
+      ""source_quote"": ""team leadership""
+    }
+  ],
+  ""any_of_groups"": [],
+  ""top_critical_skill_ids"": [
+    ""S1"",
+    ""S9""
+  ],
+  ""critical_skill_rationale"": [
+    {
+      ""id"": ""S1"",
+      ""why"": ""Explicitly listed as a must-have skill.""
+    },
+    {
+      ""id"": ""S9"",
+      ""why"": ""Explicitly required for core duty of implementing CI/CD.""
+    }
+  ],
+  ""experience_requirement"": {
+    ""min_years"": 15,
+    ""max_years"": null,
+    ""basis"": ""total"",
+    ""priority"": ""mandatory"",
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""experience: \""15 years\""""
+  },
+  ""education_requirement"": {
+    ""min_level"": ""bachelor"",
+    ""accepted_fields"": [
+      ""Technology""
+    ],
+    ""priority"": ""mandatory"",
+    ""equivalent_experience_accepted"": false,
+    ""hard_gate_explicit"": false,
+    ""jd_evidence"": ""education: \""bachelor of technology – xyz university\""""
+  },
+  ""requirements"": [],
+  ""ambiguities"": [
+    ""Title 'Cloud Architect' conflicts with ML/Flask focus"",
+    ""15 years experience is unusually high for this skill mix"",
+    ""Specific university name in education requirement is non-standard""
+  ]
+}"

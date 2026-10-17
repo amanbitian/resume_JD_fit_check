@@ -10,6 +10,7 @@ from candidate_fit.client import DualGPUClient, LocalLLMClient
 from candidate_fit.context_audit import audit_context
 from candidate_fit.dataset import dataset_summary, iter_pairs
 from candidate_fit.dual_gpu import load_client_config, register_client, save_client_config, upsert_project
+from candidate_fit.local_runner import LOCAL_MODELS
 from candidate_fit.metrics import evaluate_jsonl
 from candidate_fit.optimized import (
     JD_ANALYSIS_SCHEMA,
@@ -22,6 +23,7 @@ from candidate_fit.optimized import (
 )
 from candidate_fit.prompt import ACTIVE_SYSTEM_PROMPT, build_user_prompt
 from candidate_fit.scorer import ScoreOptions, score_dataset
+from candidate_fit.tasks import DEFAULT_JD_PROMPT_VERSION, JD_PROMPTS
 
 
 DEFAULT_DATASET = (
@@ -127,13 +129,97 @@ def build_parser() -> argparse.ArgumentParser:
     evaluate = sub.add_parser("evaluate", help="Evaluate predictions against parquet gold labels copied into JSONL")
     evaluate.add_argument("predictions")
     evaluate.add_argument("--output", help="Optional metrics JSON path")
+
+    sub.add_parser("wizard", help="Interactive wizard: choose a task, a local or cloud model, then run it")
+
+    run = sub.add_parser("run", help="Run one production task without the wizard (same plan as the wizard)")
+    run.add_argument("--task", required=True, choices=["resume_extraction", "jd_extraction", "resume_jd_pair"])
+    run.add_argument("--backend", required=True, choices=["local", "cloud"])
+    run.add_argument("--local-model", choices=list(LOCAL_MODELS))
+    run.add_argument("--cloud-provider", choices=["anthropic", "openai"])
+    run.add_argument("--cloud-model", help="Exact model id, for example claude-haiku-5-5")
+    run.add_argument("--limit", type=int, help="Run a seeded random sample of this many items")
+    run.add_argument("--seed", type=int, default=42)
+    run.add_argument("--max-output-tokens", type=int)
+    run.add_argument("--reference-date", default="2026-10-17")
+    run.add_argument("--max-attempts", type=int, default=2)
+    run.add_argument("--poll-seconds", type=float, default=60.0)
+    run.add_argument("--reasoning-budget", type=int, default=0, help="Local thinking budget; 0 turns thinking off")
+    run.add_argument("--replace-other-model", action="store_true", help="Replace another model on the lane")
+    run.add_argument("--reasoning-effort", choices=["minimal", "low", "medium", "high"],
+                     help="OpenAI only; hidden reasoning counts against the output cap")
+    run.add_argument("--jd-prompt-version", choices=list(JD_PROMPTS),
+                     help=f"JD extraction only: which prompt version to run (default {DEFAULT_JD_PROMPT_VERSION}). "
+                     "Each version writes to its own output folder, so a new prompt never overwrites older results")
+    run.add_argument("--max-cost-usd", type=float, help="Refuse a cloud run whose worst-case estimate is higher")
+    run.add_argument("--ids-file", help="Run exactly these items: a JSON list of ids (or objects with an id field) "
+                     "or a text file with one id per line. Cannot be combined with --limit")
+    run.add_argument("--export-only", action="store_true",
+                     help="Rebuild results.csv from the saved results of this plan; no model is loaded or called")
+    run.add_argument("--yes", action="store_true", help="Skip the confirmation prompt (for scripts)")
     return parser
+
+
+def _stopped() -> None:
+    print("\nStopped. Rerun the same command to resume where it left off.", file=sys.stderr)
+    sys.exit(130)
+
+
+def _run_wizard() -> None:
+    from candidate_fit.wizard import run_wizard
+
+    try:
+        result = run_wizard()
+    except (KeyboardInterrupt, EOFError):
+        _stopped()
+    except (RuntimeError, ValueError) as exc:  # BatchApiError, LocalRunError and RunLockedError are RuntimeErrors
+        print(f"error: {exc}", file=sys.stderr)
+        sys.exit(2)
+    sys.exit(0 if result is not None and not result.get("cancelled") else 1)
+
+
+def _run_production(args: argparse.Namespace) -> None:
+    from candidate_fit.runner import RunPlan, execute
+    from candidate_fit.tasks import load_item_ids
+
+    if args.backend == "local" and not args.local_model:
+        raise SystemExit("--local-model is required for --backend local")
+    if args.backend == "cloud" and not (args.cloud_provider and args.cloud_model):
+        raise SystemExit("--cloud-provider and --cloud-model are required for --backend cloud")
+    plan = RunPlan(task=args.task, backend=args.backend, local_model=args.local_model,
+                   cloud_provider=args.cloud_provider, cloud_model=args.cloud_model, limit=args.limit,
+                   seed=args.seed, max_output_tokens=args.max_output_tokens, reference_date=args.reference_date,
+                   max_attempts=args.max_attempts, poll_seconds=args.poll_seconds,
+                   replace_other_model=args.replace_other_model, reasoning_budget=args.reasoning_budget,
+                   reasoning_effort=args.reasoning_effort, max_cost_usd=args.max_cost_usd,
+                   item_ids=load_item_ids(Path(args.ids_file)) if args.ids_file else None,
+                   jd_prompt_version=args.jd_prompt_version)
+
+    def confirm(summary: list[str]) -> bool:
+        print("\n".join(summary))
+        if args.yes:
+            return True
+        return input("Proceed? [y/N]: ").strip().lower() in ("y", "yes")
+
+    try:
+        result = execute(plan, confirm=confirm, export_only=args.export_only)
+    except (KeyboardInterrupt, EOFError):
+        _stopped()
+    except (RuntimeError, ValueError) as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        sys.exit(2)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    sys.exit(0 if not result.get("cancelled") else 1)
 
 
 def main(argv: list[str] | None = None) -> None:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     args = build_parser().parse_args(argv)
+    if args.command == "wizard":
+        _run_wizard()
+    if args.command == "run":
+        _run_production(args)
     if args.command == "inspect":
         print(json.dumps(dataset_summary(args.dataset), ensure_ascii=False, indent=2))
         return

@@ -1,0 +1,22 @@
+{
+  "status": "scored",
+  "checks": [
+    {
+      "id": "R1",
+      "jd": "Python",
+      "kind": "skill",
+      "priority": "mandatory",
+      "status": "met",
+      "quote": "Python"
+    }
+  ],
+  "work": 6,
+  "role": 6,
+  "years": {
+    "required": null,
+    "relevant": null,
+    "certain": false
+  },
+  "reason": "Demonstrates relevant Python work; other required evidence needs review.",
+  "review": true
+}

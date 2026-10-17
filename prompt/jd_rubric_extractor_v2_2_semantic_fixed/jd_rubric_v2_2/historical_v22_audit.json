@@ -1,0 +1,106 @@
+{
+  "description": "Retrospective audit on previous v2.1 outputs, not v2.2 inference",
+  "total": 12,
+  "valid_for_cache": 7,
+  "results": [
+    {
+      "id": "JD-000002",
+      "valid_for_cache": false,
+      "needs_rubric_review": true,
+      "errors": [],
+      "warnings": [
+        "HARD_GATE_QUOTE_WEAK: R1: quote lacks hard-minimum wording; inspect full JD context",
+        "HARD_GATE_QUOTE_WEAK: R2: quote lacks hard-minimum wording; inspect full JD context"
+      ]
+    },
+    {
+      "id": "JD-000016",
+      "valid_for_cache": false,
+      "needs_rubric_review": true,
+      "errors": [
+        "ENROLLMENT_CONDITION_MISSING: JD contains a current-enrollment condition; encode it in requirements as category=other",
+        "ENROLLMENT_AS_COMPLETED_DEGREE: Current enrollment was incorrectly converted to a minimum completed degree"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "JD-000160",
+      "valid_for_cache": true,
+      "needs_rubric_review": false,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "id": "JD-000314",
+      "valid_for_cache": false,
+      "needs_rubric_review": true,
+      "errors": [
+        "MISCLASSIFIED_INFORMAL_JD: Short text describes a plausible work/hiring need; review as partial"
+      ],
+      "warnings": []
+    },
+    {
+      "id": "JD-000753",
+      "valid_for_cache": true,
+      "needs_rubric_review": false,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "id": "JD-001896",
+      "valid_for_cache": true,
+      "needs_rubric_review": false,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "id": "JD-001951",
+      "valid_for_cache": false,
+      "needs_rubric_review": true,
+      "errors": [],
+      "warnings": [
+        "OTHER_SKILLS_PRIORITY_REVIEW: S12 'Effective Communication' marked mandatory from other-skills text without explicit item wording",
+        "OTHER_SKILLS_PRIORITY_REVIEW: S13 'Technical Writing' marked mandatory from other-skills text without explicit item wording"
+      ]
+    },
+    {
+      "id": "JD-003899",
+      "valid_for_cache": true,
+      "needs_rubric_review": false,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "id": "JD-008861",
+      "valid_for_cache": false,
+      "needs_rubric_review": true,
+      "errors": [],
+      "warnings": [
+        "OTHER_SKILLS_PRIORITY_REVIEW: S9 'Problem Solving' marked mandatory from other-skills text without explicit item wording",
+        "OTHER_SKILLS_PRIORITY_REVIEW: S10 'Agile Methodology' marked mandatory from other-skills text without explicit item wording",
+        "OTHER_SKILLS_PRIORITY_REVIEW: S11 'Team Leadership' marked mandatory from other-skills text without explicit item wording"
+      ]
+    },
+    {
+      "id": "JD-011997",
+      "valid_for_cache": true,
+      "needs_rubric_review": false,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "id": "JD-013090",
+      "valid_for_cache": true,
+      "needs_rubric_review": false,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "id": "JD-016936",
+      "valid_for_cache": true,
+      "needs_rubric_review": false,
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

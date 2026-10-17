@@ -1,0 +1,16 @@
+# The 12 JDs used to compare JD prompt versions: the 2 longest, the 2 shortest and 8 seeded random JDs of Input/jd_dataset.csv
+# (chosen by scripts/run_jd_extraction_12.py).
+# The earlier results (outputs/production/jd_extraction*/) and the v2.2 and v2.3 packages' regression fixtures use these same ids.
+#   candidate-fit run --task jd_extraction --backend local --local-model qwen3.8-27b --ids-file config/jd_extraction_12_ids.txt
+JD-000002
+JD-000016
+JD-000160
+JD-000314
+JD-000753
+JD-001896
+JD-001951
+JD-003899
+JD-008861
+JD-011997
+JD-013090
+JD-016936
