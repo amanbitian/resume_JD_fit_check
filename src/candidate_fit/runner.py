@@ -69,6 +69,10 @@ class RunPlan:
     item_ids: tuple[str, ...] | None = None  # run exactly these items (in dataset order); cannot be combined with limit
     output_root: Path = OUTPUT_ROOT
     jd_prompt_version: str | None = None  # JD extraction only; None means the current default (tasks.DEFAULT_JD_PROMPT_VERSION)
+    progress_every: int = 0  # local runs: log a progress line after this many rows; 0 means none
+    order: str | None = None  # JD extraction with item ids: None keeps dataset order; "length" runs shortest first
+    workers: int = 1  # local runs: requests in flight at once; more than 1 needs kv_pool and a server with that many slots
+    kv_pool: int | None = None  # local runs with workers > 1: the server's shared KV memory in tokens (the cap on rows at once)
 
     def validate(self) -> None:
         if self.task not in TASK_NAMES:
@@ -98,6 +102,20 @@ class RunPlan:
             raise ValueError("max_attempts must be at least 1")
         if self.limit is not None and self.limit < 1:
             raise ValueError("limit must be a positive number")
+        if self.progress_every < 0:
+            raise ValueError("progress_every cannot be negative")
+        if self.order not in (None, "length"):
+            raise ValueError("order must be None or 'length'")
+        if self.order and self.task != "jd_extraction":
+            raise ValueError("order applies to jd_extraction only")
+        if self.workers < 1:
+            raise ValueError("workers must be at least 1")
+        if self.workers > 1 and self.backend != "local":
+            raise ValueError("several requests at once apply to local runs only; cloud runs use batches")
+        if self.workers > 1 and not self.kv_pool:
+            raise ValueError("workers above 1 needs kv_pool, the size of the server's shared KV memory in tokens")
+        if self.kv_pool is not None and self.kv_pool < 1:
+            raise ValueError("kv_pool must be a positive number")
         if self.item_ids is not None and self.limit:
             raise ValueError("give either a list of item ids or a limit, not both")
 
@@ -157,7 +175,7 @@ def execute(plan: RunPlan, *, confirm: Callable[[list[str]], bool], log: Callabl
     plan.validate()
     items = build_items(plan.task, limit=plan.limit, seed=plan.seed, reference_date=plan.reference_date,
                         max_output_tokens=plan.max_output_tokens, item_ids=plan.item_ids,
-                        jd_prompt_version=plan.effective_jd_prompt_version)
+                        jd_prompt_version=plan.effective_jd_prompt_version, order=plan.order)
     if not items:
         raise RuntimeError("no items to run")
     ids = [item.item_id for item in items]
@@ -189,6 +207,7 @@ def execute(plan: RunPlan, *, confirm: Callable[[list[str]], bool], log: Callabl
         result = run_batches(plan.task, items, cloud_client, folder, **kwargs)
     else:
         runner = LocalRunner(LocalSettings(plan.local_model, plan.reasoning_budget, plan.replace_other_model), log=log)
-        result = runner.run(plan.task, items, folder, fingerprint=fingerprint, max_attempts=plan.max_attempts)
+        result = runner.run(plan.task, items, folder, fingerprint=fingerprint, max_attempts=plan.max_attempts,
+                            progress_every=plan.progress_every, workers=plan.workers, kv_pool=plan.kv_pool)
     result["csv"] = str(export_csv(plan.task, items, folder, model_name, fingerprint))
     return result

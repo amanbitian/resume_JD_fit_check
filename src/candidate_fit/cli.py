@@ -153,6 +153,18 @@ def build_parser() -> argparse.ArgumentParser:
                      "uses v2.3-gptoss, which only it can run). Each version writes to its own output folder, so a new "
                      "prompt never overwrites older results")
     run.add_argument("--max-cost-usd", type=float, help="Refuse a cloud run whose worst-case estimate is higher")
+    run.add_argument("--progress-every", type=int, default=0, metavar="N",
+                     help="Local runs: print a progress line (done, usable, speed, ETA) after every N rows. 0 prints none")
+    run.add_argument("--order", choices=["length"], default=None,
+                     help="JD extraction with --ids-file: run shortest JDs first (default keeps dataset order)")
+    run.add_argument("--workers", type=int, default=1, metavar="N",
+                     help="Local runs: how many requests to run at once (default 1). Needs --kv-pool, and a model server set up "
+                     "with that many slots over one shared KV pool in the service configuration")
+    run.add_argument("--kv-pool", type=int, metavar="TOKENS",
+                     help="With --workers above 1: the server's shared KV memory in tokens. A row reserves its input estimate + "
+                     "its output limit + a margin, and starts only when that fits next to the rows already running")
+    run.add_argument("--output-root", help="Folder for the results (default outputs/production, or CANDIDATE_FIT_OUTPUT). "
+                     "Give the same one every time you resume, so the run continues where it stopped")
     run.add_argument("--ids-file", help="Run exactly these items: a JSON list of ids (or objects with an id field) "
                      "or a text file with one id per line. Cannot be combined with --limit")
     run.add_argument("--export-only", action="store_true",
@@ -194,7 +206,9 @@ def _run_production(args: argparse.Namespace) -> None:
                    replace_other_model=args.replace_other_model, reasoning_budget=args.reasoning_budget,
                    reasoning_effort=args.reasoning_effort, max_cost_usd=args.max_cost_usd,
                    item_ids=load_item_ids(Path(args.ids_file)) if args.ids_file else None,
-                   jd_prompt_version=args.jd_prompt_version)
+                   jd_prompt_version=args.jd_prompt_version, progress_every=args.progress_every,
+                   workers=args.workers, kv_pool=args.kv_pool, order=args.order,
+                   **({"output_root": Path(args.output_root)} if args.output_root else {}))
 
     def confirm(summary: list[str]) -> bool:
         print("\n".join(summary))

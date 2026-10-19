@@ -248,14 +248,17 @@ def _read_csv(path: Path, id_col: str, text_col: str) -> list[tuple[str, str]]:
         return [(row[id_col], row[text_col]) for row in csv.DictReader(handle) if row.get(text_col, "").strip()]
 
 
-def _select(rows: list[tuple[str, str]], limit: int | None, seed: int | None, item_ids: Iterable[str] | None) -> list[tuple[str, str]]:
-    """Specific ids (kept in file order), the first `limit` rows, or a seeded random sample of that size in file order."""
+def _select(rows: list[tuple[str, str]], limit: int | None, seed: int | None, item_ids: Iterable[str] | None,
+            order: str | None = None) -> list[tuple[str, str]]:
+    """Specific ids (kept in file order, or shortest first with order="length"), the first `limit` rows, or a seeded random sample."""
     if item_ids is not None:
         wanted = set(item_ids)
         chosen = [row for row in rows if row[0] in wanted]
         missing = wanted - {row[0] for row in chosen}
         if missing:
             raise ValueError(f"{len(missing)} requested ids are not in the dataset, for example {sorted(missing)[:3]}")
+        if order == "length":  # shortest first; ties keep dataset order so the list is the same every time
+            chosen.sort(key=lambda row: (len(row[1]), row[0]))
         return chosen
     if not limit or limit >= len(rows):
         return rows
@@ -274,8 +277,9 @@ def build_items(
     seed: int | None = None,
     item_ids: Iterable[str] | None = None,
     jd_prompt_version: str | None = None,
+    order: str | None = None,
 ) -> list[Item]:
-    """Turn a task and its dataset into requests, in file order. `jd_prompt_version` applies to JD extraction only."""
+    """Turn a task and its dataset into requests, in file order (or shortest first with order="length", JD extraction only)."""
     if task not in TASK_NAMES:
         raise ValueError(f"unknown task {task!r}; choose one of {', '.join(TASK_NAMES)}")
     if item_ids is not None and limit:
@@ -293,7 +297,7 @@ def build_items(
     if task == "jd_extraction":
         jd = jd_prompt(jd_prompt_version)
         system = jd_system_prompt(jd)
-        rows = _select(_read_csv(source or JD_CSV, "jd_id", "jd_text"), limit, seed, item_ids)
+        rows = _select(_read_csv(source or JD_CSV, "jd_id", "jd_text"), limit, seed, item_ids, order)
         # The prompt version travels with each item so the reply is checked by that version's own validator.
         return [Item(i, jid, system, jd_user_message(text, reference_date), cap, {"jd": text, "jd_prompt_version": jd.version},
                       jd.retry_temperature)

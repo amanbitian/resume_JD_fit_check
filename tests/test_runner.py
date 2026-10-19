@@ -329,3 +329,80 @@ def test_the_gemma_rules_are_refused_for_every_other_model_and_for_the_cloud():
                  RunPlan(task="jd_extraction", backend="cloud", cloud_provider="anthropic", cloud_model="m", jd_prompt_version="v2.3-gemma26")):
         with pytest.raises(ValueError, match="written for gemma-4-26b-a4b only"):
             plan.validate()
+
+
+def test_the_run_command_takes_a_progress_interval_and_an_output_folder(monkeypatch, tmp_path):
+    from pathlib import Path
+
+    from candidate_fit import cli
+
+    plans = []
+    monkeypatch.setattr("candidate_fit.runner.execute", lambda plan, **kwargs: plans.append(plan) or {"ok": 1})
+    base = ["run", "--task", "jd_extraction", "--backend", "local", "--local-model", "qwen3.8-27b"]
+    for extra in ([], ["--progress-every", "3", "--output-root", str(tmp_path / "full")]):
+        with pytest.raises(SystemExit):
+            cli.main(base + extra)
+    default, chosen = plans
+    assert default.progress_every == 0 and default.output_root == runner.OUTPUT_ROOT  # nothing changes unless asked
+    assert chosen.progress_every == 3 and chosen.output_root == tmp_path / "full"
+    assert chosen.folder() == tmp_path / "full" / "jd_extraction_v2_3" / "local-qwen3.8-27b"
+    with pytest.raises(ValueError, match="progress_every"):
+        RunPlan(task="jd_extraction", backend="local", local_model="qwen3.8-27b", progress_every=-1).validate()
+
+
+def test_the_progress_interval_reaches_the_local_runner(tmp_path, monkeypatch):
+    seen = {}
+
+    class Spy:
+        def __init__(self, settings, log=print):
+            pass
+
+        def run(self, task, items, folder, **kwargs):
+            seen.update(kwargs)
+            return {"folder": str(folder), "ok": 0, "failed": 0, "skipped": 0}
+
+    monkeypatch.setattr(runner, "LocalRunner", Spy)
+    monkeypatch.setattr(runner, "build_items", lambda *a, **k: [Item(0, "JD-1", "s", "u", 100, {"jd": "x"})])
+    monkeypatch.setattr(runner, "export_csv", lambda *a, **k: tmp_path / "results.csv")
+    plan = RunPlan(task="jd_extraction", backend="local", local_model="qwen3.8-27b", progress_every=3, output_root=tmp_path)
+    execute(plan, confirm=lambda summary: True, log=lambda m: None)
+    assert seen["progress_every"] == 3 and seen["max_attempts"] == 2
+
+
+def test_the_run_command_takes_workers_and_a_pool_and_checks_them(monkeypatch):
+    from candidate_fit import cli
+
+    plans = []
+    monkeypatch.setattr("candidate_fit.runner.execute", lambda plan, **kwargs: plans.append(plan) or {"ok": 1})
+    base = ["run", "--task", "jd_extraction", "--backend", "local", "--local-model", "qwen3.8-27b"]
+    for extra in ([], ["--workers", "3", "--kv-pool", "49152"]):
+        with pytest.raises(SystemExit):
+            cli.main(base + extra)
+    default, parallel_plan = plans
+    assert (default.workers, default.kv_pool) == (1, None)  # one at a time unless asked
+    assert (parallel_plan.workers, parallel_plan.kv_pool) == (3, 49152)
+    parallel_plan.validate()
+    for bad in (dict(workers=3), dict(workers=0), dict(workers=2, kv_pool=0), dict(workers=1, kv_pool=-5)):
+        with pytest.raises(ValueError):
+            RunPlan(task="jd_extraction", backend="local", local_model="qwen3.8-27b", **bad).validate()
+    with pytest.raises(ValueError, match="local runs only"):
+        RunPlan(task="jd_extraction", backend="cloud", cloud_provider="anthropic", cloud_model="m", workers=2, kv_pool=40000).validate()
+
+
+def test_workers_and_the_pool_reach_the_local_runner(tmp_path, monkeypatch):
+    seen = {}
+
+    class Spy:
+        def __init__(self, settings, log=print):
+            pass
+
+        def run(self, task, items, folder, **kwargs):
+            seen.update(kwargs)
+            return {"folder": str(folder), "ok": 0, "failed": 0, "skipped": 0}
+
+    monkeypatch.setattr(runner, "LocalRunner", Spy)
+    monkeypatch.setattr(runner, "build_items", lambda *a, **k: [Item(0, "JD-1", "s", "u", 100, {"jd": "x"})])
+    monkeypatch.setattr(runner, "export_csv", lambda *a, **k: tmp_path / "results.csv")
+    plan = RunPlan(task="jd_extraction", backend="local", local_model="qwen3.8-27b", workers=3, kv_pool=49152, output_root=tmp_path)
+    execute(plan, confirm=lambda summary: True, log=lambda m: None)
+    assert seen["workers"] == 3 and seen["kv_pool"] == 49152

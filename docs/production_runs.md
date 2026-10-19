@@ -190,6 +190,30 @@ python compare_runs.py --baseline ../../../outputs/production/jd_extraction_v2_2
 
 It reports validity and operational numbers, not accuracy against a human answer.
 
+## Long local runs: progress, pause and resume
+
+For a run that takes hours or days, give it its own results folder and a progress interval:
+
+```
+candidate-fit run --task jd_extraction --backend local --local-model qwen3.8-27b --output-root outputs\production_full_qwen --progress-every 3 --yes
+```
+
+- **Progress.** After every 3 rows it prints one line, for example
+  `progress 1,206/18,530 (6.51%) | usable 1,150, failed 56 | last 30 rows 91 s/row | 17,324 left, ETA 18d 3h (about Mon 03 Nov 14:20)`.
+  The speed and ETA are averaged over the last 30 rows, so they settle after a while. A row is settled when it is usable or out of attempts.
+- **Pause.** Press Ctrl+C once. The request in flight finishes (up to about two minutes), the model is released, `results.csv`
+  is written, and the command exits. Press Ctrl+C a second time to stop at once; that loses only the request in flight.
+- **Resume.** Run the same command again, with the same `--output-root`. Finished rows are skipped, and a row that had failed
+  once is retried with the reason it failed. The first line says how many are already settled.
+- **What is saved.** `results.jsonl` in the run folder is the record. Every attempt is appended the moment it finishes, so a
+  crash, a power cut or a closed window costs at most the request in flight, and a half-written last line is ignored.
+  `results.csv` is rebuilt when the command ends. After a crash, rebuild it with the same command plus `--export-only`.
+- **A broken service stops the run.** If the model service answers with an error 5 times in a row, the run stops and says so,
+  instead of marking every remaining row failed. The few rows hit are left out of attempts; rerun them later with `--max-attempts 3`.
+  If the service cannot be reached at all, the run stops after 3 rows in a row, as before.
+- **Time.** At about 108 s per JD (measured on Qwen3.8-27B with the v2.3 prompt, weighted by the real JD lengths), all 18,530 JDs
+  take about 557 hours, or 23 days of continuous running. A 10-hour night is about 330 JDs.
+
 ## Outputs
 
 Each (task, backend, model) has its own folder, `outputs/production/<task>/<backend>-<model>/` (for JD extraction the

@@ -677,3 +677,10 @@ def test_gemma_items_send_the_rules_and_gemma_replies_are_judged_by_the_unchange
             except ValidationError as exc:
                 outcomes.append(("rejected", str(exc)))
         assert outcomes[0] == outcomes[1], jd_id
+
+
+def test_length_order_runs_shortest_first_and_the_default_keeps_dataset_order(tmp_path):
+    source = write_csv(tmp_path / "jd.csv", [("JD-1", "x" * 900), ("JD-2", "x" * 100), ("JD-3", "x" * 500)], "jd_id", "jd_text")
+    default = [i.item_id for i in build_items("jd_extraction", source=source, item_ids=["JD-1", "JD-2", "JD-3"])]
+    shortest = [i.item_id for i in build_items("jd_extraction", source=source, item_ids=["JD-1", "JD-2", "JD-3"], order="length")]
+    assert default == ["JD-1", "JD-2", "JD-3"] and shortest == ["JD-2", "JD-3", "JD-1"]

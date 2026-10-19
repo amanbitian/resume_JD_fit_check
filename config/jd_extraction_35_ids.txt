@@ -1,0 +1,38 @@
+# 35 further JDs for the single-row reference (one at a time, production configuration). Drawn at random with seed 20261019
+# from Input/jd_dataset.csv, excluding the 25 in config/jd_extraction_25_ids.txt.
+#   candidate-fit run --task jd_extraction --backend local --local-model qwen3.8-27b --ids-file config/jd_extraction_35_ids.txt --output-root outputs/production_35single --progress-every 5 --yes
+JD-000187
+JD-000646
+JD-000914
+JD-001248
+JD-002541
+JD-002595
+JD-002644
+JD-003224
+JD-003957
+JD-004529
+JD-006076
+JD-006140
+JD-006963
+JD-007546
+JD-008323
+JD-008760
+JD-008825
+JD-008910
+JD-009608
+JD-009657
+JD-010370
+JD-010597
+JD-011023
+JD-011141
+JD-011450
+JD-012074
+JD-012638
+JD-013235
+JD-014447
+JD-014823
+JD-015428
+JD-017697
+JD-017894
+JD-018182
+JD-018265
